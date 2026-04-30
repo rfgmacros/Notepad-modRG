@@ -1478,6 +1478,7 @@ static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
     NppToggleToolbarButton *_tbMonitor;
     NppToolbarButton *_tbStartRecord, *_tbStopRecord, *_tbPlayRecord, *_tbPlayRecordM, *_tbSaveRecord;
     _AllCharsHoverGroup *_tbAllCharsHoverGroup;  // dark-mode toggle-on bg painter
+    BOOL _isMacStyleToolbar;  // YES when kPrefToolbarStyle == 1 (individual items, user-customizable)
 
     // Plugin toolbar icons: array of @{@"id": identifier, @"icon": NSImage, @"tooltip": NSString, @"cmdID": @(int)}
     NSMutableArray<NSDictionary *> *_pluginToolbarItems;
@@ -1579,9 +1580,16 @@ static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
     // Parse toolbar configuration (hidden buttons, extra buttons, appearance)
     _toolbarConfig = _parseToolbarConfig();
 
-    NSToolbar *tb = [[NSToolbar alloc] initWithIdentifier:@"NppToolbar"];
+    NSInteger toolbarStyle = [[NSUserDefaults standardUserDefaults] integerForKey:kPrefToolbarStyle];
+    _isMacStyleToolbar = (toolbarStyle == 1);
+
+    // Use separate autosave identifiers so NSToolbar doesn't apply a saved Windows
+    // layout to the Mac style or vice-versa when the user switches preference.
+    NSString *tbIdent = _isMacStyleToolbar ? @"NppToolbarMac" : @"NppToolbarWin";
+    NSToolbar *tb = [[NSToolbar alloc] initWithIdentifier:tbIdent];
     tb.delegate = self;
-    tb.allowsUserCustomization = NO;
+    tb.allowsUserCustomization = _isMacStyleToolbar;
+    tb.autosavesConfiguration  = _isMacStyleToolbar;
     tb.displayMode = NSToolbarDisplayModeIconOnly;
     self.window.toolbar = tb;
     // Expanded style puts the toolbar in its own row below the title bar,
@@ -1806,6 +1814,31 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
                  NSToolbarFlexibleSpaceItemIdentifier,
                  kTBTabControls];
     }
+
+    if (_isMacStyleToolbar) {
+        // Individual items — NSToolbarSeparatorItemIdentifier is deprecated/invisible
+        // on macOS 11+, so we use fixed spaces between logical groups instead.
+        // Command-drag moves/removes items; right-click opens the Customize sheet.
+        return @[kTBNew, kTBOpen, kTBSave, kTBSaveAll,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBClose, kTBCloseAll, kTBPrint,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBCut, kTBCopy, kTBPaste,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBUndo, kTBRedo,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBFind, kTBFindRep,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBZoomIn, kTBZoomOut,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBWrap, kTBAllChars, kTBIndentGuide,
+                 NSToolbarSpaceItemIdentifier,
+                 kTBDocMap, kTBDocList, kTBFuncList,
+                 NSToolbarFlexibleSpaceItemIdentifier,
+                 kTBTabControls];
+    }
+
+    // Windows style: tightly-packed groups with custom separator lines
     return @[kTBGroup1,
              kTBGroup2,
              kTBGroup3,
@@ -1821,6 +1854,22 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
 }
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarAllowedItemIdentifiers:(NSToolbar *)tb {
+    if (_isMacStyleToolbar) {
+        // All individual items plus the standard spacer items for the customization sheet
+        return @[kTBNew, kTBOpen, kTBSave, kTBSaveAll, kTBClose, kTBCloseAll, kTBPrint,
+                 kTBCut, kTBCopy, kTBPaste,
+                 kTBUndo, kTBRedo,
+                 kTBFind, kTBFindRep,
+                 kTBZoomIn, kTBZoomOut,
+                 kTBSyncV, kTBSyncH,
+                 kTBWrap, kTBAllChars, kTBIndentGuide,
+                 kTBUDL, kTBDocMap, kTBDocList, kTBFuncList, kTBFileBrowser,
+                 kTBMonitor,
+                 kTBStartRecord, kTBStopRecord, kTBPlayRecord, kTBPlayRecordM, kTBSaveRecord,
+                 NSToolbarSpaceItemIdentifier,
+                 NSToolbarFlexibleSpaceItemIdentifier,
+                 kTBTabControls];
+    }
     return [self toolbarDefaultItemIdentifiers:tb];
 }
 
@@ -1834,6 +1883,18 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
     if ([ident isEqualToString:kTBUserConfig])
         return [self makeUserConfigToolbarItem];
 
+    // Mac style: individual items — each button is its own resizable toolbar item
+    if (_isMacStyleToolbar) {
+        NSToolbarItem *single = [self makeSingleToolbarItem:ident];
+        if (single) return single;
+        // Plugin items still handled the same way in Mac style
+        for (NSDictionary *pti in _pluginToolbarItems)
+            if ([pti[@"id"] isEqualToString:ident])
+                return [self makePluginToolbarItem:pti];
+        return nil;
+    }
+
+    // Windows style: tightly-packed groups
     // Group 7 gets special handling: Word Wrap + All Chars button + dropdown arrow + Indent Guide.
     if ([ident isEqualToString:kTBGroup7])
         return [self makeViewTogglesGroupToolbarItem];
@@ -2126,6 +2187,76 @@ static BOOL groupHasTrailingSep(NSString *ident) {
     item.view    = groupView;
     item.minSize = NSMakeSize(totalW, kBtnSize);
     item.maxSize = NSMakeSize(totalW, kBtnSize);
+    return item;
+}
+
+// Create an individual NSToolbarItem for the Mac-style toolbar.
+// Each button gets its own item so the user can command-drag to rearrange/remove.
+- (nullable NSToolbarItem *)makeSingleToolbarItem:(NSToolbarItemIdentifier)ident {
+    const CGFloat kBtnSize = nppBtnSize();
+
+    NSMutableDictionary *descMap = [NSMutableDictionary dictionary];
+    for (NSArray *desc in toolbarDescriptors()) descMap[desc[0]] = desc;
+
+    NSArray *desc = descMap[ident];
+    if (!desc) return nil;
+
+    NSImage *img = _customToolbarIcon(ident, _toolbarConfig);
+    if (!img) img = nppToolbarIcon(desc[3]);
+    if (!img) img = [NSImage imageWithSystemSymbolName:@"doc" accessibilityDescription:desc[1]];
+
+    NSSet *desatSet = desatToggleIdents();
+    NSSet *panelSet = panelToggleIdents();
+    BOOL isDesatToggle = [desatSet containsObject:ident];
+    BOOL isPanelToggle = [panelSet containsObject:ident];
+
+    NppToolbarButton *btn;
+    if (isDesatToggle || isPanelToggle) {
+        NppToggleToolbarButton *tb = [[NppToggleToolbarButton alloc]
+            initWithFrame:NSMakeRect(0, 0, kBtnSize, kBtnSize)];
+        tb.useBlueHighlight = isPanelToggle;
+        btn = tb;
+    } else {
+        btn = [[NppToolbarButton alloc] initWithFrame:NSMakeRect(0, 0, kBtnSize, kBtnSize)];
+    }
+    btn.image      = img;
+    btn.action     = NSSelectorFromString(desc[4]);
+    btn.target     = self;
+    btn.toolTip    = desc[2];
+    btn.identifier = desc[3]; // icon filename, used for dark-mode refresh
+
+    // Store toggle-button references so _refreshToolbarStates can update them
+    if ([ident isEqualToString:kTBWrap])             _tbWrap        = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBSyncV])       _tbSyncV       = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBSyncH])       _tbSyncH       = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBIndentGuide]) _tbIndentGuide = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBMonitor])     _tbMonitor     = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBUDL])         _tbUDL         = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBDocMap])      _tbDocMap      = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBDocList])     _tbDocList     = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBFuncList])    _tbFuncList    = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBFileBrowser]) _tbFileBrowser = (NppToggleToolbarButton *)btn;
+    else if ([ident isEqualToString:kTBStartRecord]) _tbStartRecord = btn;
+    else if ([ident isEqualToString:kTBStopRecord])  _tbStopRecord  = btn;
+    else if ([ident isEqualToString:kTBPlayRecord])  _tbPlayRecord  = btn;
+    else if ([ident isEqualToString:kTBPlayRecordM]) _tbPlayRecordM = btn;
+    else if ([ident isEqualToString:kTBSaveRecord])  _tbSaveRecord  = btn;
+
+    NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:ident];
+    item.view    = btn;
+    item.label   = desc[1];
+    item.toolTip = desc[2];
+    item.minSize = NSMakeSize(kBtnSize, kBtnSize);
+    item.maxSize = NSMakeSize(kBtnSize, kBtnSize);
+
+    // Overflow-menu representation — fires the same action when the item is
+    // hidden in the ">>" chevron popup because the window is too narrow.
+    NSMenuItem *mi = [[NSMenuItem alloc] initWithTitle:desc[1]
+                                                action:NSSelectorFromString(desc[4])
+                                         keyEquivalent:@""];
+    mi.target = self;
+    item.menuFormRepresentation = mi;
+
     return item;
 }
 
@@ -7713,6 +7844,14 @@ static NSArray<NSDictionary *> *convertRecordedToXmlFormat(NSArray<NSDictionary 
 
     // Title bar (full path vs filename only)
     [self updateTitle];
+
+    // Toolbar style (Windows vs Mac) — rebuild if changed
+    NSInteger newStyle = [[NSUserDefaults standardUserDefaults] integerForKey:kPrefToolbarStyle];
+    BOOL newIsMac = (newStyle == 1);
+    if (newIsMac != _isMacStyleToolbar) {
+        [self buildToolbar];
+        [self _refreshToolbarStates];
+    }
 }
 
 - (void)_darkModeChanged:(NSNotification *)n {
@@ -7733,9 +7872,19 @@ static NSArray<NSDictionary *> *convertRecordedToXmlFormat(NSArray<NSDictionary 
     // Refresh toolbar icons (switch between light/dark icon sets)
     NSToolbar *toolbar = self.window.toolbar;
     for (NSToolbarItem *item in toolbar.items) {
-        NSView *groupView = item.view;
-        if (!groupView) continue;
-        for (NSView *sub in groupView.subviews) {
+        NSView *itemView = item.view;
+        if (!itemView) continue;
+        // Mac style: item view IS the button directly
+        if ([itemView isKindOfClass:[NSButton class]]) {
+            NSButton *btn = (NSButton *)itemView;
+            if (btn.identifier.length) {
+                NSImage *newImg = nppToolbarIcon(btn.identifier);
+                if (newImg) btn.image = newImg;
+            }
+            continue;
+        }
+        // Windows style: item view is a group containing buttons
+        for (NSView *sub in itemView.subviews) {
             if ([sub isKindOfClass:[NSButton class]]) {
                 NSButton *btn = (NSButton *)sub;
                 if (btn.identifier.length) {

@@ -35,6 +35,7 @@ NSString *const kPrefSmartHighlight      = @"smartHighlight";
 NSString *const kPrefFillFindWithSelection = @"fillFindWithSelection";
 NSString *const kPrefFuncParamsHint      = @"funcParamsHint";
 NSString *const kPrefShowStatusBar       = @"showStatusBar";
+NSString *const kPrefToolbarStyle        = @"toolbarStyle";
 NSString *const kPrefMuteSounds          = @"muteSounds";
 NSString *const kPrefSaveAllConfirm      = @"saveAllConfirm";
 NSString *const kPrefPluginSplitViewRouting = @"pluginSplitViewRouting";
@@ -116,6 +117,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
         kPrefAutoBackup:         @YES,
         kPrefBackupInterval:     @60,
         kPrefZoomLevel:          @0,
+        kPrefToolbarStyle:       @1,   // 0=Windows 1=Mac
         kPrefLanguage:           @"english",
         // Default (light) theme colors
         kPrefThemePreset:        @"Default",
@@ -232,7 +234,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
         [loc translate:@"Backup"],
         [loc translate:@"Auto-Completion"],
         [loc translate:@"Searching"],
-        [loc translate:@"MISC."],
+        [loc translate:@"Miscellaneous"],
     ]];
     // Invalidate cached page views so they rebuild with new translations
     [_pageViews removeAllObjects];
@@ -277,7 +279,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
         [[NppLocalizer shared] translate:@"Backup"],
         [[NppLocalizer shared] translate:@"Auto-Completion"],
         [[NppLocalizer shared] translate:@"Searching"],
-        [[NppLocalizer shared] translate:@"MISC."],
+        [[NppLocalizer shared] translate:@"Miscellaneous"],
     ]];
     _pageIcons = @[
         @"gearshape",
@@ -571,7 +573,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
     if ([name isEqualToString:[loc translate:@"Backup"]])           return [self _buildBackupPage];
     if ([name isEqualToString:[loc translate:@"Auto-Completion"]])  return [self _buildAutoCompletionPage];
     if ([name isEqualToString:[loc translate:@"Searching"]])        return [self _buildSearchingPage];
-    if ([name isEqualToString:[loc translate:@"MISC."]])            return [self _buildMiscPage];
+    if ([name isEqualToString:[loc translate:@"Miscellaneous"]])            return [self _buildMiscPage];
     return nil;
 }
 
@@ -644,6 +646,25 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
                    ? NSControlStateValueOn : NSControlStateValueOff;
     showSB.tag = 901;
     [v addSubview:showSB];
+    y -= 36;
+
+    // ── Toolbar ──
+    NSTextField *tbStyle = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Toolbar"]];
+    tbStyle.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
+    tbStyle.frame = NSMakeRect(20, y, 300, 20);
+    [v addSubview:tbStyle];
+    y -= 28;
+
+    NSTextField *tbStyleLabel = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Toolbar style:"]];
+    tbStyleLabel.frame = NSMakeRect(20, y, 175, 20);
+    [v addSubview:tbStyleLabel];
+    NSPopUpButton *tbStylePopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(200, y - 2, 140, 26) pullsDown:NO];
+    [tbStylePopup addItemsWithTitles:@[[[NppLocalizer shared] translate:@"Windows"], [[NppLocalizer shared] translate:@"Mac"]]];
+    [tbStylePopup selectItemAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kPrefToolbarStyle]];
+    tbStylePopup.tag = 902;
+    tbStylePopup.target = self;
+    tbStylePopup.action = @selector(prefChanged:);
+    [v addSubview:tbStylePopup];
 
     return v;
 }
@@ -1163,9 +1184,9 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
     y -= 28;
 
     NSTextField *emLabel = [NSTextField labelWithString:[loc translate:@"Edge mode:"]];
-    emLabel.frame = NSMakeRect(20, y, 90, 20);
+    emLabel.frame = NSMakeRect(20, y, 105, 20);
     [v addSubview:emLabel];
-    NSPopUpButton *emPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(120, y-2, 160, 26) pullsDown:NO];
+    NSPopUpButton *emPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(130, y-2, 150, 26) pullsDown:NO];
     [emPopup addItemsWithTitles:@[[loc translate:@"Off"], [loc translate:@"Line"], [loc translate:@"Background"]]];
     [emPopup selectItemAtIndex:[ud integerForKey:kPrefEdgeMode]];
     emPopup.tag = 1101; emPopup.target = self; emPopup.action = @selector(prefChanged:);
@@ -1580,6 +1601,7 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
         case 1007: [ud setInteger:[(NSTextField *)sender integerValue] forKey:kPrefInSelThreshold]; break;
         // General
         case 901: [ud setBool:[(NSButton *)sender state] == NSControlStateValueOn forKey:kPrefShowStatusBar]; break;
+        case 902: [ud setInteger:[(NSPopUpButton *)sender indexOfSelectedItem] forKey:kPrefToolbarStyle]; break;
         // Editor
         case 707: [ud setBool:[(NSButton *)sender state] == NSControlStateValueOn forKey:kPrefRightClickKeepsSel]; break;
         case 708: [ud setBool:[(NSButton *)sender state] == NSControlStateValueOn forKey:kPrefDisableTextDragDrop]; break;

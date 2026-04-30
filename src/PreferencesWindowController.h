@@ -34,6 +34,7 @@ extern NSString *const kPrefFillFindWithSelection;// BOOL, default YES
 extern NSString *const kPrefFuncParamsHint;      // BOOL, default NO
 // Tier 1 booleans
 extern NSString *const kPrefShowStatusBar;       // BOOL, default YES
+extern NSString *const kPrefToolbarStyle;        // NSInteger 0=Windows 1=Mac, default 1
 extern NSString *const kPrefMuteSounds;          // BOOL, default NO
 extern NSString *const kPrefSaveAllConfirm;      // BOOL, default NO
 extern NSString *const kPrefPluginSplitViewRouting; // BOOL, default YES — route plugin SCI messages to split view
