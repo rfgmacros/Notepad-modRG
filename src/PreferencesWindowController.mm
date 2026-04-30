@@ -585,16 +585,39 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 
 - (NSView *)_buildGeneralPage {
     NSView *v = [[NSView alloc] init];
-    CGFloat y = 380;
+    NppLocalizer *loc = [NppLocalizer shared];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    CGFloat y = 480;
+    CGFloat sepW = 520;
 
-    // ── Localization ──
-    NSTextField *sectionLabel = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Localization"]];
-    sectionLabel.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    sectionLabel.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:sectionLabel];
-    y -= 30;
+    // Helper: insert a full-width separator rule centered in the whitespace.
+    // Callers end their section with y -= 24 (checkbox) or y -= 40 (hint block),
+    // both leaving 24pt of visual gap below the last content before the 8pt pre-sep
+    // step (32pt total above). C = pre_gap + 20 = 52 makes post_gap = 32pt, centering
+    // the line exactly between the last content bottom and the next section header top.
+#define ADD_SEPARATOR() \
+    do { \
+        y -= 8; \
+        NSBox *_sep = [[NSBox alloc] initWithFrame:NSMakeRect(20, y, sepW, 1)]; \
+        _sep.boxType = NSBoxSeparator; \
+        [v addSubview:_sep]; \
+        y -= 52; \
+    } while(0)
 
-    NSTextField *langLabel = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Language:"]];
+    // Helper: section header label
+#define ADD_SECTION(key) \
+    do { \
+        NSTextField *_hdr = [NSTextField labelWithString:[loc translate:(key)]]; \
+        _hdr.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize]; \
+        _hdr.frame = NSMakeRect(20, y, 300, 20); \
+        [v addSubview:_hdr]; \
+        y -= 30; \
+    } while(0)
+
+    // ── Localization ──────────────────────────────────────────────────────────
+    ADD_SECTION(@"Localization");
+
+    NSTextField *langLabel = [NSTextField labelWithString:[loc translate:@"Language:"]];
     langLabel.frame = NSMakeRect(20, y, 90, 20);
     [v addSubview:langLabel];
 
@@ -604,67 +627,59 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
     _languagePopup.action = @selector(prefChanged:);
     [self _rebuildLanguagePopup];
     [v addSubview:_languagePopup];
-    y -= 36;
+    y -= 38;
 
     NSTextField *hint = [NSTextField wrappingLabelWithString:
         [NSString stringWithFormat:@"%@\n%@",
-         [[NppLocalizer shared] translate:@"Additional language files (.xml) can be placed in:"],
+         [loc translate:@"Additional language files (.xml) can be placed in:"],
          @"~/Library/Application Support/Notepad++/localization/"]];
     hint.font = [NSFont systemFontOfSize:NSFont.smallSystemFontSize];
     hint.textColor = NSColor.secondaryLabelColor;
-    hint.frame = NSMakeRect(20, y - 16, 400, 44);
+    hint.frame = NSMakeRect(20, y - 16, 420, 44);
     [v addSubview:hint];
-    y -= 70;
+    y -= 40;
 
-    // ── Title Bar ──
-    NSTextField *tbSection = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Title Bar"]];
-    tbSection.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    tbSection.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:tbSection];
-    y -= 28;
+    // ── Title Bar ────────────────────────────────────────────────────────────
+    ADD_SEPARATOR();
+    ADD_SECTION(@"Title Bar");
 
-    NSButton *fullPath = [NSButton checkboxWithTitle:[[NppLocalizer shared] translate:@"Show full file path in title bar"]
+    NSButton *fullPath = [NSButton checkboxWithTitle:[loc translate:@"Show full file path in title bar"]
                                               target:self action:@selector(prefChanged:)];
     fullPath.frame = NSMakeRect(20, y, 350, 20);
-    fullPath.state = [[NSUserDefaults standardUserDefaults] boolForKey:kPrefShowFullPathInTitle]
-                     ? NSControlStateValueOn : NSControlStateValueOff;
+    fullPath.state = [ud boolForKey:kPrefShowFullPathInTitle] ? NSControlStateValueOn : NSControlStateValueOff;
     fullPath.tag = 900;
     [v addSubview:fullPath];
-    y -= 32;
+    y -= 24;
 
-    // ── Status Bar ──
-    NSTextField *sbSection = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Status Bar"]];
-    sbSection.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    sbSection.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:sbSection];
-    y -= 28;
+    // ── Status Bar ───────────────────────────────────────────────────────────
+    ADD_SEPARATOR();
+    ADD_SECTION(@"Status Bar");
 
-    NSButton *showSB = [NSButton checkboxWithTitle:[[NppLocalizer shared] translate:@"Show status bar"]
+    NSButton *showSB = [NSButton checkboxWithTitle:[loc translate:@"Show status bar"]
                                             target:self action:@selector(prefChanged:)];
     showSB.frame = NSMakeRect(20, y, 350, 20);
-    showSB.state = [[NSUserDefaults standardUserDefaults] boolForKey:kPrefShowStatusBar]
-                   ? NSControlStateValueOn : NSControlStateValueOff;
+    showSB.state = [ud boolForKey:kPrefShowStatusBar] ? NSControlStateValueOn : NSControlStateValueOff;
     showSB.tag = 901;
     [v addSubview:showSB];
-    y -= 36;
+    y -= 24;
 
-    // ── Toolbar ──
-    NSTextField *tbStyle = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Toolbar"]];
-    tbStyle.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    tbStyle.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:tbStyle];
-    y -= 28;
+    // ── Toolbar ──────────────────────────────────────────────────────────────
+    ADD_SEPARATOR();
+    ADD_SECTION(@"Toolbar");
 
-    NSTextField *tbStyleLabel = [NSTextField labelWithString:[[NppLocalizer shared] translate:@"Toolbar style:"]];
+    NSTextField *tbStyleLabel = [NSTextField labelWithString:[loc translate:@"Toolbar style:"]];
     tbStyleLabel.frame = NSMakeRect(20, y, 175, 20);
     [v addSubview:tbStyleLabel];
     NSPopUpButton *tbStylePopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(200, y - 2, 140, 26) pullsDown:NO];
-    [tbStylePopup addItemsWithTitles:@[[[NppLocalizer shared] translate:@"Windows"], [[NppLocalizer shared] translate:@"Mac"]]];
-    [tbStylePopup selectItemAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kPrefToolbarStyle]];
+    [tbStylePopup addItemsWithTitles:@[[loc translate:@"Windows"], [loc translate:@"Mac"]]];
+    [tbStylePopup selectItemAtIndex:[ud integerForKey:kPrefToolbarStyle]];
     tbStylePopup.tag = 902;
     tbStylePopup.target = self;
     tbStylePopup.action = @selector(prefChanged:);
     [v addSubview:tbStylePopup];
+
+#undef ADD_SEPARATOR
+#undef ADD_SECTION
 
     return v;
 }
@@ -1173,15 +1188,30 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
 - (NSView *)_buildMarginsPage {
     NSView *v = [[NSView alloc] init];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    CGFloat y = 380;
+    CGFloat y = 480;
     NppLocalizer *loc = [NppLocalizer shared];
+    CGFloat sepW = 520;
 
-    // ── Edge Column ──
-    NSTextField *edgeSection = [NSTextField labelWithString:[loc translate:@"Vertical Edge"]];
-    edgeSection.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    edgeSection.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:edgeSection];
-    y -= 28;
+#define ADD_SEPARATOR() \
+    do { \
+        y -= 8; \
+        NSBox *_sep = [[NSBox alloc] initWithFrame:NSMakeRect(20, y, sepW, 1)]; \
+        _sep.boxType = NSBoxSeparator; \
+        [v addSubview:_sep]; \
+        y -= 52; \
+    } while(0)
+
+#define ADD_SECTION(key) \
+    do { \
+        NSTextField *_hdr = [NSTextField labelWithString:[loc translate:(key)]]; \
+        _hdr.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize]; \
+        _hdr.frame = NSMakeRect(20, y, 300, 20); \
+        [v addSubview:_hdr]; \
+        y -= 30; \
+    } while(0)
+
+    // ── Vertical Edge ─────────────────────────────────────────────────────────
+    ADD_SECTION(@"Vertical Edge");
 
     NSTextField *emLabel = [NSTextField labelWithString:[loc translate:@"Edge mode:"]];
     emLabel.frame = NSMakeRect(20, y, 105, 20);
@@ -1191,7 +1221,7 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
     [emPopup selectItemAtIndex:[ud integerForKey:kPrefEdgeMode]];
     emPopup.tag = 1101; emPopup.target = self; emPopup.action = @selector(prefChanged:);
     [v addSubview:emPopup];
-    y -= 30;
+    y -= 32;
 
     NSTextField *ecLabel = [NSTextField labelWithString:[loc translate:@"Edge column:"]];
     ecLabel.frame = NSMakeRect(20, y, 100, 20);
@@ -1200,37 +1230,30 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
     ecField.integerValue = [ud integerForKey:kPrefEdgeColumn];
     ecField.tag = 1100; ecField.target = self; ecField.action = @selector(prefChanged:);
     [v addSubview:ecField];
-    y -= 36;
+    y -= 24;
 
-    // ── Fold Margin Style ──
-    NSTextField *foldSection = [NSTextField labelWithString:[loc translate:@"Fold Margin Style"]];
-    foldSection.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    foldSection.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:foldSection];
-    y -= 28;
+    // ── Fold Margin Style ─────────────────────────────────────────────────────
+    ADD_SEPARATOR();
+    ADD_SECTION(@"Fold Margin Style");
 
     NSPopUpButton *foldPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(20, y-2, 180, 26) pullsDown:NO];
     [foldPopup addItemsWithTitles:@[[loc translate:@"Box tree"], [loc translate:@"Circle tree"], [loc translate:@"Arrow"], [loc translate:@"Simple +/-"], [loc translate:@"None"]]];
     [foldPopup selectItemAtIndex:[ud integerForKey:kPrefFoldStyle]];
     foldPopup.tag = 1104; foldPopup.target = self; foldPopup.action = @selector(prefChanged:);
     [v addSubview:foldPopup];
-    y -= 36;
+    y -= 32;
 
-    // ── Line Numbers ──
     NSButton *dynWidth = [NSButton checkboxWithTitle:[loc translate:@"Dynamic line number width"]
                                               target:self action:@selector(prefChanged:)];
     dynWidth.frame = NSMakeRect(20, y, 350, 20);
     dynWidth.state = [ud boolForKey:kPrefLineNumDynWidth] ? NSControlStateValueOn : NSControlStateValueOff;
     dynWidth.tag = 1105;
     [v addSubview:dynWidth];
-    y -= 36;
+    y -= 24;
 
-    // ── Padding ──
-    NSTextField *padSection = [NSTextField labelWithString:[loc translate:@"Padding"]];
-    padSection.font = [NSFont boldSystemFontOfSize:NSFont.systemFontSize];
-    padSection.frame = NSMakeRect(20, y, 300, 20);
-    [v addSubview:padSection];
-    y -= 28;
+    // ── Padding ───────────────────────────────────────────────────────────────
+    ADD_SEPARATOR();
+    ADD_SECTION(@"Padding");
 
     NSTextField *plLabel = [NSTextField labelWithString:[loc translate:@"Left:"]];
     plLabel.frame = NSMakeRect(20, y, 40, 20);
@@ -1247,6 +1270,9 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
     prField.integerValue = [ud integerForKey:kPrefPaddingRight];
     prField.tag = 1103; prField.target = self; prField.action = @selector(prefChanged:);
     [v addSubview:prField];
+
+#undef ADD_SEPARATOR
+#undef ADD_SECTION
 
     return v;
 }

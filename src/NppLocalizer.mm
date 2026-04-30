@@ -267,34 +267,41 @@ static NSString *normalizeForLookup(NSString *s) {
 }
 
 + (NSDictionary<NSString *, NSString *> *)availableLanguagesMap {
-    // language display name → filename stem
-    NSMutableDictionary *map = [NSMutableDictionary dictionary];
+    // Cache the result: scanning 100+ XML files and parsing each one is slow,
+    // and the bundled localization files never change at runtime.
+    static NSDictionary<NSString *, NSString *> *cached;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        // language display name → filename stem
+        NSMutableDictionary *map = [NSMutableDictionary dictionary];
 
-    // Always include English.
-    map[@"English"] = @"english";
+        // Always include English.
+        map[@"English"] = @"english";
 
-    NSArray<NSString *> *dirs = @[
-        [self bundledLanguageDirectory],
-        [self userLanguageDirectory],
-    ];
+        NSArray<NSString *> *dirs = @[
+            [self bundledLanguageDirectory],
+            [self userLanguageDirectory],
+        ];
 
-    for (NSString *dir in dirs) {
-        NSArray<NSString *> *files = [[NSFileManager defaultManager]
-            contentsOfDirectoryAtPath:dir error:nil];
-        for (NSString *file in files) {
-            if (![file.pathExtension.lowercaseString isEqualToString:@"xml"]) continue;
-            NSString *stem = [file.stringByDeletingPathExtension lowercaseString];
-            if ([stem isEqualToString:@"english"] ||
-                [stem isEqualToString:@"english_customizable"]) continue;
-            NSString *fullPath = [dir stringByAppendingPathComponent:file];
-            NSString *displayName = [self _displayNameFromXMLAtPath:fullPath] ?:
-                                    [self _displayNameFromStem:stem];
-            if (displayName) {
-                map[displayName] = stem;
+        for (NSString *dir in dirs) {
+            NSArray<NSString *> *files = [[NSFileManager defaultManager]
+                contentsOfDirectoryAtPath:dir error:nil];
+            for (NSString *file in files) {
+                if (![file.pathExtension.lowercaseString isEqualToString:@"xml"]) continue;
+                NSString *stem = [file.stringByDeletingPathExtension lowercaseString];
+                if ([stem isEqualToString:@"english"] ||
+                    [stem isEqualToString:@"english_customizable"]) continue;
+                NSString *fullPath = [dir stringByAppendingPathComponent:file];
+                NSString *displayName = [self _displayNameFromXMLAtPath:fullPath] ?:
+                                        [self _displayNameFromStem:stem];
+                if (displayName) {
+                    map[displayName] = stem;
+                }
             }
         }
-    }
-    return [map copy];
+        cached = [map copy];
+    });
+    return cached;
 }
 
 + (NSString *)userLanguageDirectory {

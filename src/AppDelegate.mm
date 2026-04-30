@@ -99,6 +99,13 @@
     // Apply the user's saved language to the freshly-built English menu.
     [[NppLocalizer shared] autoLoad];
 
+    // Pre-warm the localization language map on a background thread so the
+    // Preferences window opens instantly. The map scans and XML-parses 100+
+    // localization files; caching it here means the first open is fast.
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_UTILITY, 0), ^{
+        [NppLocalizer availableLanguagesMap];
+    });
+
     // Create the primary window
     self.mainWindowController = [[MainWindowController alloc] init];
     [_windowControllers addObject:self.mainWindowController];
