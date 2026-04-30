@@ -93,7 +93,9 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
     NSTableView          *_sidebarTable;
     NSScrollView         *_contentScroll;
     NSView               *_contentArea;
+    NSInteger             _currentPageIndex; // tracks the last shown page for re-selection on open
     NSMutableArray       *_pageNames;     // sidebar row titles (NSString or @"-" for separator)
+    NSArray<NSString *>  *_pageIcons;     // SF Symbol names, parallel to _pageNames
     NSMutableDictionary  *_pageViews;     // pageTitle → NSView (lazy cache)
     NSPopUpButton        *_languagePopup; // General page — language selector
     NSArray<NSString *>  *_indentLangNames;    // Indentation page — "[Default]" + language display names
@@ -190,13 +192,15 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 
 - (instancetype)init {
     NSWindow *win = [[NSWindow alloc]
-        initWithContentRect:NSMakeRect(0, 0, 700, 480)
+        initWithContentRect:NSMakeRect(0, 0, 780, 540)
                   styleMask:NSWindowStyleMaskTitled |
                             NSWindowStyleMaskClosable |
-                            NSWindowStyleMaskMiniaturizable
+                            NSWindowStyleMaskMiniaturizable |
+                            NSWindowStyleMaskResizable
                     backing:NSBackingStoreBuffered
                       defer:NO];
-    win.title = @"Preferences";
+    win.title = @"Notepad++ Settings";
+    win.minSize = NSMakeSize(580, 400);
     [win center];
     self = [super initWithWindow:win];
     if (self) {
@@ -216,8 +220,6 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 
 - (void)retranslateUI {
     NppLocalizer *loc = [NppLocalizer shared];
-    self.window.title = [loc translate:@"Preferences"];
-
     // Rebuild sidebar page names with new translations
     _pageNames = [NSMutableArray arrayWithArray:@[
         [loc translate:@"General"],
@@ -263,7 +265,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 - (void)_buildSidebarLayout {
     NSView *root = self.window.contentView;
 
-    // ── Page names (sidebar rows) ────────────────────────────────────────────
+    // ── Page names and SF Symbol icons (parallel arrays) ────────────────────
     _pageNames = [NSMutableArray arrayWithArray:@[
         [[NppLocalizer shared] translate:@"General"],
         [[NppLocalizer shared] translate:@"Editor"],
@@ -276,91 +278,107 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
         [[NppLocalizer shared] translate:@"Auto-Completion"],
         [[NppLocalizer shared] translate:@"Searching"],
         [[NppLocalizer shared] translate:@"MISC."],
-    // Future pages can be added here
-    // @"Performance",
-    // @"Delimiter",
     ]];
+    _pageIcons = @[
+        @"gearshape",
+        @"doc.text",
+        @"arrow.right",
+        @"rectangle.grid.1x2",
+        @"moon",
+        @"arrow.left.and.right",
+        @"doc.badge.plus",
+        @"externaldrive",
+        @"keyboard",
+        @"magnifyingglass",
+        @"slider.horizontal.3",
+    ];
     _pageViews = [NSMutableDictionary dictionary];
 
-    // ── Sidebar (source list table view) ─────────────────────────────────────
+    // ── Sidebar background (translucent sidebar material) ────────────────────
+    NSVisualEffectView *sidebarBG = [[NSVisualEffectView alloc] init];
+    sidebarBG.translatesAutoresizingMaskIntoConstraints = NO;
+    sidebarBG.material = NSVisualEffectMaterialSidebar;
+    sidebarBG.blendingMode = NSVisualEffectBlendingModeBehindWindow;
+    sidebarBG.state = NSVisualEffectStateActive;
+
+    // ── Sidebar scroll + table ────────────────────────────────────────────────
     NSScrollView *sidebarScroll = [[NSScrollView alloc] init];
     sidebarScroll.translatesAutoresizingMaskIntoConstraints = NO;
     sidebarScroll.hasVerticalScroller   = NO;
     sidebarScroll.hasHorizontalScroller = NO;
     sidebarScroll.drawsBackground = NO;
+    sidebarScroll.borderType = NSNoBorder;
 
     _sidebarTable = [[NSTableView alloc] initWithFrame:NSZeroRect];
     _sidebarTable.headerView = nil;
-    _sidebarTable.rowHeight = 24;
-    _sidebarTable.intercellSpacing = NSMakeSize(0, 2);
-    _sidebarTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleRegular;
+    _sidebarTable.rowHeight = 36;
+    _sidebarTable.intercellSpacing = NSMakeSize(0, 0);
     _sidebarTable.backgroundColor = [NSColor clearColor];
     _sidebarTable.dataSource = self;
     _sidebarTable.delegate   = self;
+    if (@available(macOS 11.0, *)) {
+        _sidebarTable.style = NSTableViewStyleSourceList;
+    } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        _sidebarTable.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
+#pragma clang diagnostic pop
+    }
 
     NSTableColumn *col = [[NSTableColumn alloc] initWithIdentifier:@"name"];
     col.editable = NO;
     [_sidebarTable addTableColumn:col];
     sidebarScroll.documentView = _sidebarTable;
 
-    // ── Content area (wrapped in scroll view for long pages) ────────────────
-    _contentArea = [[NSView alloc] init];
-    _contentArea.translatesAutoresizingMaskIntoConstraints = NO;
-
+    // ── Content scroll view ───────────────────────────────────────────────────
     _contentScroll = [[NSScrollView alloc] init];
     _contentScroll.translatesAutoresizingMaskIntoConstraints = NO;
     _contentScroll.hasVerticalScroller   = YES;
     _contentScroll.hasHorizontalScroller = NO;
     _contentScroll.drawsBackground       = NO;
     _contentScroll.automaticallyAdjustsContentInsets = NO;
-    _contentScroll.scrollerStyle = NSScrollerStyleOverlay; // macOS overlay scrollbar
+    _contentScroll.scrollerStyle = NSScrollerStyleOverlay;
 
-    // Document view for scroll content (regular coordinate system — page views use frame positioning)
     _contentArea = [[NSView alloc] init];
     _contentScroll.documentView = _contentArea;
-
-    // ── Close button ─────────────────────────────────────────────────────────
-    NSButton *closeBtn = [NSButton buttonWithTitle:[[NppLocalizer shared] translate:@"Close"]
-                                            target:self action:@selector(closePrefs:)];
-    closeBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    closeBtn.keyEquivalent = @"\033";
 
     // ── Separator between sidebar and content ────────────────────────────────
     NSBox *sep = [[NSBox alloc] init];
     sep.boxType = NSBoxSeparator;
     sep.translatesAutoresizingMaskIntoConstraints = NO;
 
+    [root addSubview:sidebarBG];
     [root addSubview:sidebarScroll];
     [root addSubview:sep];
     [root addSubview:_contentScroll];
-    [root addSubview:closeBtn];
 
     [NSLayoutConstraint activateConstraints:@[
-        // Sidebar
-        [sidebarScroll.topAnchor      constraintEqualToAnchor:root.topAnchor constant:12],
-        [sidebarScroll.leadingAnchor  constraintEqualToAnchor:root.leadingAnchor constant:12],
-        [sidebarScroll.widthAnchor    constraintEqualToConstant:170],
-        [sidebarScroll.bottomAnchor   constraintEqualToAnchor:closeBtn.topAnchor constant:-12],
+        // Sidebar background fills the left column top-to-bottom
+        [sidebarBG.topAnchor     constraintEqualToAnchor:root.topAnchor],
+        [sidebarBG.leadingAnchor constraintEqualToAnchor:root.leadingAnchor],
+        [sidebarBG.widthAnchor   constraintEqualToConstant:180],
+        [sidebarBG.bottomAnchor  constraintEqualToAnchor:root.bottomAnchor],
 
-        // Separator
-        [sep.topAnchor      constraintEqualToAnchor:root.topAnchor constant:8],
-        [sep.leadingAnchor  constraintEqualToAnchor:sidebarScroll.trailingAnchor constant:8],
-        [sep.widthAnchor    constraintEqualToConstant:1],
-        [sep.bottomAnchor   constraintEqualToAnchor:closeBtn.topAnchor constant:-8],
+        // Sidebar scroll view sits on top of the background
+        [sidebarScroll.topAnchor     constraintEqualToAnchor:root.topAnchor constant:8],
+        [sidebarScroll.leadingAnchor constraintEqualToAnchor:root.leadingAnchor],
+        [sidebarScroll.widthAnchor   constraintEqualToConstant:180],
+        [sidebarScroll.bottomAnchor  constraintEqualToAnchor:root.bottomAnchor constant:-8],
 
-        // Content scroll view
-        [_contentScroll.topAnchor      constraintEqualToAnchor:root.topAnchor constant:12],
-        [_contentScroll.leadingAnchor  constraintEqualToAnchor:sep.trailingAnchor constant:12],
-        [_contentScroll.trailingAnchor constraintEqualToAnchor:root.trailingAnchor constant:-12],
-        [_contentScroll.bottomAnchor   constraintEqualToAnchor:closeBtn.topAnchor constant:-12],
+        // Thin separator line
+        [sep.topAnchor     constraintEqualToAnchor:root.topAnchor],
+        [sep.leadingAnchor constraintEqualToAnchor:sidebarBG.trailingAnchor],
+        [sep.widthAnchor   constraintEqualToConstant:1],
+        [sep.bottomAnchor  constraintEqualToAnchor:root.bottomAnchor],
 
-        // Close button
-        [closeBtn.trailingAnchor constraintEqualToAnchor:root.trailingAnchor constant:-16],
-        [closeBtn.bottomAnchor   constraintEqualToAnchor:root.bottomAnchor constant:-12],
-        [closeBtn.widthAnchor    constraintEqualToConstant:80],
+        // Content scroll view fills remaining width
+        [_contentScroll.topAnchor      constraintEqualToAnchor:root.topAnchor constant:16],
+        [_contentScroll.leadingAnchor  constraintEqualToAnchor:sep.trailingAnchor constant:16],
+        [_contentScroll.trailingAnchor constraintEqualToAnchor:root.trailingAnchor constant:-16],
+        [_contentScroll.bottomAnchor   constraintEqualToAnchor:root.bottomAnchor constant:-16],
     ]];
 
-    // Select first real page — defer until after layout so contentSize is valid
+    // Select first page — defer until layout is complete so contentSize is valid
     [_sidebarTable selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self _showPageAtIndex:0];
@@ -407,20 +425,53 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
         return container;
     }
 
-    NSTextField *tf = [tv makeViewWithIdentifier:@"cell" owner:nil];
-    if (!tf) {
-        tf = [NSTextField labelWithString:@""];
-        tf.identifier = @"cell";
+    NSTableCellView *cell = [tv makeViewWithIdentifier:@"sidebarCell" owner:nil];
+    if (!cell) {
+        cell = [[NSTableCellView alloc] init];
+        cell.identifier = @"sidebarCell";
+
+        NSImageView *iv = [[NSImageView alloc] init];
+        iv.identifier = @"icon";
+        iv.translatesAutoresizingMaskIntoConstraints = NO;
+        iv.imageScaling = NSImageScaleProportionallyUpOrDown;
+        [cell addSubview:iv];
+        cell.imageView = iv;
+
+        NSTextField *tf = [NSTextField labelWithString:@""];
+        tf.identifier = @"label";
+        tf.translatesAutoresizingMaskIntoConstraints = NO;
         tf.font = [NSFont systemFontOfSize:13];
+        tf.bordered = NO;
+        tf.editable = NO;
+        tf.drawsBackground = NO;
+        [cell addSubview:tf];
+        cell.textField = tf;
+
+        [NSLayoutConstraint activateConstraints:@[
+            [iv.leadingAnchor  constraintEqualToAnchor:cell.leadingAnchor constant:12],
+            [iv.centerYAnchor  constraintEqualToAnchor:cell.centerYAnchor],
+            [iv.widthAnchor    constraintEqualToConstant:18],
+            [iv.heightAnchor   constraintEqualToConstant:18],
+            [tf.leadingAnchor  constraintEqualToAnchor:iv.trailingAnchor constant:9],
+            [tf.centerYAnchor  constraintEqualToAnchor:cell.centerYAnchor],
+            [tf.trailingAnchor constraintEqualToAnchor:cell.trailingAnchor constant:-8],
+        ]];
     }
-    tf.stringValue = name;
-    return tf;
+
+    if (@available(macOS 11.0, *)) {
+        NSString *sym = (row < (NSInteger)_pageIcons.count) ? _pageIcons[row] : @"gearshape";
+        cell.imageView.image = [NSImage imageWithSystemSymbolName:sym accessibilityDescription:nil];
+        cell.imageView.symbolConfiguration =
+            [NSImageSymbolConfiguration configurationWithPointSize:16 weight:NSFontWeightRegular];
+    }
+    cell.textField.stringValue = name;
+    return cell;
 }
 
 - (CGFloat)tableView:(NSTableView *)tv heightOfRow:(NSInteger)row {
     if (tv.tag == 1400) return 18;
     NSString *name = _pageNames[row];
-    return [name isEqualToString:@"-"] ? 12 : 26;
+    return [name isEqualToString:@"-"] ? 12 : 36;
 }
 
 - (BOOL)tableView:(NSTableView *)tv shouldSelectRow:(NSInteger)row {
@@ -442,9 +493,21 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 // Page Switching
 // ═══════════════════════════════════════════════════════════════════════════════
 
+- (void)showWindow:(id)sender {
+    // Re-select the last shown page so sidebar is always in sync on open
+    [_sidebarTable selectRowIndexes:[NSIndexSet indexSetWithIndex:_currentPageIndex]
+                byExtendingSelection:NO];
+    [super showWindow:sender];
+}
+
 - (void)_showPageAtIndex:(NSInteger)index {
     NSString *name = _pageNames[index];
     if ([name isEqualToString:@"-"]) return;
+
+    _currentPageIndex = index;
+
+    // Update window title to reflect the selected category (BBEdit-style)
+    self.window.title = [NSString stringWithFormat:@"Notepad++ %@ Settings", name];
 
     // Remove current content
     for (NSView *sub in [_contentArea.subviews copy])
@@ -618,9 +681,9 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
     y -= 8;
     // Caret width
     NSTextField *cwLabel = [NSTextField labelWithString:[loc translate:@"Caret width:"]];
-    cwLabel.frame = NSMakeRect(20, y, 100, 20);
+    cwLabel.frame = NSMakeRect(20, y, 175, 20);
     [v addSubview:cwLabel];
-    NSPopUpButton *cwPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(130, y-2, 120, 26) pullsDown:NO];
+    NSPopUpButton *cwPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(200, y-2, 120, 26) pullsDown:NO];
     [cwPopup addItemsWithTitles:@[[loc translate:@"Thin (1px)"], [loc translate:@"Medium (2px)"], [loc translate:@"Thick (3px)"]]];
     [cwPopup selectItemAtIndex:[ud integerForKey:kPrefCaretWidth] - 1];
     cwPopup.tag = 701; cwPopup.target = self; cwPopup.action = @selector(prefChanged:);
@@ -629,9 +692,9 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 
     // Caret blink rate
     NSTextField *brLabel = [NSTextField labelWithString:[loc translate:@"Caret blink rate (ms):"]];
-    brLabel.frame = NSMakeRect(20, y, 160, 20);
+    brLabel.frame = NSMakeRect(20, y, 175, 20);
     [v addSubview:brLabel];
-    NSTextField *brField = [[NSTextField alloc] initWithFrame:NSMakeRect(190, y-2, 60, 22)];
+    NSTextField *brField = [[NSTextField alloc] initWithFrame:NSMakeRect(200, y-2, 60, 22)];
     brField.integerValue = [ud integerForKey:kPrefCaretBlinkRate];
     brField.tag = 704; brField.target = self; brField.action = @selector(prefChanged:);
     [v addSubview:brField];
@@ -639,9 +702,9 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
 
     // Font quality
     NSTextField *fqLabel = [NSTextField labelWithString:[loc translate:@"Font rendering:"]];
-    fqLabel.frame = NSMakeRect(20, y, 120, 20);
+    fqLabel.frame = NSMakeRect(20, y, 175, 20);
     [v addSubview:fqLabel];
-    NSPopUpButton *fqPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(150, y-2, 180, 26) pullsDown:NO];
+    NSPopUpButton *fqPopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(200, y-2, 180, 26) pullsDown:NO];
     [fqPopup addItemsWithTitles:@[[loc translate:@"Default"], [loc translate:@"None"], [loc translate:@"Antialiased"], [loc translate:@"LCD Optimized"]]];
     [fqPopup selectItemAtIndex:[ud integerForKey:kPrefFontQuality]];
     fqPopup.tag = 705; fqPopup.target = self; fqPopup.action = @selector(prefChanged:);

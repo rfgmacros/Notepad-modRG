@@ -3159,6 +3159,11 @@ static void removeMacroFromShortcutsXML(NSString *name) {
 - (void)closeCurrentTab:(id)sender {
     NSInteger sel = _activeTabManager.tabBar.selectedIndex;
     if (sel >= 0 && [_activeTabManager.tabBar isTabPinnedAtIndex:sel]) return;
+    // On the last tab (or no tabs), close the window (standard macOS Cmd+W behavior)
+    if (_activeTabManager.allEditors.count <= 1) {
+        [self.window performClose:sender];
+        return;
+    }
     [_activeTabManager closeCurrentTab];
     [self updateTitle];
 }

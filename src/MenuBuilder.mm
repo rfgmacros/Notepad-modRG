@@ -212,6 +212,8 @@ static NSMenu *buildLanguageMenu() {
     [appMenu addItemWithTitle:@"About Notepad++" action:@selector(showAboutPanel:) keyEquivalent:@""];
     [appMenu addItemWithTitle:@"Check for Updates…" action:@selector(checkForUpdates:) keyEquivalent:@""];
     addSep(appMenu);
+    [appMenu addItemWithTitle:@"Settings…" action:@selector(showPreferences:) keyEquivalent:@","];
+    addSep(appMenu);
     [appMenu addItemWithTitle:@"Hide Notepad++" action:@selector(hide:) keyEquivalent:@"h"];
     NSMenuItem *hideOthers = [appMenu addItemWithTitle:@"Hide Others" action:@selector(hideOtherApplications:) keyEquivalent:@"h"];
     hideOthers.keyEquivalentModifierMask = NSEventModifierFlagCommand | NSEventModifierFlagOption;
@@ -808,23 +810,6 @@ static NSMenu *buildLanguageMenu() {
     langMenuTop.submenu = buildLanguageMenu();
     langMenuTop.submenu.title = @"Language";
 
-    // ── Settings ──────────────────────────────────────────────────────────────
-    NSMenuItem *settingsItem = [[NSMenuItem alloc] init];
-    [main addItem:settingsItem];
-    NSMenu *settingsMenu = submenu(@"Settings");
-    settingsItem.submenu = settingsMenu;
-
-    [settingsMenu addItem:item(@"Preferences…", @selector(showPreferences:), @",")];
-    [settingsMenu addItem:item(@"Style Configurator…", @selector(showStyleConfigurator:), @"")];
-    [settingsMenu addItem:item(@"Shortcut Mapper…", @selector(showShortcutMapper:), @"")];
-    addSep(settingsMenu);
-    NSMenu *importMenu = submenu(@"Import");
-    [importMenu addItem:item(@"Import Plugin(s)…", @selector(importPlugin:), @"")];
-    [importMenu addItem:item(@"Import Style Theme(s)…", @selector(importStyleTheme:), @"")];
-    [settingsMenu addItem:withSubmenu(@"Import", importMenu)];
-    addSep(settingsMenu);
-    [settingsMenu addItem:item(@"Edit Popup ContextMenu", @selector(editPopupContextMenu:), @"")];
-
     // ── Tools ─────────────────────────────────────────────────────────────────
     NSMenuItem *toolsItem = [[NSMenuItem alloc] init];
     [main addItem:toolsItem];
@@ -854,6 +839,16 @@ static NSMenu *buildLanguageMenu() {
     [sha512Menu addItem:item(@"Generate from Files…", @selector(hashSHA512FromFiles:), @"")];
     [sha512Menu addItem:item(@"Generate from Selection into Clipboard", @selector(hashSHA512ToClipboard:), @"")];
     [toolsMenu addItem:withSubmenu(@"SHA-512", sha512Menu)];
+
+    addSep(toolsMenu);
+    [toolsMenu addItem:item(@"Style Configurator…", @selector(showStyleConfigurator:), @"")];
+    [toolsMenu addItem:item(@"Shortcut Mapper…", @selector(showShortcutMapper:), @"")];
+    addSep(toolsMenu);
+    NSMenu *importMenu = submenu(@"Import");
+    [importMenu addItem:item(@"Import Plugin(s)…", @selector(importPlugin:), @"")];
+    [importMenu addItem:item(@"Import Style Theme(s)…", @selector(importStyleTheme:), @"")];
+    [toolsMenu addItem:withSubmenu(@"Import", importMenu)];
+    [toolsMenu addItem:item(@"Edit Popup ContextMenu", @selector(editPopupContextMenu:), @"")];
 
     // ── Macro ─────────────────────────────────────────────────────────────────
     NSMenuItem *macroItem = [[NSMenuItem alloc] init];
