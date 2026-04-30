@@ -198,7 +198,15 @@ static NSMenu *buildLanguageMenu() {
 
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Encoding and Language menus are surfaced via status-bar popup buttons,
+// not as top-level menu bar items.
+static NSMenu *_gEncodingMenu;
+static NSMenu *_gLanguageMenu;
+
 @implementation MenuBuilder
+
++ (NSMenu *)encodingMenu { return _gEncodingMenu; }
++ (NSMenu *)languageMenu { return _gLanguageMenu; }
 
 + (void)buildMainMenu {
     NSMenu *main = [[NSMenu alloc] init];
@@ -768,11 +776,9 @@ static NSMenu *buildLanguageMenu() {
     addSep(viewMenu);
     [viewMenu addItem:item(@"Monitoring (tail -f)", @selector(toggleMonitoring:),    @"")];
 
-    // ── Encoding ──────────────────────────────────────────────────────────────
-    NSMenuItem *encItem = [[NSMenuItem alloc] init];
-    [main addItem:encItem];
+    // ── Encoding ── (not in menu bar; surfaced via status-bar popup button)
     NSMenu *encMenu = submenu(@"Encoding");
-    encItem.submenu = encMenu;
+    _gEncodingMenu = encMenu;
 
     [encMenu addItem:item(@"ANSI",        @selector(setEncodingANSI:),      @"")];
     [encMenu addItem:item(@"UTF-8",       @selector(setEncodingUTF8:),      @"")];
@@ -804,11 +810,8 @@ static NSMenu *buildLanguageMenu() {
     [encMenu addItem:item(@"Convert to UTF-16 BE BOM", @selector(convertToEncodingUTF16BEBOM:), @"")];
     [encMenu addItem:item(@"Convert to UTF-16 LE BOM", @selector(convertToEncodingUTF16LEBOM:), @"")];
 
-    // ── Language ──────────────────────────────────────────────────────────────
-    NSMenuItem *langMenuTop = [[NSMenuItem alloc] init];
-    [main addItem:langMenuTop];
-    langMenuTop.submenu = buildLanguageMenu();
-    langMenuTop.submenu.title = @"Language";
+    // ── Language ── (not in menu bar; surfaced via status-bar popup button)
+    _gLanguageMenu = buildLanguageMenu();
 
     // ── Tools ─────────────────────────────────────────────────────────────────
     NSMenuItem *toolsItem = [[NSMenuItem alloc] init];

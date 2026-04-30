@@ -1417,6 +1417,8 @@ static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
     NSTextField      *_statusLeft;
     NSTextField      *_statusRight;
     NSTextField      *_gitBranchLabel;
+    NSButton         *_statusLangButton;   // pops Language menu on click
+    NSButton         *_statusEncButton;    // pops Encoding menu on click
     NSLayoutConstraint *_findPanelHeightConstraint;
     NSTimer          *_autoSaveTimer;
 
@@ -1775,11 +1777,12 @@ static NSImage *_loadPluginIconFromDirs(NSArray<NSString *> *dirs, NSString *fil
     btn.target = self;
     btn.action = @selector(pluginToolbarAction:);
 
+    btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [btn.widthAnchor  constraintEqualToConstant:kBtnSize].active = YES;
+    [btn.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
     item.view = btn;
     item.label = pti[@"tooltip"];
     item.toolTip = pti[@"tooltip"];
-    item.minSize = NSMakeSize(kBtnSize, kBtnSize);
-    item.maxSize = NSMakeSize(kBtnSize, kBtnSize);
 
     // Overflow-menu mirror. When the window is too narrow to fit every
     // toolbar item AppKit pushes extras into a ">>" chevron popup and
@@ -2086,10 +2089,11 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
     cf.size.width = x;
     container.frame = cf;
 
+    container.translatesAutoresizingMaskIntoConstraints = NO;
+    [container.widthAnchor  constraintEqualToConstant:x].active = YES;
+    [container.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:kTBUserConfig];
     item.view = container;
-    item.minSize = NSMakeSize(x, kBtnSize);
-    item.maxSize = NSMakeSize(x, kBtnSize);
     return item;
 }
 
@@ -2183,10 +2187,11 @@ static BOOL groupHasTrailingSep(NSString *ident) {
         [groupView addSubview:sv];
     }
 
+    groupView.translatesAutoresizingMaskIntoConstraints = NO;
+    [groupView.widthAnchor  constraintEqualToConstant:totalW].active = YES;
+    [groupView.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:ident];
-    item.view    = groupView;
-    item.minSize = NSMakeSize(totalW, kBtnSize);
-    item.maxSize = NSMakeSize(totalW, kBtnSize);
+    item.view = groupView;
     return item;
 }
 
@@ -2242,12 +2247,13 @@ static BOOL groupHasTrailingSep(NSString *ident) {
     else if ([ident isEqualToString:kTBPlayRecordM]) _tbPlayRecordM = btn;
     else if ([ident isEqualToString:kTBSaveRecord])  _tbSaveRecord  = btn;
 
+    btn.translatesAutoresizingMaskIntoConstraints = NO;
+    [btn.widthAnchor  constraintEqualToConstant:kBtnSize].active = YES;
+    [btn.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:ident];
     item.view    = btn;
     item.label   = desc[1];
     item.toolTip = desc[2];
-    item.minSize = NSMakeSize(kBtnSize, kBtnSize);
-    item.maxSize = NSMakeSize(kBtnSize, kBtnSize);
 
     // Overflow-menu representation — fires the same action when the item is
     // hidden in the ">>" chevron popup because the window is too narrow.
@@ -2333,10 +2339,11 @@ static BOOL groupHasTrailingSep(NSString *ident) {
         initWithFrame:NSMakeRect(buttonsW + kSepPadL, 0, 1, kBtnSize)];
     [outer addSubview:sv];
 
+    outer.translatesAutoresizingMaskIntoConstraints = NO;
+    [outer.widthAnchor  constraintEqualToConstant:totalW].active = YES;
+    [outer.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
     NSToolbarItem *it = [[NSToolbarItem alloc] initWithItemIdentifier:kTBGroup7];
-    it.view    = outer;
-    it.minSize = NSMakeSize(totalW, kBtnSize);
-    it.maxSize = NSMakeSize(totalW, kBtnSize);
+    it.view = outer;
     return it;
 }
 
@@ -2366,10 +2373,11 @@ static BOOL groupHasTrailingSep(NSString *ident) {
         [groupView addSubview:btn];
     }
 
+    groupView.translatesAutoresizingMaskIntoConstraints = NO;
+    [groupView.widthAnchor  constraintEqualToConstant:totalW].active = YES;
+    [groupView.heightAnchor constraintEqualToConstant:kH].active = YES;
     NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:kTBTabControls];
-    item.view    = groupView;
-    item.minSize = NSMakeSize(totalW, kH);
-    item.maxSize = NSMakeSize(totalW, kH);
+    item.view = groupView;
     return item;
 }
 
@@ -2628,23 +2636,37 @@ static BOOL groupHasTrailingSep(NSString *ident) {
     // Git branch label: right-aligned, muted gray, before _statusRight
     _gitBranchLabel = [self makeStatusLabel:NSTextAlignmentRight];
     _gitBranchLabel.textColor = [NSColor secondaryLabelColor];
-    [_statusBar addSubview:_statusLeft];
-    [_statusBar addSubview:_statusRight];
-    [_statusBar addSubview:_gitBranchLabel];
+
+    // Language and Encoding popup buttons: borderless, same font as status labels.
+    // Clicking pops the corresponding menu bar submenu.
+    _statusLangButton = [self makeStatusPopupButton];
+    _statusLangButton.action = @selector(_statusLangButtonClicked:);
+    _statusEncButton  = [self makeStatusPopupButton];
+    _statusEncButton.action  = @selector(_statusEncButtonClicked:);
+
+    for (NSView *v in @[_statusLeft, _statusRight, _gitBranchLabel,
+                        _statusLangButton, _statusEncButton])
+        [_statusBar addSubview:v];
 
     [NSLayoutConstraint activateConstraints:@[
         [sep.topAnchor constraintEqualToAnchor:_statusBar.topAnchor],
         [sep.leadingAnchor constraintEqualToAnchor:_statusBar.leadingAnchor],
         [sep.trailingAnchor constraintEqualToAnchor:_statusBar.trailingAnchor],
         [sep.heightAnchor constraintEqualToConstant:1],
+        // Left: position info
         [_statusLeft.leadingAnchor constraintEqualToAnchor:_statusBar.leadingAnchor constant:8],
         [_statusLeft.centerYAnchor constraintEqualToAnchor:_statusBar.centerYAnchor constant:1],
-        [_statusLeft.trailingAnchor constraintLessThanOrEqualToAnchor:_statusBar.centerXAnchor],
+        // Right cluster (right → left): EOL/mode | git branch | Encoding | Language
         [_statusRight.trailingAnchor constraintEqualToAnchor:_statusBar.trailingAnchor constant:-8],
         [_statusRight.centerYAnchor constraintEqualToAnchor:_statusBar.centerYAnchor constant:1],
-        [_statusRight.leadingAnchor constraintGreaterThanOrEqualToAnchor:_statusBar.centerXAnchor],
         [_gitBranchLabel.trailingAnchor constraintEqualToAnchor:_statusRight.leadingAnchor constant:-16],
         [_gitBranchLabel.centerYAnchor constraintEqualToAnchor:_statusBar.centerYAnchor constant:1],
+        [_statusEncButton.trailingAnchor constraintEqualToAnchor:_gitBranchLabel.leadingAnchor constant:-16],
+        [_statusEncButton.centerYAnchor constraintEqualToAnchor:_statusBar.centerYAnchor constant:1],
+        [_statusLangButton.trailingAnchor constraintEqualToAnchor:_statusEncButton.leadingAnchor constant:-8],
+        [_statusLangButton.centerYAnchor constraintEqualToAnchor:_statusBar.centerYAnchor constant:1],
+        // Left text must not overlap the button cluster
+        [_statusLeft.trailingAnchor constraintLessThanOrEqualToAnchor:_statusLangButton.leadingAnchor constant:-8],
     ]];
 
     // ── Dark mode observer ──────────────────────────────────────────────────────
@@ -2759,6 +2781,21 @@ static BOOL groupHasTrailingSep(NSString *ident) {
     f.font = [NSFont monospacedDigitSystemFontOfSize:11 weight:NSFontWeightRegular];
     f.alignment = align;
     return f;
+}
+
+// Borderless button used for the Language and Encoding status-bar popups.
+// Looks like a status label but is clickable; the action pops the relevant menu.
+- (NSButton *)makeStatusPopupButton {
+    NSButton *btn = [[NSButton alloc] init];
+    btn.translatesAutoresizingMaskIntoConstraints = NO;
+    btn.bordered = NO;
+    [btn setButtonType:NSButtonTypeMomentaryChange];
+    btn.target = self;
+    btn.font = [NSFont monospacedDigitSystemFontOfSize:11 weight:NSFontWeightRegular];
+    btn.contentTintColor = [NSColor secondaryLabelColor];
+    [btn setContentHuggingPriority:NSLayoutPriorityRequired
+                     forOrientation:NSLayoutConstraintOrientationHorizontal];
+    return btn;
 }
 
 #pragma mark - Session
@@ -5915,14 +5952,7 @@ static NSArray<NSDictionary *> *convertRecordedToXmlFormat(NSArray<NSDictionary 
 /// Inserts them after the last separator in the Language menu
 /// (below the static Markdown preinstalled entries).
 - (void)rebuildUDLLanguageMenu {
-    // Find the Language menu
-    NSMenu *langMenu = nil;
-    for (NSMenuItem *topItem in [NSApp mainMenu].itemArray) {
-        if ([topItem.submenu.title isEqualToString:@"Language"]) {
-            langMenu = topItem.submenu;
-            break;
-        }
-    }
+    NSMenu *langMenu = [MenuBuilder languageMenu];
     if (!langMenu) return;
 
     // Remove any previously-added UDL items (tagged with 8800)
@@ -6172,19 +6202,9 @@ static NSArray<NSDictionary *> *convertRecordedToXmlFormat(NSArray<NSDictionary 
 /// Any top-level menu whose submenu directly contains an item that acts
 /// on setLanguageFromMenu: or setUDLLanguageFromMenu: is the one.
 - (void)_installLanguagesMenuDelegate {
-    for (NSMenuItem *topItem in [NSApp mainMenu].itemArray) {
-        NSMenu *sub = topItem.submenu;
-        if (!sub) continue;
-        for (NSMenuItem *child in sub.itemArray) {
-            SEL a = child.action;
-            if (a == @selector(setLanguageFromMenu:) ||
-                a == @selector(setUDLLanguageFromMenu:)) {
-                _languagesMenu = sub;
-                _languagesMenu.delegate = self;
-                return;
-            }
-        }
-    }
+    // Language menu is no longer in the menu bar — get it from MenuBuilder directly.
+    _languagesMenu = [MenuBuilder languageMenu];
+    _languagesMenu.delegate = self;
 }
 
 /// Set letter-submenu header checkmarks (A, B, C, …) so the user can see
@@ -8423,16 +8443,37 @@ static NSString *languageDisplayName(NSString *langCode) {
     return map[langCode.lowercaseString] ?: langCode;
 }
 
+- (void)_statusLangButtonClicked:(NSButton *)sender {
+    NSMenu *menu = [MenuBuilder languageMenu];
+    if (!menu) return;
+    [menu popUpMenuPositioningItem:nil
+                        atLocation:NSMakePoint(0, sender.bounds.size.height)
+                            inView:sender];
+}
+
+- (void)_statusEncButtonClicked:(NSButton *)sender {
+    NSMenu *menu = [MenuBuilder encodingMenu];
+    if (!menu) return;
+    [menu popUpMenuPositioningItem:nil
+                        atLocation:NSMakePoint(0, sender.bounds.size.height)
+                            inView:sender];
+}
+
 - (void)updateStatusBar {
     EditorView *ed = [self currentEditor];
-    if (!ed) { _statusLeft.stringValue = _statusRight.stringValue = @""; return; }
+    if (!ed) {
+        _statusLeft.stringValue = _statusRight.stringValue = @"";
+        [_statusLangButton setTitle:@""];
+        [_statusEncButton  setTitle:@""];
+        return;
+    }
     sptr_t docLength = [ed.scintillaView message:SCI_GETLENGTH wParam:0 lParam:0];
-    _statusLeft.stringValue  = [NSString stringWithFormat:@"Ln %ld, Col %ld  |  Length: %ld  |  Lines: %ld",
-                                 (long)ed.cursorLine, (long)ed.cursorColumn, (long)docLength, (long)ed.lineCount];
-    NSString *lang = languageDisplayName(ed.currentLanguage);
+    _statusLeft.stringValue = [NSString stringWithFormat:@"Ln %ld, Col %ld  |  Length: %ld  |  Lines: %ld",
+                                (long)ed.cursorLine, (long)ed.cursorColumn, (long)docLength, (long)ed.lineCount];
     NSString *mode = ed.isOverwriteMode ? @"OVR" : @"INS";
-    _statusRight.stringValue = [NSString stringWithFormat:@"%@  |  %@  |  %@  |  %@",
-                                 lang, ed.encodingName, ed.eolName, mode];
+    _statusRight.stringValue = [NSString stringWithFormat:@"%@  |  %@", ed.eolName, mode];
+    [_statusLangButton setTitle:languageDisplayName(ed.currentLanguage)];
+    [_statusEncButton  setTitle:ed.encodingName ?: @"UTF-8"];
 }
 
 - (void)refreshCurrentTab {

@@ -272,8 +272,6 @@ static CGFloat panelMinHeight(NSSplitView *sv) {
     NSInteger n = (NSInteger)subs.count;
     if (n < 2) return;  // 0 or 1 panel: no dividers to position
 
-    // Force a synchronous layout so bounds are accurate.
-    [_split layoutSubtreeIfNeeded];
     CGFloat totalH = _split.bounds.size.height;
     if (totalH <= 0.0) {
         // Host not yet sized — defer one runloop turn. By then the parent

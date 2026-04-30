@@ -362,8 +362,7 @@ static NSImage *_PFLoadIcon(NSString *name) {
         _titleBar.hidden  = NO;
         _separator.hidden = NO;
     }
-    [self needsUpdateConstraints];
-    [self layoutSubtreeIfNeeded];
+    [self setNeedsUpdateConstraints:YES];
 }
 
 // ── Title binding ─────────────────────────────────────────────────────────
