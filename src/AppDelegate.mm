@@ -245,6 +245,11 @@
     [mwc.window setFrame:newFrame display:NO];
 
     [mwc showWindow:nil];
+    // Add an initial empty tab (new windows start with no tabs)
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [mwc performSelector:@selector(newDocument:) withObject:nil];
+    #pragma clang diagnostic pop
 
     // Observe close to remove from our array
     [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowWillCloseNotification
@@ -338,7 +343,7 @@
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
-    return YES;
+    return NO;
 }
 
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)filename {
@@ -525,6 +530,32 @@
 
 - (void)openNewWindow:(id)sender {
     [self openNewWindow];
+}
+
+// Cmd+W fallback: closes the key window when it's not a main editor window (e.g. Settings).
+// MainWindowController handles closeCurrentTab: first for editor windows.
+- (void)closeCurrentTab:(id)sender {
+    [[NSApp keyWindow] performClose:sender];
+}
+
+// Fallbacks invoked when no window is open (responder chain has no MainWindowController).
+// NSDocumentController would otherwise intercept these and show "No document could be created."
+- (void)newDocument:(id)sender {
+    [self openNewWindow];
+}
+
+- (void)openDocument:(id)sender {
+    MainWindowController *mwc = [self openNewWindow];
+    [mwc showWindow:nil];
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    panel.allowsMultipleSelection = YES;
+    panel.canChooseFiles = YES;
+    panel.canChooseDirectories = NO;
+    [panel beginWithCompletionHandler:^(NSModalResponse r) {
+        if (r == NSModalResponseOK)
+            for (NSURL *u in panel.URLs)
+                [mwc openFileAtPath:u.path];
+    }];
 }
 
 - (void)showPreferences:(id)sender {

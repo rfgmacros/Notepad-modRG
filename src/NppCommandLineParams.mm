@@ -29,11 +29,9 @@
     for (NSUInteger i = 0; i < args.count; i++) {
         NSString *a = args[i];
         // Skip macOS system args that start with -NS, -Apple, or -psn_
-        if ([a hasPrefix:@"-NS"] || [a hasPrefix:@"-Apple"] || [a hasPrefix:@"-psn_"])
-            continue;
-        // Some system args take a value as next arg (e.g. -NSDocumentRevisionsDebugMode YES)
-        if ([a hasPrefix:@"-NS"] || [a hasPrefix:@"-Apple"]) {
-            if (i + 1 < args.count) i++; // skip value
+        // Some take a following value (e.g. -ApplePersistenceIgnoreState YES) — skip that too.
+        if ([a hasPrefix:@"-NS"] || [a hasPrefix:@"-Apple"] || [a hasPrefix:@"-psn_"]) {
+            if (i + 1 < args.count && ![args[i + 1] hasPrefix:@"-"]) i++;
             continue;
         }
         [cleaned addObject:a];
