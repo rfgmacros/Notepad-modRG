@@ -35,7 +35,6 @@ NSString *const kPrefSmartHighlight      = @"smartHighlight";
 NSString *const kPrefFillFindWithSelection = @"fillFindWithSelection";
 NSString *const kPrefFuncParamsHint      = @"funcParamsHint";
 NSString *const kPrefShowStatusBar       = @"showStatusBar";
-NSString *const kPrefToolbarStyle        = @"toolbarStyle";
 NSString *const kPrefMuteSounds          = @"muteSounds";
 NSString *const kPrefSaveAllConfirm      = @"saveAllConfirm";
 NSString *const kPrefPluginSplitViewRouting = @"pluginSplitViewRouting";
@@ -117,7 +116,6 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
         kPrefAutoBackup:         @YES,
         kPrefBackupInterval:     @60,
         kPrefZoomLevel:          @0,
-        kPrefToolbarStyle:       @1,   // 0=Windows 1=Mac
         kPrefLanguage:           @"english",
         // Default (light) theme colors
         kPrefThemePreset:        @"Default",
@@ -663,20 +661,6 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
     [v addSubview:showSB];
     y -= 24;
 
-    // ── Toolbar ──────────────────────────────────────────────────────────────
-    ADD_SEPARATOR();
-    ADD_SECTION(@"Toolbar");
-
-    NSTextField *tbStyleLabel = [NSTextField labelWithString:[loc translate:@"Toolbar style:"]];
-    tbStyleLabel.frame = NSMakeRect(20, y, 175, 20);
-    [v addSubview:tbStyleLabel];
-    NSPopUpButton *tbStylePopup = [[NSPopUpButton alloc] initWithFrame:NSMakeRect(200, y - 2, 140, 26) pullsDown:NO];
-    [tbStylePopup addItemsWithTitles:@[[loc translate:@"Windows"], [loc translate:@"Mac"]]];
-    [tbStylePopup selectItemAtIndex:[ud integerForKey:kPrefToolbarStyle]];
-    tbStylePopup.tag = 902;
-    tbStylePopup.target = self;
-    tbStylePopup.action = @selector(prefChanged:);
-    [v addSubview:tbStylePopup];
 
 #undef ADD_SEPARATOR
 #undef ADD_SECTION
@@ -1627,7 +1611,6 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
         case 1007: [ud setInteger:[(NSTextField *)sender integerValue] forKey:kPrefInSelThreshold]; break;
         // General
         case 901: [ud setBool:[(NSButton *)sender state] == NSControlStateValueOn forKey:kPrefShowStatusBar]; break;
-        case 902: [ud setInteger:[(NSPopUpButton *)sender indexOfSelectedItem] forKey:kPrefToolbarStyle]; break;
         // Editor
         case 707: [ud setBool:[(NSButton *)sender state] == NSControlStateValueOn forKey:kPrefRightClickKeepsSel]; break;
         case 708: [ud setBool:[(NSButton *)sender state] == NSControlStateValueOn forKey:kPrefDisableTextDragDrop]; break;

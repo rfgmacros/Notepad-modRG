@@ -236,6 +236,7 @@ static NSMenu *_gLanguageMenu;
     fileItem.submenu = fileMenu;
 
     [fileMenu addItem:item(@"New",        @selector(newDocument:),  @"n")];
+    [fileMenu addItem:item(@"New Window", @selector(openNewWindow:), @"N")];
     [fileMenu addItem:item(@"Open…",     @selector(openDocument:), @"o")];
     NSMenuItem *recentItem = withSubmenu(@"Open Recent", submenu(@"Open Recent"));
     recentItem.tag = 1001;
@@ -932,7 +933,6 @@ static NSMenu *_gLanguageMenu;
     [winMenu addItem:withSubmenu(@"Sort By", sortByMenu)];
 
     [winMenu addItem:item(@"Windows…", @selector(showWindowsList:), @"")];
-    [winMenu addItem:item(@"New Window", @selector(openNewWindow:), @"N")];
     addSep(winMenu);
     [winMenu addItem:item(@"Minimize", @selector(performMiniaturize:), @"m")];
     [winMenu addItem:item(@"Zoom",     @selector(performZoom:),        @"")];

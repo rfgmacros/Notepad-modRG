@@ -872,17 +872,6 @@ static NSToolbarItemIdentifier const kTBSep7 = @"TB_Sep7";
 static NSToolbarItemIdentifier const kTBSep8 = @"TB_Sep8";
 static NSToolbarItemIdentifier const kTBSep9 = @"TB_Sep9";
 static NSToolbarItemIdentifier const kTBTabControls = @"TB_TabControls"; // +  ▾  × right-aligned
-// Grouped toolbar items — each group becomes a single NSToolbarItem with tight icon packing
-static NSToolbarItemIdentifier const kTBGroup1  = @"TB_G1";  // file ops
-static NSToolbarItemIdentifier const kTBGroup2  = @"TB_G2";  // clipboard
-static NSToolbarItemIdentifier const kTBGroup3  = @"TB_G3";  // undo/redo
-static NSToolbarItemIdentifier const kTBGroup4  = @"TB_G4";  // find
-static NSToolbarItemIdentifier const kTBGroup5  = @"TB_G5";  // zoom
-static NSToolbarItemIdentifier const kTBGroup6  = @"TB_G6";  // scroll sync
-static NSToolbarItemIdentifier const kTBGroup7  = @"TB_G7";  // view toggles (wrap, allchars, indent)
-static NSToolbarItemIdentifier const kTBGroup8  = @"TB_G8";  // panels
-static NSToolbarItemIdentifier const kTBGroup9  = @"TB_G9";  // monitoring
-static NSToolbarItemIdentifier const kTBGroup10 = @"TB_G10"; // macro
 
 // ── Toolbar metric helpers ──────────────────────────────────────────────────
 // Single source of truth for toolbar button + icon dimensions and gaps. All
@@ -893,8 +882,7 @@ static NSToolbarItemIdentifier const kTBGroup10 = @"TB_G10"; // macro
 // values stay consistent across all builder methods within one session.
 //
 // Replaces the per-method `static const CGFloat kBtnSize = 28.0;` constants
-// that used to be sprinkled across makePluginToolbarItem / makeUserConfig /
-// makeGroupToolbarItem / makeViewTogglesGroup. Calling sites still feel
+// that used to be sprinkled across builder methods. Calling sites still feel
 // like consts (CGFloat kBtnSize = nppBtnSize();) — only the value source
 // has changed.
 static CGFloat _scaledBtn         = 28.0;
@@ -1383,20 +1371,6 @@ static NSSet *panelToggleIdents(void) {
     return [NSSet setWithObjects:kTBWrap, kTBUDL, kTBDocMap, kTBDocList, kTBFuncList, kTBFileBrowser, nil];
 }
 
-static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
-    return @{
-        kTBGroup1:  @[kTBNew, kTBOpen, kTBSave, kTBSaveAll, kTBClose, kTBCloseAll, kTBPrint],
-        kTBGroup2:  @[kTBCut, kTBCopy, kTBPaste],
-        kTBGroup3:  @[kTBUndo, kTBRedo],
-        kTBGroup4:  @[kTBFind, kTBFindRep],
-        kTBGroup5:  @[kTBZoomIn, kTBZoomOut],
-        kTBGroup6:  @[kTBSyncV, kTBSyncH],
-        // Group7 = view toggles — handled specially (includes AllChars dropdown)
-        kTBGroup8:  @[kTBUDL, kTBDocMap, kTBDocList, kTBFuncList, kTBFileBrowser],
-        kTBGroup9:  @[kTBMonitor],
-        kTBGroup10: @[kTBStartRecord, kTBStopRecord, kTBPlayRecord, kTBPlayRecordM, kTBSaveRecord],
-    };
-}
 
 @interface MainWindowController ()
     <TabManagerDelegate, NSWindowDelegate,
@@ -1480,7 +1454,6 @@ static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
     NppToggleToolbarButton *_tbMonitor;
     NppToolbarButton *_tbStartRecord, *_tbStopRecord, *_tbPlayRecord, *_tbPlayRecordM, *_tbSaveRecord;
     _AllCharsHoverGroup *_tbAllCharsHoverGroup;  // dark-mode toggle-on bg painter
-    BOOL _isMacStyleToolbar;  // YES when kPrefToolbarStyle == 1 (individual items, user-customizable)
 
     // Plugin toolbar icons: array of @{@"id": identifier, @"icon": NSImage, @"tooltip": NSString, @"cmdID": @(int)}
     NSMutableArray<NSDictionary *> *_pluginToolbarItems;
@@ -1582,16 +1555,10 @@ static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
     // Parse toolbar configuration (hidden buttons, extra buttons, appearance)
     _toolbarConfig = _parseToolbarConfig();
 
-    NSInteger toolbarStyle = [[NSUserDefaults standardUserDefaults] integerForKey:kPrefToolbarStyle];
-    _isMacStyleToolbar = (toolbarStyle == 1);
-
-    // Use separate autosave identifiers so NSToolbar doesn't apply a saved Windows
-    // layout to the Mac style or vice-versa when the user switches preference.
-    NSString *tbIdent = _isMacStyleToolbar ? @"NppToolbarMac" : @"NppToolbarWin";
-    NSToolbar *tb = [[NSToolbar alloc] initWithIdentifier:tbIdent];
+    NSToolbar *tb = [[NSToolbar alloc] initWithIdentifier:@"NppToolbarMac"];
     tb.delegate = self;
-    tb.allowsUserCustomization = _isMacStyleToolbar;
-    tb.autosavesConfiguration  = _isMacStyleToolbar;
+    tb.allowsUserCustomization = YES;
+    tb.autosavesConfiguration  = YES;
     tb.displayMode = NSToolbarDisplayModeIconOnly;
     self.window.toolbar = tb;
     // Expanded style: toolbar appears below the title bar in its own row.
@@ -1818,62 +1785,43 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
                  kTBTabControls];
     }
 
-    if (_isMacStyleToolbar) {
-        // Individual items — NSToolbarSeparatorItemIdentifier is deprecated/invisible
-        // on macOS 11+, so we use fixed spaces between logical groups instead.
-        // Command-drag moves/removes items; right-click opens the Customize sheet.
-        return @[kTBNew, kTBOpen, kTBSave, kTBSaveAll,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBClose, kTBCloseAll, kTBPrint,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBCut, kTBCopy, kTBPaste,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBUndo, kTBRedo,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBFind, kTBFindRep,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBZoomIn, kTBZoomOut,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBWrap, kTBAllChars, kTBIndentGuide,
-                 NSToolbarSpaceItemIdentifier,
-                 kTBDocMap, kTBDocList, kTBFuncList,
-                 NSToolbarFlexibleSpaceItemIdentifier,
-                 kTBTabControls];
-    }
-
-    // Windows style: tightly-packed groups with custom separator lines
-    return @[kTBGroup1,
-             kTBGroup2,
-             kTBGroup3,
-             kTBGroup4,
-             kTBGroup5,
-             kTBGroup6,   // scroll sync
-             kTBGroup7,   // view toggles (wrap, allchars, indent guide)
-             kTBGroup8,   // panels
-             kTBGroup9,   // monitoring
-             kTBGroup10,  // macro (no trailing separator)
+    // Individual items — NSToolbarSeparatorItemIdentifier is deprecated/invisible
+    // on macOS 11+, so we use fixed spaces between logical groups instead.
+    // Command-drag moves/removes items; right-click opens the Customize sheet.
+    return @[kTBNew, kTBOpen, kTBSave, kTBSaveAll,
+             NSToolbarSpaceItemIdentifier,
+             kTBClose, kTBCloseAll, kTBPrint,
+             NSToolbarSpaceItemIdentifier,
+             kTBCut, kTBCopy, kTBPaste,
+             NSToolbarSpaceItemIdentifier,
+             kTBUndo, kTBRedo,
+             NSToolbarSpaceItemIdentifier,
+             kTBFind, kTBFindRep,
+             NSToolbarSpaceItemIdentifier,
+             kTBZoomIn, kTBZoomOut,
+             NSToolbarSpaceItemIdentifier,
+             kTBWrap, kTBAllChars, kTBIndentGuide,
+             NSToolbarSpaceItemIdentifier,
+             kTBDocMap, kTBDocList, kTBFuncList,
              NSToolbarFlexibleSpaceItemIdentifier,
              kTBTabControls];
 }
 
 - (NSArray<NSToolbarItemIdentifier> *)toolbarAllowedItemIdentifiers:(NSToolbar *)tb {
-    if (_isMacStyleToolbar) {
-        // All individual items plus the standard spacer items for the customization sheet
-        return @[kTBNew, kTBOpen, kTBSave, kTBSaveAll, kTBClose, kTBCloseAll, kTBPrint,
-                 kTBCut, kTBCopy, kTBPaste,
-                 kTBUndo, kTBRedo,
-                 kTBFind, kTBFindRep,
-                 kTBZoomIn, kTBZoomOut,
-                 kTBSyncV, kTBSyncH,
-                 kTBWrap, kTBAllChars, kTBIndentGuide,
-                 kTBUDL, kTBDocMap, kTBDocList, kTBFuncList, kTBFileBrowser,
-                 kTBMonitor,
-                 kTBStartRecord, kTBStopRecord, kTBPlayRecord, kTBPlayRecordM, kTBSaveRecord,
-                 NSToolbarSpaceItemIdentifier,
-                 NSToolbarFlexibleSpaceItemIdentifier,
-                 kTBTabControls];
-    }
-    return [self toolbarDefaultItemIdentifiers:tb];
+    // All individual items plus the standard spacer items for the customization sheet
+    return @[kTBNew, kTBOpen, kTBSave, kTBSaveAll, kTBClose, kTBCloseAll, kTBPrint,
+             kTBCut, kTBCopy, kTBPaste,
+             kTBUndo, kTBRedo,
+             kTBFind, kTBFindRep,
+             kTBZoomIn, kTBZoomOut,
+             kTBSyncV, kTBSyncH,
+             kTBWrap, kTBAllChars, kTBIndentGuide,
+             kTBUDL, kTBDocMap, kTBDocList, kTBFuncList, kTBFileBrowser,
+             kTBMonitor,
+             kTBStartRecord, kTBStopRecord, kTBPlayRecord, kTBPlayRecordM, kTBSaveRecord,
+             NSToolbarSpaceItemIdentifier,
+             NSToolbarFlexibleSpaceItemIdentifier,
+             kTBTabControls];
 }
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)tb
@@ -1886,31 +1834,11 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
     if ([ident isEqualToString:kTBUserConfig])
         return [self makeUserConfigToolbarItem];
 
-    // Mac style: individual items — each button is its own resizable toolbar item
-    if (_isMacStyleToolbar) {
-        NSToolbarItem *single = [self makeSingleToolbarItem:ident];
-        if (single) return single;
-        // Plugin items still handled the same way in Mac style
-        for (NSDictionary *pti in _pluginToolbarItems)
-            if ([pti[@"id"] isEqualToString:ident])
-                return [self makePluginToolbarItem:pti];
-        return nil;
-    }
-
-    // Windows style: tightly-packed groups
-    // Group 7 gets special handling: Word Wrap + All Chars button + dropdown arrow + Indent Guide.
-    if ([ident isEqualToString:kTBGroup7])
-        return [self makeViewTogglesGroupToolbarItem];
-
-    // Plugin toolbar items
-    for (NSDictionary *pti in _pluginToolbarItems) {
-        if ([pti[@"id"] isEqualToString:ident]) {
+    NSToolbarItem *single = [self makeSingleToolbarItem:ident];
+    if (single) return single;
+    for (NSDictionary *pti in _pluginToolbarItems)
+        if ([pti[@"id"] isEqualToString:ident])
             return [self makePluginToolbarItem:pti];
-        }
-    }
-
-    NSArray *idents = toolbarGroupMap()[ident];
-    if (idents) return [self makeGroupToolbarItem:ident identifiers:idents];
     return nil;
 }
 
@@ -1929,15 +1857,22 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
     static NSDictionary *buttonToGroup = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSDictionary *gmap = toolbarGroupMap();
+        NSDictionary *gmap = @{
+            @"TB_G1":  @[kTBNew, kTBOpen, kTBSave, kTBSaveAll, kTBClose, kTBCloseAll, kTBPrint],
+            @"TB_G2":  @[kTBCut, kTBCopy, kTBPaste],
+            @"TB_G3":  @[kTBUndo, kTBRedo],
+            @"TB_G4":  @[kTBFind, kTBFindRep],
+            @"TB_G5":  @[kTBZoomIn, kTBZoomOut],
+            @"TB_G6":  @[kTBSyncV, kTBSyncH],
+            @"TB_G7":  @[kTBWrap, kTBAllChars, kTBIndentGuide],
+            @"TB_G8":  @[kTBUDL, kTBDocMap, kTBDocList, kTBFuncList, kTBFileBrowser],
+            @"TB_G9":  @[kTBMonitor],
+            @"TB_G10": @[kTBStartRecord, kTBStopRecord, kTBPlayRecord, kTBPlayRecordM, kTBSaveRecord],
+        };
         NSMutableDictionary *b2g = [NSMutableDictionary dictionary];
         for (NSString *gid in gmap)
             for (NSString *bid in gmap[gid])
                 b2g[bid] = gid;
-        // Group 7 buttons (handled specially in default mode)
-        b2g[kTBWrap] = kTBGroup7;
-        b2g[kTBAllChars] = kTBGroup7;
-        b2g[kTBIndentGuide] = kTBGroup7;
         buttonToGroup = [b2g copy];
     });
 
@@ -2097,104 +2032,6 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
     return item;
 }
 
-// Whether this group should have a trailing separator line.
-static BOOL groupHasTrailingSep(NSString *ident) {
-    return ![ident isEqualToString:kTBGroup10]; // all groups except the last macro group
-}
-
-// Pack a set of buttons into a single NSToolbarItem view with 1pt spacing.
-- (NSToolbarItem *)makeGroupToolbarItem:(NSString *)ident identifiers:(NSArray *)idents {
-    const CGFloat kBtnSize = nppBtnSize();
-    const CGFloat kSpacing = nppSpacing();
-    static const CGFloat kSepPadL =  5.0; // padding left of separator (cosmetic)
-    static const CGFloat kSepPadR = -4.0; // negative to compensate NSToolbar inter-item gap
-
-    // Filter out hidden buttons from toolbar config
-    NSSet *hiddenIDs = _toolbarConfig[@"hiddenIDs"];
-    if (hiddenIDs.count) {
-        NSMutableArray *filtered = [NSMutableArray array];
-        for (NSString *btnId in idents)
-            if (![hiddenIDs containsObject:btnId]) [filtered addObject:btnId];
-        idents = filtered;
-    }
-    if (idents.count == 0) return nil; // entire group hidden
-
-    BOOL hasSep = groupHasTrailingSep(ident);
-    NSInteger n = (NSInteger)idents.count;
-    CGFloat buttonsW = n * kBtnSize + (n - 1) * kSpacing;
-    CGFloat totalW = buttonsW + (hasSep ? kSepPadL + 1 + kSepPadR : 0);
-
-    NSMutableDictionary *descMap = [NSMutableDictionary dictionary];
-    for (NSArray *desc in toolbarDescriptors()) descMap[desc[0]] = desc;
-
-    NSSet *desatSet = desatToggleIdents();
-    NSSet *panelSet = panelToggleIdents();
-
-    NSView *groupView = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, totalW, kBtnSize)];
-    CGFloat x = 0;
-    for (NSString *btnIdent in idents) {
-        NSArray *desc = descMap[btnIdent];
-        if (desc) {
-            NSImage *img = _customToolbarIcon(btnIdent, _toolbarConfig);
-            if (!img) img = nppToolbarIcon(desc[3]);
-            if (!img) img = [NSImage imageWithSystemSymbolName:@"doc" accessibilityDescription:desc[1]];
-
-            BOOL isDesatToggle = [desatSet containsObject:btnIdent];
-            BOOL isPanelToggle = [panelSet containsObject:btnIdent];
-            NppToolbarButton *btn;
-
-            if (isDesatToggle || isPanelToggle) {
-                NppToggleToolbarButton *tb = [[NppToggleToolbarButton alloc]
-                    initWithFrame:NSMakeRect(x, 0, kBtnSize, kBtnSize)];
-                tb.useBlueHighlight = isPanelToggle;
-                tb.toggledOn = isDesatToggle ? NO : NO; // set in _refreshToolbarStates
-                btn = tb;
-            } else {
-                btn = [[NppToolbarButton alloc]
-                    initWithFrame:NSMakeRect(x, 0, kBtnSize, kBtnSize)];
-            }
-            btn.image   = img;
-            btn.action  = NSSelectorFromString(desc[4]);
-            btn.target  = self;
-            btn.toolTip = desc[2];
-            btn.identifier = desc[3]; // store icon filename for dark mode refresh
-            [groupView addSubview:btn];
-
-            // Store references for toggle state refresh
-            if ([btnIdent isEqualToString:kTBWrap])        _tbWrap        = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBSyncV])       _tbSyncV       = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBSyncH])  _tbSyncH       = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBMonitor]) _tbMonitor     = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBUDL])     _tbUDL         = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBDocMap])  _tbDocMap      = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBDocList]) _tbDocList     = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBFuncList])_tbFuncList    = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBFileBrowser]) _tbFileBrowser = (NppToggleToolbarButton *)btn;
-            else if ([btnIdent isEqualToString:kTBStartRecord]) _tbStartRecord = btn;
-            else if ([btnIdent isEqualToString:kTBStopRecord])  _tbStopRecord  = btn;
-            else if ([btnIdent isEqualToString:kTBPlayRecord])  _tbPlayRecord  = btn;
-            else if ([btnIdent isEqualToString:kTBPlayRecordM]) _tbPlayRecordM = btn;
-            else if ([btnIdent isEqualToString:kTBSaveRecord])  _tbSaveRecord  = btn;
-        }
-        x += kBtnSize + kSpacing;
-    }
-
-    // Append trailing separator line inside the group view
-    if (hasSep) {
-        CGFloat sepX = buttonsW + kSepPadL;
-        NppSeparatorView *sv = [[NppSeparatorView alloc]
-            initWithFrame:NSMakeRect(sepX, 0, 1, kBtnSize)];
-        [groupView addSubview:sv];
-    }
-
-    groupView.translatesAutoresizingMaskIntoConstraints = NO;
-    [groupView.widthAnchor  constraintEqualToConstant:totalW].active = YES;
-    [groupView.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
-    NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:ident];
-    item.view = groupView;
-    return item;
-}
-
 // Create an individual NSToolbarItem for the Mac-style toolbar.
 // Each button gets its own item so the user can command-drag to rearrange/remove.
 - (nullable NSToolbarItem *)makeSingleToolbarItem:(NSToolbarItemIdentifier)ident {
@@ -2255,8 +2092,6 @@ static BOOL groupHasTrailingSep(NSString *ident) {
     item.label   = desc[1];
     item.toolTip = desc[2];
 
-    // Overflow-menu representation — fires the same action when the item is
-    // hidden in the ">>" chevron popup because the window is too narrow.
     NSMenuItem *mi = [[NSMenuItem alloc] initWithTitle:desc[1]
                                                 action:NSSelectorFromString(desc[4])
                                          keyEquivalent:@""];
@@ -2264,87 +2099,6 @@ static BOOL groupHasTrailingSep(NSString *ident) {
     item.menuFormRepresentation = mi;
 
     return item;
-}
-
-// Group 7: Word Wrap | [Show All Characters + dropdown arrow] | Indent Guide
-- (NSToolbarItem *)makeViewTogglesGroupToolbarItem {
-    const CGFloat kBtnSize  = nppBtnSize();
-    const CGFloat kDropW    = nppDropArrowW();
-    const CGFloat kGap      = nppSpacing();
-    const CGFloat kInnerGap = nppInnerGap();   // gap between chars button and dropdown arrow
-    static const CGFloat kSepPadL = 5.0;       // cosmetic, not size-dependent
-    static const CGFloat kSepPadR = -4.0;
-    CGFloat hoverW  = kBtnSize + kInnerGap + kDropW;
-    CGFloat buttonsW = kBtnSize + kGap + hoverW + kGap + kBtnSize; // wrap + allchars group + indent
-    CGFloat totalW  = buttonsW + kSepPadL + 1 + kSepPadR; // + trailing separator
-
-    NSView *outer = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, totalW, kBtnSize)];
-    CGFloat x = 0;
-
-    // Word Wrap — toggle with blue highlight
-    NppToggleToolbarButton *wrapBtn = [[NppToggleToolbarButton alloc]
-        initWithFrame:NSMakeRect(x, 0, kBtnSize, kBtnSize)];
-    wrapBtn.image   = nppToolbarIcon(@"wrap");
-    wrapBtn.action  = @selector(toggleWordWrap:);
-    wrapBtn.target  = self;
-    wrapBtn.toolTip = [[NppLocalizer shared] translate:@"Toggle Word Wrap"];
-    wrapBtn.useBlueHighlight = YES;
-    [outer addSubview:wrapBtn];
-    _tbWrap = wrapBtn;
-    x += kBtnSize + kGap;
-
-    // Hover group: All Characters button + dropdown arrow share one highlight
-    _AllCharsHoverGroup *hoverGroup = [[_AllCharsHoverGroup alloc]
-        initWithFrame:NSMakeRect(x, 0, hoverW, kBtnSize)];
-
-    _FlatImgButton *charsBtn = [[_FlatImgButton alloc]
-        initWithFrame:NSMakeRect(0, 0, kBtnSize, kBtnSize)];
-    [charsBtn setBordered:NO];
-    [charsBtn setButtonType:NSButtonTypeMomentaryChange];
-    [charsBtn setImageScaling:NSImageScaleProportionallyUpOrDown];
-    charsBtn.image   = nppToolbarIcon(@"allChars");
-    charsBtn.action  = @selector(toggleShowAllChars:);
-    charsBtn.target  = self;
-    charsBtn.toolTip = [[NppLocalizer shared] translate:@"Show All Characters"];
-    [hoverGroup addSubview:charsBtn];
-
-    _DropArrowButton *dropBtn = [[_DropArrowButton alloc]
-        initWithFrame:NSMakeRect(kBtnSize + kInnerGap, 0, kDropW, kBtnSize)];
-    [dropBtn setBordered:NO];
-    dropBtn.buttonType = NSButtonTypeMomentaryChange;
-    dropBtn.title      = @"";   // drawn manually in drawRect:
-    dropBtn.toolTip    = [[NppLocalizer shared] translate:@"Show Characters Options"];
-    dropBtn.action     = @selector(_showAllCharsDropdown:);
-    dropBtn.target     = self;
-    [hoverGroup addSubview:dropBtn];
-
-    [outer addSubview:hoverGroup];
-    _tbAllCharsHoverGroup = hoverGroup;
-    x += hoverW + kGap;
-
-    // Indent Guide — toggle with desaturation
-    NppToggleToolbarButton *indentBtn = [[NppToggleToolbarButton alloc]
-        initWithFrame:NSMakeRect(x, 0, kBtnSize, kBtnSize)];
-    indentBtn.image   = nppToolbarIcon(@"indentGuide");
-    indentBtn.action  = @selector(toggleIndentGuides:);
-    indentBtn.target  = self;
-    indentBtn.toolTip = [[NppLocalizer shared] translate:@"Toggle Indent Guide"];
-    indentBtn.useBlueHighlight = YES;
-    indentBtn.toggledOn = _showIndentGuides;
-    [outer addSubview:indentBtn];
-    _tbIndentGuide = indentBtn;
-
-    // Trailing separator
-    NppSeparatorView *sv = [[NppSeparatorView alloc]
-        initWithFrame:NSMakeRect(buttonsW + kSepPadL, 0, 1, kBtnSize)];
-    [outer addSubview:sv];
-
-    outer.translatesAutoresizingMaskIntoConstraints = NO;
-    [outer.widthAnchor  constraintEqualToConstant:totalW].active = YES;
-    [outer.heightAnchor constraintEqualToConstant:kBtnSize].active = YES;
-    NSToolbarItem *it = [[NSToolbarItem alloc] initWithItemIdentifier:kTBGroup7];
-    it.view = outer;
-    return it;
 }
 
 // Builds the right-aligned +  ▾  × tab-control group.
@@ -7865,13 +7619,6 @@ static NSArray<NSDictionary *> *convertRecordedToXmlFormat(NSArray<NSDictionary 
     // Title bar (full path vs filename only)
     [self updateTitle];
 
-    // Toolbar style (Windows vs Mac) — rebuild if changed
-    NSInteger newStyle = [[NSUserDefaults standardUserDefaults] integerForKey:kPrefToolbarStyle];
-    BOOL newIsMac = (newStyle == 1);
-    if (newIsMac != _isMacStyleToolbar) {
-        [self buildToolbar];
-        [self _refreshToolbarStates];
-    }
 }
 
 - (void)_darkModeChanged:(NSNotification *)n {
