@@ -7,14 +7,16 @@
 - (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Register both modern (file URL) and legacy (filenames) pasteboard types
-        // so drops from Finder work on all macOS 11+ versions.
-        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL, NSFilenamesPboardType]];
+        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL,
+                                        NSFilenamesPboardType,
+                                        NppTabPboardType]];
     }
     return self;
 }
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
+    if ([sender.draggingPasteboard availableTypeFromArray:@[NppTabPboardType]])
+        return _tabDropHandler ? NSDragOperationMove : NSDragOperationNone;
     NSDictionary *opts = @{NSPasteboardURLReadingFileURLsOnlyKey: @YES};
     if ([sender.draggingPasteboard canReadObjectForClasses:@[[NSURL class]] options:opts])
         return NSDragOperationCopy;
@@ -26,21 +28,32 @@
 }
 
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
-    NSMutableArray<NSString *> *paths = [NSMutableArray array];
+    // Tab drag: move tab to this pane, appended at the end
+    if ([sender.draggingPasteboard availableTypeFromArray:@[NppTabPboardType]]) {
+        NSData *data = [sender.draggingPasteboard dataForType:NppTabPboardType];
+        NSDictionary *info = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSDictionary class]
+                                                               fromData:data error:nil];
+        if (info && _tabDropHandler) {
+            NSUInteger barPtr  = [info[@"barPtr"] unsignedIntegerValue];
+            NSInteger srcIndex = [info[@"tabIndex"] integerValue];
+            NppTabBar *srcBar  = (__bridge NppTabBar *)(void *)barPtr;
+            _tabDropHandler(srcBar, srcIndex);
+            return YES;
+        }
+        return NO;
+    }
 
-    // Modern path: NSPasteboardTypeFileURL (macOS 10.13+)
+    // File drag: open dropped files
+    NSMutableArray<NSString *> *paths = [NSMutableArray array];
     NSDictionary *opts = @{NSPasteboardURLReadingFileURLsOnlyKey: @YES};
     NSArray<NSURL *> *urls = [sender.draggingPasteboard
         readObjectsForClasses:@[[NSURL class]] options:opts];
     for (NSURL *url in urls) if (url.isFileURL) [paths addObject:url.path];
-
-    // Legacy fallback: NSFilenamesPboardType (array of path strings)
     if (!paths.count) {
         NSArray *names = [sender.draggingPasteboard propertyListForType:NSFilenamesPboardType];
         if ([names isKindOfClass:[NSArray class]])
             [paths addObjectsFromArray:names];
     }
-
     if (paths.count && _dropHandler) { _dropHandler(paths); return YES; }
     return NO;
 }
@@ -66,6 +79,15 @@
 
         _contentView = [[NppDropView alloc] initWithFrame:NSZeroRect];
         _contentView.wantsLayer = YES;
+
+        __weak TabManager *weakSelf = self;
+        ((NppDropView *)_contentView).tabDropHandler = ^(NppTabBar *srcBar, NSInteger srcIndex) {
+            TabManager *mgr = weakSelf;
+            if (!mgr) return;
+            if ([srcBar.delegate respondsToSelector:@selector(tabBar:didDetachTabAtIndex:toBar:atIndex:)])
+                [srcBar.delegate tabBar:srcBar didDetachTabAtIndex:srcIndex
+                                  toBar:mgr.tabBar atIndex:mgr.allEditors.count];
+        };
     }
     return self;
 }

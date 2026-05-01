@@ -7,7 +7,7 @@
 @end
 
 // ── Drag-and-drop pasteboard type ────────────────────────────────────────────
-static NSPasteboardType const NppTabPboardType = @"com.notepadplusmac.tab";
+NSPasteboardType const NppTabPboardType = @"com.notepadplusmac.tab";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 // Bar layout: barH = kTabTopGap + inactiveTabH + 1(border).
@@ -774,7 +774,7 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
 
     if (insertIdx != _dragInsertIndex) {
         _dragInsertIndex = insertIdx;
-        CGFloat w = 2.0;
+        CGFloat w = 4.0;
         _insertionIndicator.frame = NSMakeRect(indicatorX - w / 2.0, 2,
                                                w, self.bounds.size.height - 4);
         _insertionIndicator.hidden = NO;

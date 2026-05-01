@@ -2,6 +2,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/// Pasteboard type used for tab drag-and-drop within and between windows.
+extern NSPasteboardType const NppTabPboardType;
+
 @class NppTabBar;
 
 @protocol NppTabBarDelegate <NSObject>
