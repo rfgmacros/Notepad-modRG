@@ -946,7 +946,7 @@ static NSMenu *_gLanguageMenu;
     // ── ? (Help) ──────────────────────────────────────────────────────────────
     NSMenuItem *helpItem = [[NSMenuItem alloc] init];
     [main addItem:helpItem];
-    NSMenu *helpMenu = submenu(@"?");
+    NSMenu *helpMenu = submenu(@"Help");
     helpItem.submenu = helpMenu;
 
     [helpMenu addItem:item(@"Command Line Arguments…", @selector(showCLIHelp:), @"")];
@@ -957,6 +957,10 @@ static NSMenu *_gLanguageMenu;
     [helpMenu addItem:item(@"Notepad++ Community (Forum)", @selector(openNppForum:),       @"")];
     addSep(helpMenu);
     [helpMenu addItem:item(@"Debug Info…", @selector(showDebugInfo:), @"")];
+
+    // Register as the app's help menu so AppKit inserts the standard
+    // "Search" field that finds and executes any menu command.
+    [NSApp setHelpMenu:helpMenu];
 }
 
 + (void)insertPluginMenuItems:(NSArray<NSMenuItem *> *)items {
