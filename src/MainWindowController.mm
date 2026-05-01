@@ -1594,8 +1594,8 @@ static NSDictionary<NSString *, NSArray *> *toolbarGroupMap(void) {
     tb.autosavesConfiguration  = _isMacStyleToolbar;
     tb.displayMode = NSToolbarDisplayModeIconOnly;
     self.window.toolbar = tb;
-    // Expanded style puts the toolbar in its own row below the title bar,
-    // so items are always left-aligned (not scattered around a centered title).
+    // Expanded style: toolbar appears below the title bar in its own row.
+    // The title + proxy icon appear in the dedicated title bar row above.
     if (@available(macOS 11.0, *)) {
         self.window.toolbarStyle = NSWindowToolbarStyleExpanded;
     }
@@ -8342,10 +8342,18 @@ static int64_t _sysctlInt(const char *name) {
     NSString *name;
     if (!ed) {
         name = @"Notepad++";
-    } else if ([[NSUserDefaults standardUserDefaults] boolForKey:kPrefShowFullPathInTitle] && ed.filePath) {
-        name = ed.filePath;
+        self.window.representedURL = nil;
     } else {
-        name = ed.displayName;
+        // Setting representedURL enables the standard macOS path popup on
+        // control-click and the proxy icon next to the title. Clear it for
+        // unsaved documents that have no on-disk path yet.
+        self.window.representedURL = ed.filePath ? [NSURL fileURLWithPath:ed.filePath] : nil;
+
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:kPrefShowFullPathInTitle] && ed.filePath) {
+            name = ed.filePath;
+        } else {
+            name = ed.displayName;
+        }
     }
     self.window.title = ed.isModified ? [name stringByAppendingString:@" •"] : name;
 }
