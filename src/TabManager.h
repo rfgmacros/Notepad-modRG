@@ -5,10 +5,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// NSView subclass used as the editor container; accepts file drag-and-drop.
+/// NSView subclass used as the editor container; accepts file and tab drag-and-drop.
 @interface NppDropView : NSView
 /// Called on the main thread with an array of dropped file paths.
 @property (nonatomic, copy, nullable) void (^dropHandler)(NSArray<NSString *> *paths);
+/// Called when a tab is dragged and dropped onto the editor area (not the tab bar).
+/// srcBar is the source NppTabBar; srcIndex is the tab index within that bar.
+@property (nonatomic, copy, nullable) void (^tabDropHandler)(NppTabBar *srcBar, NSInteger srcIndex);
 @end
 
 @protocol TabManagerDelegate <NSObject>
@@ -43,8 +46,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// The EditorView stays alive; caller is responsible for adopting it elsewhere.
 - (void)evictEditor:(EditorView *)editor;
 
-/// Insert an existing, already-initialized EditorView into this manager as a new tab.
+/// Insert an existing, already-initialized EditorView into this manager as a new tab at the end.
 - (void)adoptEditor:(EditorView *)editor;
+/// Insert an existing EditorView at a specific tab index position.
+- (void)adoptEditor:(EditorView *)editor atIndex:(NSInteger)index;
+/// Move a tab from srcIndex to dstIndex within this manager.
+- (void)moveEditorAtIndex:(NSInteger)src toIndex:(NSInteger)dst;
 
 /// Notify tab bar that the current editor's modified state changed.
 - (void)refreshCurrentTabTitle;

@@ -345,6 +345,11 @@ static const NSUInteger kLargeFileThreshold = 50 * 1024 * 1024; // 50 MB
     [contentView unregisterDraggedTypes];
     if (dragTypes.count) [contentView registerForDraggedTypes:dragTypes];
 
+    // Start scroll width at 1 so tracking can grow it from zero; the h-scrollbar
+    // then only appears when a line is actually wider than the view.
+    [_scintillaView message:SCI_SETSCROLLWIDTH wParam:1 lParam:0];
+    [_scintillaView message:SCI_SETSCROLLWIDTHTRACKING wParam:1 lParam:0];
+
     [self applyDefaultTheme];
 
     [[NSNotificationCenter defaultCenter]
@@ -3811,6 +3816,12 @@ static const unsigned int kSCI_GetBidirectional = 2708;
         // LinesOnScreen (sizeClient is zero during init → stale fold highlight).
         dispatch_async(dispatch_get_main_queue(), ^{
             [_scintillaView.scrollView.verticalRulerView setNeedsDisplay:YES];
+            // Reset scroll width to the actual clip view width so Scintilla's
+            // content view fills the window (scroll width=1 from setup makes it
+            // 1px wide, causing clicks to miss). Tracking will grow it from here.
+            CGFloat w = _scintillaView.scrollView.contentView.bounds.size.width;
+            if (w > 1)
+                [_scintillaView message:SCI_SETSCROLLWIDTH wParam:(uptr_t)w lParam:0];
         });
     }
 }

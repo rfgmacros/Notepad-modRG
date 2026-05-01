@@ -7,14 +7,16 @@
 - (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        // Register both modern (file URL) and legacy (filenames) pasteboard types
-        // so drops from Finder work on all macOS 11+ versions.
-        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL, NSFilenamesPboardType]];
+        [self registerForDraggedTypes:@[NSPasteboardTypeFileURL,
+                                        NSFilenamesPboardType,
+                                        NppTabPboardType]];
     }
     return self;
 }
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
+    if ([sender.draggingPasteboard availableTypeFromArray:@[NppTabPboardType]])
+        return _tabDropHandler ? NSDragOperationMove : NSDragOperationNone;
     NSDictionary *opts = @{NSPasteboardURLReadingFileURLsOnlyKey: @YES};
     if ([sender.draggingPasteboard canReadObjectForClasses:@[[NSURL class]] options:opts])
         return NSDragOperationCopy;
@@ -26,21 +28,35 @@
 }
 
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
-    NSMutableArray<NSString *> *paths = [NSMutableArray array];
+    // Tab drag: move tab to this pane, appended at the end
+    if ([sender.draggingPasteboard availableTypeFromArray:@[NppTabPboardType]]) {
+        NSData *data = [sender.draggingPasteboard dataForType:NppTabPboardType];
+        NSDictionary *info = [NSKeyedUnarchiver
+            unarchivedObjectOfClasses:[NSSet setWithObjects:[NSDictionary class],
+                                                            [NSString class],
+                                                            [NSNumber class], nil]
+                             fromData:data error:nil];
+        if (info && _tabDropHandler) {
+            NSUInteger barPtr  = [info[@"barPtr"] unsignedIntegerValue];
+            NSInteger srcIndex = [info[@"tabIndex"] integerValue];
+            NppTabBar *srcBar  = (__bridge NppTabBar *)(void *)barPtr;
+            _tabDropHandler(srcBar, srcIndex);
+            return YES;
+        }
+        return NO;
+    }
 
-    // Modern path: NSPasteboardTypeFileURL (macOS 10.13+)
+    // File drag: open dropped files
+    NSMutableArray<NSString *> *paths = [NSMutableArray array];
     NSDictionary *opts = @{NSPasteboardURLReadingFileURLsOnlyKey: @YES};
     NSArray<NSURL *> *urls = [sender.draggingPasteboard
         readObjectsForClasses:@[[NSURL class]] options:opts];
     for (NSURL *url in urls) if (url.isFileURL) [paths addObject:url.path];
-
-    // Legacy fallback: NSFilenamesPboardType (array of path strings)
     if (!paths.count) {
         NSArray *names = [sender.draggingPasteboard propertyListForType:NSFilenamesPboardType];
         if ([names isKindOfClass:[NSArray class]])
             [paths addObjectsFromArray:names];
     }
-
     if (paths.count && _dropHandler) { _dropHandler(paths); return YES; }
     return NO;
 }
@@ -66,6 +82,15 @@
 
         _contentView = [[NppDropView alloc] initWithFrame:NSZeroRect];
         _contentView.wantsLayer = YES;
+
+        __weak TabManager *weakSelf = self;
+        ((NppDropView *)_contentView).tabDropHandler = ^(NppTabBar *srcBar, NSInteger srcIndex) {
+            TabManager *mgr = weakSelf;
+            if (!mgr) return;
+            if ([srcBar.delegate respondsToSelector:@selector(tabBar:didDetachTabAtIndex:toBar:atIndex:)])
+                [srcBar.delegate tabBar:srcBar didDetachTabAtIndex:srcIndex
+                                  toBar:mgr.tabBar atIndex:mgr.allEditors.count];
+        };
     }
     return self;
 }
@@ -161,6 +186,35 @@
     [self insertEditor:editor title:editor.displayName modified:editor.isModified];
 }
 
+- (void)adoptEditor:(EditorView *)editor atIndex:(NSInteger)index {
+    NSInteger count = (NSInteger)_editors.count;
+    NSInteger insertAt = MAX(0, MIN(index, count));
+
+    [_editors insertObject:editor atIndex:(NSUInteger)insertAt];
+    editor.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [_contentView addSubview:editor];
+    editor.hidden = YES;
+
+    [_tabBar insertTabWithTitle:editor.displayName modified:editor.isModified atIndex:insertAt];
+    [self activateTabAtIndex:insertAt];
+}
+
+- (void)moveEditorAtIndex:(NSInteger)src toIndex:(NSInteger)dst {
+    NSInteger count = (NSInteger)_editors.count;
+    if (src < 0 || src >= count || dst < 0 || dst > count || src == dst) return;
+
+    EditorView *current = self.currentEditor;
+    NSMutableArray *ordered = [_editors mutableCopy];
+    EditorView *ed = ordered[src];
+    [ordered removeObjectAtIndex:src];
+    NSInteger insertAt = (dst > src) ? (dst - 1) : dst;
+    insertAt = MAX(0, MIN(insertAt, (NSInteger)ordered.count));
+    [ordered insertObject:ed atIndex:(NSUInteger)insertAt];
+    [self reorderEditors:ordered];
+    // reorderEditors: restores the previously active editor
+    (void)current;
+}
+
 - (void)refreshCurrentTabTitle {
     if (_selectedIndex < 0) return;
     EditorView *editor = _editors[_selectedIndex];
@@ -195,6 +249,31 @@
     // because each NppTabBar's delegate is the TabManager that owns it, so
     // we can never receive this for a bar that belongs to a different pane.
     [self addNewTab];
+}
+
+- (void)tabBar:(NppTabBar *)bar didMoveTabAtIndex:(NSInteger)src toIndex:(NSInteger)dst {
+    [self moveEditorAtIndex:src toIndex:dst];
+}
+
+- (void)tabBar:(NppTabBar *)srcBar didDetachTabAtIndex:(NSInteger)srcIndex
+          toBar:(NppTabBar *)dstBar atIndex:(NSInteger)dstIndex {
+    if (srcIndex < 0 || srcIndex >= (NSInteger)_editors.count) return;
+    EditorView *editor = _editors[srcIndex];
+
+    // Remove from this manager without triggering the close delegate
+    [editor removeFromSuperview];
+    [_editors removeObjectAtIndex:srcIndex];
+    [_tabBar removeTabAtIndex:srcIndex];
+    if (_editors.count == 0) {
+        [self addNewTab];
+    } else {
+        NSInteger nextIdx = MIN(srcIndex, (NSInteger)_editors.count - 1);
+        [self activateTabAtIndex:nextIdx];
+    }
+
+    // Adopt into the destination manager
+    TabManager *dstMgr = (TabManager *)dstBar.delegate;
+    if (dstMgr) [dstMgr adoptEditor:editor atIndex:dstIndex];
 }
 
 #pragma mark - Accessors

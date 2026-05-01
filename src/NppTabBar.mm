@@ -6,6 +6,9 @@
 - (NSMenu *)buildTabContextMenu;
 @end
 
+// ── Drag-and-drop pasteboard type ────────────────────────────────────────────
+NSPasteboardType const NppTabPboardType = @"com.notepadplusmac.tab";
+
 // ── Constants ─────────────────────────────────────────────────────────────────
 // Bar layout: barH = kTabTopGap + inactiveTabH + 1(border).
 // inactiveTabH = barH - kTabTopGap - 1.  activeTabH = inactiveTabH + kActiveBoost.
@@ -119,10 +122,11 @@ static NSImage *toolbarIcon(NSString *name) {
 // ─────────────────────────────────────────────────────────────────────────────
 #pragma mark - _NppTabItem (private)
 
-@interface _NppTabItem : NSView {
+@interface _NppTabItem : NSView <NSDraggingSource> {
     BOOL _hovered;
     BOOL _closeHovered;
     NSTrackingArea *_trackingArea;
+    NSPoint _mouseDownLocation;  // in self coords, for drag threshold check
 }
 @property (nonatomic) NSInteger tabIndex;
 @property (nonatomic, copy) NSString *title;
@@ -289,6 +293,7 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
 
 - (void)mouseDown:(NSEvent *)event {
     NSPoint p  = [self convertPoint:event.locationInWindow fromView:nil];
+    _mouseDownLocation = p;
     CGFloat cx = self.bounds.size.width - kCloseSize - 6;
     BOOL closeVisible = [[NSUserDefaults standardUserDefaults] boolForKey:kPrefTabCloseButton];
     BOOL overClose = closeVisible && (_isSelected || _hovered)
@@ -305,12 +310,63 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
 #pragma clang diagnostic pop
 }
 
+- (void)mouseDragged:(NSEvent *)event {
+    NSPoint p = [self convertPoint:event.locationInWindow fromView:nil];
+    if (hypot(p.x - _mouseDownLocation.x, p.y - _mouseDownLocation.y) < 5.0) return;
+
+    // Render tab as drag image
+    NSBitmapImageRep *rep = [self bitmapImageRepForCachingDisplayInRect:self.bounds];
+    [self cacheDisplayInRect:self.bounds toBitmapImageRep:rep];
+    NSImage *dragImage = [[NSImage alloc] initWithSize:self.bounds.size];
+    [dragImage addRepresentation:rep];
+
+    // Encode: source bar pointer (valid for the life of this session) + tab index
+    NSUInteger barPtr = (NSUInteger)(uintptr_t)(__bridge void *)_target;
+    NSDictionary *info = @{@"barPtr": @(barPtr), @"tabIndex": @(_tabIndex)};
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:info
+                                        requiringSecureCoding:NO error:nil];
+    NSPasteboardItem *pbItem = [[NSPasteboardItem alloc] init];
+    [pbItem setData:data forType:NppTabPboardType];
+
+    NSDraggingItem *di = [[NSDraggingItem alloc] initWithPasteboardWriter:pbItem];
+    di.draggingFrame = self.bounds;
+    [di setDraggingFrame:self.bounds contents:dragImage];
+    [self beginDraggingSessionWithItems:@[di] event:event source:self];
+}
+
+- (NSDragOperation)draggingSession:(NSDraggingSession *)session
+    sourceOperationMaskForDraggingContext:(NSDraggingContext)context {
+    return NSDragOperationMove;
+}
+
 - (NSMenu *)menuForEvent:(NSEvent *)event {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
     [_target performSelector:_selectAction withObject:self];
 #pragma clang diagnostic pop
     return [(NppTabBar *)_target buildTabContextMenu];
+}
+
+#pragma mark - Accessibility
+
+- (BOOL)isAccessibilityElement { return YES; }
+
+- (NSAccessibilityRole)accessibilityRole {
+    return NSAccessibilityRadioButtonRole;
+}
+
+- (NSString *)accessibilityTitle { return _title; }
+
+- (id)accessibilityValue { return @(_isSelected ? 1 : 0); }
+
+- (id)accessibilityParent { return _target; }
+
+- (BOOL)accessibilityPerformPress {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_selectAction withObject:self];
+#pragma clang diagnostic pop
+    return YES;
 }
 
 @end
@@ -387,6 +443,9 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
     BOOL                           _wrapMode;
     _NppScrollArrowButton         *_scrollLeftBtn;
     _NppScrollArrowButton         *_scrollRightBtn;
+    // Drag-and-drop
+    NSInteger                      _dragInsertIndex;  // insertion point during drag (-1 = none)
+    NSView                        *_insertionIndicator; // thin vertical bar shown during drag
 }
 
 - (instancetype)initWithFrame:(NSRect)frame {
@@ -431,6 +490,21 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
                                                                 action:@selector(_scrollRight:)];
     [self addSubview:_scrollLeftBtn];
     [self addSubview:_scrollRightBtn];
+
+    // Insertion indicator: thin accent-colored vertical bar shown during tab drag
+    _dragInsertIndex = -1;
+    _insertionIndicator = [[NSView alloc] initWithFrame:NSZeroRect];
+    _insertionIndicator.wantsLayer = YES;
+    _insertionIndicator.layer.backgroundColor = [NSColor controlAccentColor].CGColor;
+    _insertionIndicator.layer.cornerRadius = 1.0;
+    _insertionIndicator.hidden = YES;
+    [self addSubview:_insertionIndicator];
+
+    [self registerForDraggedTypes:@[NppTabPboardType]];
+
+    // Hide the scroll view from the accessibility tree so tabs appear as
+    // direct children of this AXTabGroup rather than buried under AXScrollArea.
+    _scrollView.accessibilityElement = NO;
 }
 
 // Legacy alias — kept so any external caller still compiles.
@@ -526,6 +600,33 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
 - (BOOL)isTabPinnedAtIndex:(NSInteger)index {
     if (index < 0 || index >= (NSInteger)_items.count) return NO;
     return _items[index].isPinned;
+}
+
+- (void)insertTabWithTitle:(NSString *)title modified:(BOOL)modified atIndex:(NSInteger)index {
+    NSInteger count = (NSInteger)_items.count;
+    index = MAX(0, MIN(index, count));
+
+    _NppTabItem *item  = [[_NppTabItem alloc] initWithFrame:NSZeroRect];
+    item.title         = title;
+    item.isModified    = modified;
+    item.isSelected    = NO;
+    item.tabIndex      = index;
+    item.target        = self;
+    item.selectAction  = @selector(tabItemSelected:);
+    item.closeAction   = @selector(tabItemClosed:);
+    [_items insertObject:item atIndex:(NSUInteger)index];
+    [_containerView addSubview:item];
+
+    // Update tabIndex for items after the insertion
+    for (NSInteger i = index + 1; i < (NSInteger)_items.count; i++)
+        _items[i].tabIndex = i;
+
+    // Shift selection if the new tab was inserted at or before the current selection
+    if (_selectedIndex >= index)
+        _selectedIndex++;
+
+    [self relayout];
+    [self setNeedsLayout:YES];
 }
 
 - (void)swapTabAtIndex:(NSInteger)a withIndex:(NSInteger)b {
@@ -658,6 +759,98 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
 - (void)_emptyAreaDoubleClicked {
     if ([self.delegate respondsToSelector:@selector(tabBarDidRequestNewTab:)])
         [self.delegate tabBarDidRequestNewTab:self];
+}
+
+#pragma mark - Drag destination
+
+// Compute the insertion index and the indicator x-position (in NppTabBar coords)
+// from a drag location (also in NppTabBar coords, i.e. from sender.draggingLocation
+// converted via [self convertPoint:fromView:nil]).
+- (NSInteger)_insertIndexForPoint:(NSPoint)barPt indicatorX:(CGFloat *)outX {
+    // Convert to _containerView coords (accounts for scroll offset)
+    NSPoint cp = [_containerView convertPoint:barPt fromView:self];
+
+    NSInteger insertIdx = (NSInteger)_items.count;
+    CGFloat insertX = _items.count ? NSMaxX(_items.lastObject.frame) : 0.0;
+
+    for (NSInteger i = 0; i < (NSInteger)_items.count; i++) {
+        NSRect f = _items[i].frame;
+        if (cp.x < NSMidX(f)) {
+            insertIdx = i;
+            insertX = NSMinX(f);
+            break;
+        }
+        insertX = NSMaxX(f);
+    }
+
+    // Convert back to NppTabBar coordinates (scroll-adjusted)
+    NSPoint converted = [self convertPoint:NSMakePoint(insertX, 0) fromView:_containerView];
+    if (outX) *outX = converted.x;
+    return insertIdx;
+}
+
+- (NSDragOperation)_updateDragFromInfo:(id<NSDraggingInfo>)sender {
+    if (![sender.draggingPasteboard availableTypeFromArray:@[NppTabPboardType]])
+        return NSDragOperationNone;
+    if (_items.count == 0) return NSDragOperationNone;
+
+    NSPoint barPt = [self convertPoint:sender.draggingLocation fromView:nil];
+    CGFloat indicatorX;
+    NSInteger insertIdx = [self _insertIndexForPoint:barPt indicatorX:&indicatorX];
+
+    if (insertIdx != _dragInsertIndex) {
+        _dragInsertIndex = insertIdx;
+        CGFloat w = 4.0;
+        _insertionIndicator.frame = NSMakeRect(indicatorX - w / 2.0, 2,
+                                               w, self.bounds.size.height - 4);
+        _insertionIndicator.hidden = NO;
+    }
+    return NSDragOperationMove;
+}
+
+- (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
+    return [self _updateDragFromInfo:sender];
+}
+
+- (NSDragOperation)draggingUpdated:(id<NSDraggingInfo>)sender {
+    return [self _updateDragFromInfo:sender];
+}
+
+- (void)draggingExited:(id<NSDraggingInfo>)sender {
+    _dragInsertIndex = -1;
+    _insertionIndicator.hidden = YES;
+}
+
+- (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
+    _insertionIndicator.hidden = YES;
+    NSInteger dstIndex = _dragInsertIndex;
+    _dragInsertIndex = -1;
+
+    NSData *data = [sender.draggingPasteboard dataForType:NppTabPboardType];
+    if (!data) return NO;
+    NSDictionary *info = [NSKeyedUnarchiver
+        unarchivedObjectOfClasses:[NSSet setWithObjects:[NSDictionary class],
+                                                        [NSString class],
+                                                        [NSNumber class], nil]
+                         fromData:data error:nil];
+    if (!info) return NO;
+
+    NSUInteger barPtr  = [info[@"barPtr"] unsignedIntegerValue];
+    NSInteger srcIndex = [info[@"tabIndex"] integerValue];
+    NppTabBar *srcBar  = (__bridge NppTabBar *)(void *)barPtr;
+
+    if (srcBar == self) {
+        // Within the same bar: reorder
+        if ([_delegate respondsToSelector:@selector(tabBar:didMoveTabAtIndex:toIndex:)])
+            [_delegate tabBar:self didMoveTabAtIndex:srcIndex toIndex:dstIndex];
+    } else {
+        // Cross-bar: detach from source, insert at destination
+        if ([srcBar.delegate respondsToSelector:
+                @selector(tabBar:didDetachTabAtIndex:toBar:atIndex:)])
+            [srcBar.delegate tabBar:srcBar didDetachTabAtIndex:srcIndex
+                              toBar:self atIndex:dstIndex];
+    }
+    return YES;
 }
 
 #pragma mark - Scroll actions
@@ -816,6 +1009,33 @@ static NSMenu *_buildTabContextMenuFromXML(NSString *xmlPath) {
     [menu addItemWithTitle:@"Close" action:@selector(closeCurrentTab:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Save" action:@selector(saveDocument:) keyEquivalent:@""];
     return menu;
+}
+
+#pragma mark - Accessibility
+
+- (BOOL)isAccessibilityElement { return YES; }
+
+- (NSAccessibilityRole)accessibilityRole {
+    return NSAccessibilityTabGroupRole;
+}
+
+- (NSString *)accessibilityLabel {
+    NSUInteger n = _items.count;
+    return [NSString stringWithFormat:@"Tab bar, %lu tab%@", (unsigned long)n, n == 1 ? @"" : @"s"];
+}
+
+- (NSArray *)accessibilityChildren {
+    return [_items copy];
+}
+
+- (NSArray *)accessibilityTabs {
+    return [_items copy];
+}
+
+- (NSArray *)accessibilitySelectedChildren {
+    if (_selectedIndex >= 0 && _selectedIndex < (NSInteger)_items.count)
+        return @[_items[_selectedIndex]];
+    return @[];
 }
 
 @end
