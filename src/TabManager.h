@@ -43,8 +43,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// The EditorView stays alive; caller is responsible for adopting it elsewhere.
 - (void)evictEditor:(EditorView *)editor;
 
-/// Insert an existing, already-initialized EditorView into this manager as a new tab.
+/// Insert an existing, already-initialized EditorView into this manager as a new tab at the end.
 - (void)adoptEditor:(EditorView *)editor;
+/// Insert an existing EditorView at a specific tab index position.
+- (void)adoptEditor:(EditorView *)editor atIndex:(NSInteger)index;
+/// Move a tab from srcIndex to dstIndex within this manager.
+- (void)moveEditorAtIndex:(NSInteger)src toIndex:(NSInteger)dst;
 
 /// Notify tab bar that the current editor's modified state changed.
 - (void)refreshCurrentTabTitle;

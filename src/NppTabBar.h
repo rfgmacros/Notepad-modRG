@@ -13,6 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// a new untitled tab in the tab manager that owns `bar`. Optional — bars
 /// with no implementer simply don't react to the gesture.
 - (void)tabBarDidRequestNewTab:(NppTabBar *)bar;
+/// Fires when the user drags a tab to a new position within the same bar.
+- (void)tabBar:(NppTabBar *)bar didMoveTabAtIndex:(NSInteger)src toIndex:(NSInteger)dst;
+/// Fires when the user drags a tab from this bar onto a different bar.
+- (void)tabBar:(NppTabBar *)srcBar didDetachTabAtIndex:(NSInteger)srcIndex
+          toBar:(NppTabBar *)dstBar atIndex:(NSInteger)dstIndex;
 @end
 
 /// Left-aligned, scrollable tab bar styled after Notepad++.
@@ -32,6 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// Returns YES if the tab at index is pinned.
 - (BOOL)isTabPinnedAtIndex:(NSInteger)index;
 
+/// Insert a new tab at a specific index position.
+- (void)insertTabWithTitle:(NSString *)title modified:(BOOL)modified atIndex:(NSInteger)index;
 /// Swap two tab items by index (preserves all properties including pin and color).
 - (void)swapTabAtIndex:(NSInteger)a withIndex:(NSInteger)b;
 

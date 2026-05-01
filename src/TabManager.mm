@@ -161,6 +161,35 @@
     [self insertEditor:editor title:editor.displayName modified:editor.isModified];
 }
 
+- (void)adoptEditor:(EditorView *)editor atIndex:(NSInteger)index {
+    NSInteger count = (NSInteger)_editors.count;
+    NSInteger insertAt = MAX(0, MIN(index, count));
+
+    [_editors insertObject:editor atIndex:(NSUInteger)insertAt];
+    editor.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [_contentView addSubview:editor];
+    editor.hidden = YES;
+
+    [_tabBar insertTabWithTitle:editor.displayName modified:editor.isModified atIndex:insertAt];
+    [self activateTabAtIndex:insertAt];
+}
+
+- (void)moveEditorAtIndex:(NSInteger)src toIndex:(NSInteger)dst {
+    NSInteger count = (NSInteger)_editors.count;
+    if (src < 0 || src >= count || dst < 0 || dst > count || src == dst) return;
+
+    EditorView *current = self.currentEditor;
+    NSMutableArray *ordered = [_editors mutableCopy];
+    EditorView *ed = ordered[src];
+    [ordered removeObjectAtIndex:src];
+    NSInteger insertAt = (dst > src) ? (dst - 1) : dst;
+    insertAt = MAX(0, MIN(insertAt, (NSInteger)ordered.count));
+    [ordered insertObject:ed atIndex:(NSUInteger)insertAt];
+    [self reorderEditors:ordered];
+    // reorderEditors: restores the previously active editor
+    (void)current;
+}
+
 - (void)refreshCurrentTabTitle {
     if (_selectedIndex < 0) return;
     EditorView *editor = _editors[_selectedIndex];
@@ -195,6 +224,31 @@
     // because each NppTabBar's delegate is the TabManager that owns it, so
     // we can never receive this for a bar that belongs to a different pane.
     [self addNewTab];
+}
+
+- (void)tabBar:(NppTabBar *)bar didMoveTabAtIndex:(NSInteger)src toIndex:(NSInteger)dst {
+    [self moveEditorAtIndex:src toIndex:dst];
+}
+
+- (void)tabBar:(NppTabBar *)srcBar didDetachTabAtIndex:(NSInteger)srcIndex
+          toBar:(NppTabBar *)dstBar atIndex:(NSInteger)dstIndex {
+    if (srcIndex < 0 || srcIndex >= (NSInteger)_editors.count) return;
+    EditorView *editor = _editors[srcIndex];
+
+    // Remove from this manager without triggering the close delegate
+    [editor removeFromSuperview];
+    [_editors removeObjectAtIndex:srcIndex];
+    [_tabBar removeTabAtIndex:srcIndex];
+    if (_editors.count == 0) {
+        [self addNewTab];
+    } else {
+        NSInteger nextIdx = MIN(srcIndex, (NSInteger)_editors.count - 1);
+        [self activateTabAtIndex:nextIdx];
+    }
+
+    // Adopt into the destination manager
+    TabManager *dstMgr = (TabManager *)dstBar.delegate;
+    if (dstMgr) [dstMgr adoptEditor:editor atIndex:dstIndex];
 }
 
 #pragma mark - Accessors
