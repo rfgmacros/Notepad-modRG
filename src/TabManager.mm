@@ -31,8 +31,11 @@
     // Tab drag: move tab to this pane, appended at the end
     if ([sender.draggingPasteboard availableTypeFromArray:@[NppTabPboardType]]) {
         NSData *data = [sender.draggingPasteboard dataForType:NppTabPboardType];
-        NSDictionary *info = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSDictionary class]
-                                                               fromData:data error:nil];
+        NSDictionary *info = [NSKeyedUnarchiver
+            unarchivedObjectOfClasses:[NSSet setWithObjects:[NSDictionary class],
+                                                            [NSString class],
+                                                            [NSNumber class], nil]
+                             fromData:data error:nil];
         if (info && _tabDropHandler) {
             NSUInteger barPtr  = [info[@"barPtr"] unsignedIntegerValue];
             NSInteger srcIndex = [info[@"tabIndex"] integerValue];

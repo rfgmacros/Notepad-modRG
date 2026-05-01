@@ -802,8 +802,11 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
 
     NSData *data = [sender.draggingPasteboard dataForType:NppTabPboardType];
     if (!data) return NO;
-    NSDictionary *info = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSDictionary class]
-                                                           fromData:data error:nil];
+    NSDictionary *info = [NSKeyedUnarchiver
+        unarchivedObjectOfClasses:[NSSet setWithObjects:[NSDictionary class],
+                                                        [NSString class],
+                                                        [NSNumber class], nil]
+                         fromData:data error:nil];
     if (!info) return NO;
 
     NSUInteger barPtr  = [info[@"barPtr"] unsignedIntegerValue];
