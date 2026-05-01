@@ -1372,6 +1372,22 @@ static NSSet *panelToggleIdents(void) {
 }
 
 
+// NSWindow subclass that exposes the primary tab bar as a direct accessibility
+// child of the window — matching the structure Witch and other tab-aware tools
+// expect (same pattern as Safari's BrowserWindow).
+@interface NppWindow : NSWindow
+@property (nonatomic, weak) NSView *primaryTabBar;
+@end
+@implementation NppWindow
+- (NSArray *)accessibilityChildren {
+    NSArray *base = [super accessibilityChildren];
+    if (!_primaryTabBar) return base;
+    NSMutableArray *all = [NSMutableArray arrayWithObject:_primaryTabBar];
+    [all addObjectsFromArray:base];
+    return all;
+}
+@end
+
 @interface MainWindowController ()
     <TabManagerDelegate, NSWindowDelegate,
      NSToolbarDelegate, FindReplacePanelDelegate, NSUserInterfaceValidations,
@@ -1479,7 +1495,7 @@ static NSSet *panelToggleIdents(void) {
 }
 
 - (instancetype)init {
-    NSWindow *window = [[NSWindow alloc]
+    NppWindow *window = [[NppWindow alloc]
         initWithContentRect:NSMakeRect(0, 0, 1024, 768)
                   styleMask:(NSWindowStyleMaskTitled |
                              NSWindowStyleMaskClosable |
@@ -2270,6 +2286,7 @@ static NSToolbarItemIdentifier const kTBUserConfig = @"TB_UserConfig";
     _tabManager = [[TabManager alloc] init];
     _tabManager.delegate = self;
     _activeTabManager = _tabManager;   // primary is default active
+    ((NppWindow *)self.window).primaryTabBar = _tabManager.tabBar;
 
     NppTabBar *primaryTabBar = _tabManager.tabBar;
     primaryTabBar.translatesAutoresizingMaskIntoConstraints = NO;

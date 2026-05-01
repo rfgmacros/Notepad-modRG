@@ -347,6 +347,28 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
     return [(NppTabBar *)_target buildTabContextMenu];
 }
 
+#pragma mark - Accessibility
+
+- (BOOL)isAccessibilityElement { return YES; }
+
+- (NSAccessibilityRole)accessibilityRole {
+    return NSAccessibilityRadioButtonRole;
+}
+
+- (NSString *)accessibilityTitle { return _title; }
+
+- (id)accessibilityValue { return @(_isSelected ? 1 : 0); }
+
+- (id)accessibilityParent { return _target; }
+
+- (BOOL)accessibilityPerformPress {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+    [_target performSelector:_selectAction withObject:self];
+#pragma clang diagnostic pop
+    return YES;
+}
+
 @end
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -479,6 +501,10 @@ static const CGFloat kPinSize = 11.0; // pin icon drawn at ~80% of original ~14p
     [self addSubview:_insertionIndicator];
 
     [self registerForDraggedTypes:@[NppTabPboardType]];
+
+    // Hide the scroll view from the accessibility tree so tabs appear as
+    // direct children of this AXTabGroup rather than buried under AXScrollArea.
+    _scrollView.accessibilityElement = NO;
 }
 
 // Legacy alias — kept so any external caller still compiles.
@@ -983,6 +1009,33 @@ static NSMenu *_buildTabContextMenuFromXML(NSString *xmlPath) {
     [menu addItemWithTitle:@"Close" action:@selector(closeCurrentTab:) keyEquivalent:@""];
     [menu addItemWithTitle:@"Save" action:@selector(saveDocument:) keyEquivalent:@""];
     return menu;
+}
+
+#pragma mark - Accessibility
+
+- (BOOL)isAccessibilityElement { return YES; }
+
+- (NSAccessibilityRole)accessibilityRole {
+    return NSAccessibilityTabGroupRole;
+}
+
+- (NSString *)accessibilityLabel {
+    NSUInteger n = _items.count;
+    return [NSString stringWithFormat:@"Tab bar, %lu tab%@", (unsigned long)n, n == 1 ? @"" : @"s"];
+}
+
+- (NSArray *)accessibilityChildren {
+    return [_items copy];
+}
+
+- (NSArray *)accessibilityTabs {
+    return [_items copy];
+}
+
+- (NSArray *)accessibilitySelectedChildren {
+    if (_selectedIndex >= 0 && _selectedIndex < (NSInteger)_items.count)
+        return @[_items[_selectedIndex]];
+    return @[];
 }
 
 @end
