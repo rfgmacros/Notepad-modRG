@@ -614,7 +614,7 @@
 #endif
 
     NSAlert *about = [[NSAlert alloc] init];
-    about.messageText = [NSString stringWithFormat:@"Notepad++ macOS v%@     (%@)", version, archStr];
+    about.messageText = [NSString stringWithFormat:@"Notepad++ modRG v%@     (%@)", version, archStr];
 
     NSString *license =
         @"GNU General Public Licence\n\n"
@@ -633,6 +633,7 @@
     about.informativeText = [NSString stringWithFormat:
         @"Build time: %s - %s\n\n"
         @"Home: https://notepad-plus-plus-mac.org\n\n"
+        @"Modified by: Rob Griffiths, code by Claude\n\n"
         @"%@", __DATE__, __TIME__, license];
 
     // Use our logo

@@ -7,242 +7,242 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9AD50EAF755C29A7353A7881 /* AutoComplete.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3925897B6A9FE9D83C9CD129 /* AutoComplete.cxx */; };
-		DE76429B967E139EA2140023 /* CallTip.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1A6FAF83F740BFE54C20C /* CallTip.cxx */; };
-		9C58F29B5E95CC68C94A860A /* CaseConvert.cxx in Sources */ = {isa = PBXBuildFile; fileRef = BF1C40DB842E325C4839E991 /* CaseConvert.cxx */; };
-		CB393BF3B9B48A0EB5EAFA06 /* CaseFolder.cxx in Sources */ = {isa = PBXBuildFile; fileRef = EB1E768B0CAE3436C27C5C60 /* CaseFolder.cxx */; };
-		243A9673AF55219891258A92 /* CellBuffer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C007F468AB0492F74132D741 /* CellBuffer.cxx */; };
-		FD9F7C08050592F4D7B5262A /* ChangeHistory.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9270F014A99266F8298B6F95 /* ChangeHistory.cxx */; };
-		57FDF6FD6223D2BC1E1BEC16 /* CharClassify.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DD493D81220F3A96495347C0 /* CharClassify.cxx */; };
-		F5DD4C41B4DAF0236DC2AD60 /* CharacterCategoryMap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 403BDCCC8D3F847006C212FF /* CharacterCategoryMap.cxx */; };
-		17334CB96A5C506C5C8B5565 /* CharacterType.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2622E2E50B677FFDDEC2992B /* CharacterType.cxx */; };
-		AFC99D7B1C1A3CEF23043AB0 /* ContractionState.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 74992B75405CE3D62C2C6CE8 /* ContractionState.cxx */; };
-		AB8D9D77327167C4D6F01B8C /* DBCS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 73D8856E03E7DDA3B2AC9422 /* DBCS.cxx */; };
-		658F72BCABA2F0568E894F9F /* Decoration.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 85E3F2C138827EBC871F622E /* Decoration.cxx */; };
-		3248576B1EFFDFA0CB7CF0B7 /* Document.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9CB43934D679C60E700F18B0 /* Document.cxx */; };
-		BEC14ACC74FB12DCFF930018 /* EditModel.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 34A996195BB3B9A7D075AEC6 /* EditModel.cxx */; };
-		B36D9DC598D06C26A12C6DFE /* EditView.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 319A5BAA1FB23A9EB999233B /* EditView.cxx */; };
-		3136108F1DD223641C7378FB /* Editor.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CA50F6BAAA2058AF0F6EBB9C /* Editor.cxx */; };
-		455369CE258935CE5D2AE5DB /* Geometry.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5ECDEE3028A1F1D9C453B11C /* Geometry.cxx */; };
-		24D4AEB5F13431AB22B8D16B /* Indicator.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2493A74012CD0CB3B5B21DBD /* Indicator.cxx */; };
-		67EFC164DF2F047ABB8943DE /* KeyMap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A489B122A919F3016F5672C2 /* KeyMap.cxx */; };
-		165A7D53A7E433D694E885A1 /* LineMarker.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4C114FC205A1A827053BE17E /* LineMarker.cxx */; };
-		1AEF8FA281228FFD823F2DAC /* MarginView.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C3F0E4837671EA2672640 /* MarginView.cxx */; };
-		B8B5EC6BD4FD9E1D29E0D5F1 /* PerLine.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CA54ADE7BC222CC48305CB15 /* PerLine.cxx */; };
-		40759CC0EE4DC468C8E6A219 /* PositionCache.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AED431D1BD922C2BFD05DEF7 /* PositionCache.cxx */; };
-		8DC727BCB33481A5BDCDCA5D /* RESearch.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 783AB2E65FE261AD2CC380FE /* RESearch.cxx */; };
-		98FF92997E7967933D7D9D44 /* RunStyles.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C0E4B2A912A5F0FDAB12B97B /* RunStyles.cxx */; };
-		67CA5122FD155D377FF94A91 /* ScintillaBase.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 920E0E304D856C57FD7B9F28 /* ScintillaBase.cxx */; };
-		B62F150492CF5C280F1799E3 /* Selection.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1F214C5FA4C2C6F33FF62E5E /* Selection.cxx */; };
-		3F71BAB9222EE80A4C1801ED /* Style.cxx in Sources */ = {isa = PBXBuildFile; fileRef = BBABC329CB618274EADFDFA1 /* Style.cxx */; };
-		99A2EC0DBA48D96EE1499F5E /* UndoHistory.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7DCBC8AEE38A084360460DA3 /* UndoHistory.cxx */; };
-		55C40340BC4D5DBC604FC206 /* UniConversion.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 51E55753BEC106BB4A571DCD /* UniConversion.cxx */; };
-		4AC66ACAB44A714D6542D0B1 /* UniqueString.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CE7CC6C45115B345639A502C /* UniqueString.cxx */; };
-		36FD871370C48D7294DC1980 /* ViewStyle.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 330B040C347711EA44242613 /* ViewStyle.cxx */; };
-		4053C15FB72860EE722E6F5C /* XPM.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 865CA5AE9C2322A2AEC89A5E /* XPM.cxx */; };
-		D40C2A5CF0B1981A815C9E52 /* PlatCocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E48281C20778223A6B6 /* PlatCocoa.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		F722C740C6870CA08C0E4923 /* ScintillaCocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61365D287763240FB993779E /* ScintillaCocoa.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		6AE5C8DD2575C7ED97796AF0 /* ScintillaView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5858201876D73EBBFFEAD47B /* ScintillaView.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		7A7FD4B3568D7F12575527D6 /* InfoBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC571BEF819CCD949DE9FFCD /* InfoBar.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		1BF08284BB79A103CF01D6CC /* Lexilla.cxx in Sources */ = {isa = PBXBuildFile; fileRef = EDF216D35B618403C79F7915 /* Lexilla.cxx */; };
-		A179FAAB33B179666DBF8D4A /* LexA68k.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FDD6AC6411DA0C163F95F128 /* LexA68k.cxx */; };
-		D5D664115EE22A5EDD65959D /* LexAPDL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D8BD7AB6B8CA78ABE4CC9 /* LexAPDL.cxx */; };
-		150A97306DBFE577530C5DF1 /* LexASY.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 210E0615B9BFD0AC6CBC51EF /* LexASY.cxx */; };
-		431E44FBC9DB09B76A11406A /* LexAU3.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D58A9EFB5CAB76878847F9EF /* LexAU3.cxx */; };
-		6F9A2E5725894EA2D621D918 /* LexAVE.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A1EFF5A8C90614BC74D76923 /* LexAVE.cxx */; };
-		F3BF688D6E0A4E318DF87EA7 /* LexAVS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B896F64C13CE4B10499F4FBB /* LexAVS.cxx */; };
-		462CE6240EAB5756B01B1FFA /* LexAbaqus.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9F079CC0A3E300B5FA1BE303 /* LexAbaqus.cxx */; };
-		4E3F7315748B6B8126A04BBB /* LexAda.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1CAAF5D97DBFFE61ABDE1396 /* LexAda.cxx */; };
-		0DB667AD74FBDC4E7BF69E75 /* LexAsciidoc.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FF4CB124587FAEB410021 /* LexAsciidoc.cxx */; };
-		F8379FBF04B62BAF9B7F042F /* LexAsm.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 68BE9E2C945424D88D40BDAB /* LexAsm.cxx */; };
-		691F2CA8B309CAB2D3D5C7B0 /* LexAsn1.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1689DA2C318FF40300E7E9A6 /* LexAsn1.cxx */; };
-		858E08ACE77B80AC1D1E8C4A /* LexBaan.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 830E0FDFC3E504A742690ADB /* LexBaan.cxx */; };
-		F7FDCC1DBE3B5F89AEFA5AF4 /* LexBash.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 38A0CC1826F2005E6654E00B /* LexBash.cxx */; };
-		84148F2F4A694E20FC160EC1 /* LexBasic.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 59FA9B188CD48879DBEB3DE5 /* LexBasic.cxx */; };
-		EE81DB0E5558B5B436FF8386 /* LexBatch.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DB277BAFFC650184D3C4C57C /* LexBatch.cxx */; };
-		5BB3342EAD1A4BFA06CE5F2B /* LexBibTeX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F9F34415D0C07102AC7FC705 /* LexBibTeX.cxx */; };
-		05F1B926FCFEC576D219C4F6 /* LexBullant.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 06F2A9EB49D02B23905911C7 /* LexBullant.cxx */; };
-		E4A1BE8796399CE624456D6F /* LexCIL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 870E4C9B50DD1774BB7F28EB /* LexCIL.cxx */; };
-		47283293B2A207DB2BDA5184 /* LexCLW.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 46D9E67CA035142FB5D94B61 /* LexCLW.cxx */; };
-		7C813013164FC2066DBC0A8A /* LexCOBOL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E64E9995EE4BF10FFD2EF602 /* LexCOBOL.cxx */; };
-		1D90997DEC48973A1C8453D2 /* LexCPP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 67F5E7CF9AD17508A5EA5B1F /* LexCPP.cxx */; };
-		CAD14F0B624F565EFDC9305F /* LexCSS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 399C73AAEC4D87A9EC305BE0 /* LexCSS.cxx */; };
-		87132C06F9764A681A0D548B /* LexCaml.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 95E10FF6806706EB1E70B057 /* LexCaml.cxx */; };
-		D94F924A4E82D9CE79D7DCCD /* LexCmake.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D876BB791FCAF6E3E41874FA /* LexCmake.cxx */; };
-		5434645CE2BF0F75792EABD1 /* LexCoffeeScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7BE191BCDD286934AE0B3693 /* LexCoffeeScript.cxx */; };
-		9D6426A7BE12F7DB0E835481 /* LexConf.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D4F24D245BB1E21554322E0A /* LexConf.cxx */; };
-		8A6637E57C20F18448862DBB /* LexCrontab.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5E6206B2E7F4FDDE32CE25B /* LexCrontab.cxx */; };
-		968B8A658A29CEE80C9454B6 /* LexCsound.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 084905F607BCFF71BB0C1EE3 /* LexCsound.cxx */; };
-		28D9D013233CFC66D421240D /* LexD.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2D6AC887C0B5C6813F1C9 /* LexD.cxx */; };
-		D52061A8DFC11987D9EEB873 /* LexDMAP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8A779D9868F4FE60974828B5 /* LexDMAP.cxx */; };
-		7238F9DD9B11C0581DEFFE8B /* LexDMIS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D399D6973C726EABBA9BD7E1 /* LexDMIS.cxx */; };
-		EDB879C830DD7A2543BB1477 /* LexDart.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9E59FF7996902D258FDCA97C /* LexDart.cxx */; };
-		46DD55277B9C19E21DD6FC96 /* LexDataflex.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 82957501439250CA39767860 /* LexDataflex.cxx */; };
-		CC0603EA0F04C3F29D37F991 /* LexDiff.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4677573D5A33FFBF62333310 /* LexDiff.cxx */; };
-		F3141E71B85312B1E1212C1F /* LexECL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7310708A9F76CD17804AD052 /* LexECL.cxx */; };
-		1B712FB70C819653059652F2 /* LexEDIFACT.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3C8FC168305D8FA8461095F4 /* LexEDIFACT.cxx */; };
-		18F45E4ED1B8E2BD0709A7C5 /* LexEScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 19061C5221BE16FCDE0A8618 /* LexEScript.cxx */; };
-		DAE7D8F2E5D61A8AC3F6C87B /* LexEiffel.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0869B79C1857998366DCDBAA /* LexEiffel.cxx */; };
-		A3FE076AC29F17FC96D80292 /* LexErlang.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 50077F427C68341E900A530F /* LexErlang.cxx */; };
-		EA319F36F121020AA04C553D /* LexErrorList.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 91659F5A488CEE2527E44636 /* LexErrorList.cxx */; };
-		3E5012BAC47D8D218AFFD4E2 /* LexEscSeq.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E8D96BBA386AF8FF900E5 /* LexEscSeq.cxx */; };
-		939BCDA45EA0A6FDD9FF36D3 /* LexFSharp.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2B1A05B95F6D280CA345A /* LexFSharp.cxx */; };
-		14BB3D3586D7E1F65148A2FF /* LexFlagship.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 398191202B1B5E469594B3B1 /* LexFlagship.cxx */; };
-		20B78ECD356CEDA2DA9EB5F5 /* LexForth.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 02C34A069C3282EC7C076419 /* LexForth.cxx */; };
-		64C99DB29C12D4790905602E /* LexFortran.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C8E8A45B11A94D710070DF2F /* LexFortran.cxx */; };
-		D614A698197078F1ADE420C7 /* LexGAP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B159AE77C8A14EE0643D53BD /* LexGAP.cxx */; };
-		1BD6EAED61A2CFE6F8AFF059 /* LexGDScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 387EE70FC8C14D312D8AB875 /* LexGDScript.cxx */; };
-		62615D1D870CCBF660FC44CF /* LexGui4Cli.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E44BEC19B9D25AE464C4F4D5 /* LexGui4Cli.cxx */; };
-		F030205BB3DDC19A255DB2F5 /* LexHTML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 34775F59A5E987B71514340F /* LexHTML.cxx */; };
-		ADF0A8299B537A94334BE680 /* LexHaskell.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 22643ADBC756E30715B1B69E /* LexHaskell.cxx */; };
-		2D4053F511E6BE80B906739C /* LexHex.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 927E2B2D160A7801E76B920C /* LexHex.cxx */; };
-		FA62ED6232DC03B5066B2CDC /* LexHollywood.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 47A918A1E2260FF49A7D731F /* LexHollywood.cxx */; };
-		978BF3AAE3694FC312469F4D /* LexIndent.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 132A5025C61F84A74C678CF5 /* LexIndent.cxx */; };
-		FC7AA0786840797EB49C9BEC /* LexInno.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A437EA055C8895554C3D3088 /* LexInno.cxx */; };
-		057A175AEF5D8CD89472332B /* LexJSON.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F25CF58B26A1A04D07139EE7 /* LexJSON.cxx */; };
-		0F3F227892CF58517E38D6C2 /* LexJulia.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1D8D3CC2A8C5369DB0FCA619 /* LexJulia.cxx */; };
-		978A718511FAED016F02F458 /* LexKVIrc.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 87CCD90DC69326A045816AD1 /* LexKVIrc.cxx */; };
-		DF47AAF13A2B38CBB53F6A48 /* LexKix.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4D88B2D4D994441DF21DC84B /* LexKix.cxx */; };
-		FC872BED10B005FCF3810681 /* LexLaTeX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1F516CD584A02B34938860B6 /* LexLaTeX.cxx */; };
-		B01163B0CDCF0B4AF80F332C /* LexLisp.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0166D730143BCB3AB17DC60A /* LexLisp.cxx */; };
-		95EC01195C7BA16BDE5044C0 /* LexLout.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8080D38720E4146420BE6D63 /* LexLout.cxx */; };
-		5A70C6DE0C6716352E70C697 /* LexLua.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 91D7BCA6C2944503145E0AC5 /* LexLua.cxx */; };
-		7D3986E063C934C6A2C4E3D7 /* LexMMIXAL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B77EF27977432676047B81B8 /* LexMMIXAL.cxx */; };
-		9237425B69F0B7FE96E3D851 /* LexMPT.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FDB328191C0228B8A1231DD0 /* LexMPT.cxx */; };
-		700FD8D1444EF39CDBCCA692 /* LexMSSQL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B84A82186AB885B2D86E7DA4 /* LexMSSQL.cxx */; };
-		5C25396E766BE340589E081C /* LexMagik.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C653BCD79057C263812194E7 /* LexMagik.cxx */; };
-		DDF38FC3C058D2ECDA8F83A0 /* LexMake.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B73079777CA1E4EA5A65FEE0 /* LexMake.cxx */; };
-		6810D686898651BC1919B549 /* LexMarkdown.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 42E33CC1954419E40706D0E3 /* LexMarkdown.cxx */; };
-		38816222C71CE742BC6CBBFB /* LexMatlab.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A1380891FBBAA19C9877159E /* LexMatlab.cxx */; };
-		3EC9EA695B321E62A71C8EDC /* LexMaxima.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B85895B45660418E06C3FCF7 /* LexMaxima.cxx */; };
-		F1DB1616AA68E4EF1385ABCF /* LexMetapost.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 077C847FA0E08617C641E600 /* LexMetapost.cxx */; };
-		5E8F8D58617509D2DC80951F /* LexModula.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7389DA16D9D79A7BC9E3DF10 /* LexModula.cxx */; };
-		ADA10F559F1D90788046A8DA /* LexMySQL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9D61179CD0E2129F083A19DA /* LexMySQL.cxx */; };
-		3C0EEFD40BEF406FB5E5CFED /* LexNim.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5816A601818FFAC2A2881372 /* LexNim.cxx */; };
-		B83C5EC6B1D7C83A7AE2A81D /* LexNimrod.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E9CD80D8A28AAE573FBAC055 /* LexNimrod.cxx */; };
-		FAAD8E20A6D68DEA39895805 /* LexNix.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B0E1085573231BD7F68C5ADD /* LexNix.cxx */; };
-		22B53CF4F1991B3988BA5744 /* LexNsis.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1BA88E956D1B2AA95552C18C /* LexNsis.cxx */; };
-		B15B4C1673747040E9E4A771 /* LexNull.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 06E1412149750D4CAB631AEA /* LexNull.cxx */; };
-		51BE591474F35BC07C934E16 /* LexOScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 71849361B9B06BA3DA2B5B93 /* LexOScript.cxx */; };
-		D9ACA2A2ACD2CF80EA0D4E01 /* LexObjC.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1FC2F8A4E32B054B6249C /* LexObjC.cxx */; };
-		F4190876BC87016E9F4501E4 /* LexOpal.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6FC137F7766FB863F26E12D1 /* LexOpal.cxx */; };
-		0F817A1E1AEC6417C9AFC60A /* LexPB.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FD58AFA6B2058CAD5DBD4398 /* LexPB.cxx */; };
-		E35894F3688FC31A66A1848F /* LexPLM.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 48515464388FD193B4131621 /* LexPLM.cxx */; };
-		DB616AA9310CC92AC4509338 /* LexPO.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A92AE6BFFA54558A59997984 /* LexPO.cxx */; };
-		B5C0E01A325485E570FDD0C1 /* LexPOV.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 152071333C1EA51DAA41F130 /* LexPOV.cxx */; };
-		74D40CB80FDED1C970046235 /* LexPS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A29AB6F038E1A0FD8A293E7B /* LexPS.cxx */; };
 		01ACB388CE4F6B612AE1CCF2 /* LexPascal.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DE6357845B9CDC149F6F7A83 /* LexPascal.cxx */; };
+		05439B3E1E603126D0DEEB97 /* MainWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57EE216CB8334BE0431CF25A /* MainWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		057A175AEF5D8CD89472332B /* LexJSON.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F25CF58B26A1A04D07139EE7 /* LexJSON.cxx */; };
+		05F1B926FCFEC576D219C4F6 /* LexBullant.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 06F2A9EB49D02B23905911C7 /* LexBullant.cxx */; };
+		069C8CFD9973EA8B0D591776 /* LexScriptol.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 47309D35FFC75B6B2242DB7C /* LexScriptol.cxx */; };
+		07D1C9C5BF0EC30F5B405A20 /* NppLocalizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B47D56253B929897AC4A41 /* NppLocalizer.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		08688EFA9F846037800F320C /* LexTeX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = EDDDC058963844FFE2C5E66B /* LexTeX.cxx */; };
+		08ABCBC2D4981EC1492FDF62 /* LexSmalltalk.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6447FD91EC4C33F694957A9E /* LexSmalltalk.cxx */; };
+		09417B04443023B3DF5EE6CA /* ClipboardHistoryPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5D1277B67E1BAA4D6E1155C /* ClipboardHistoryPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0B3F20F4AA1279E0CF8C6CF8 /* FindWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8DB75FA8E8CF826C3C003985 /* FindWindow.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0B440C1A12C55DDE6B64FC80 /* LexTroff.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CE7AB5B4BEF1347A8F991BAD /* LexTroff.cxx */; };
+		0BB898B75963E8796FABEC20 /* LexRebol.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D4860F17A04CA2A904AF359F /* LexRebol.cxx */; };
+		0BB989D5804AC5764DCBF06E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0498CB56CFF8E79F56B2663F /* AppDelegate.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		0DB667AD74FBDC4E7BF69E75 /* LexAsciidoc.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1D2FF4CB124587FAEB410021 /* LexAsciidoc.cxx */; };
+		0F3F227892CF58517E38D6C2 /* LexJulia.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1D8D3CC2A8C5369DB0FCA619 /* LexJulia.cxx */; };
+		0F817A1E1AEC6417C9AFC60A /* LexPB.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FD58AFA6B2058CAD5DBD4398 /* LexPB.cxx */; };
+		14B09AB691596FADFF64458F /* LexVHDL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = BAFB3E15A7AB59A1864E40AE /* LexVHDL.cxx */; };
+		14BB3D3586D7E1F65148A2FF /* LexFlagship.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 398191202B1B5E469594B3B1 /* LexFlagship.cxx */; };
+		150A97306DBFE577530C5DF1 /* LexASY.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 210E0615B9BFD0AC6CBC51EF /* LexASY.cxx */; };
+		165A7D53A7E433D694E885A1 /* LineMarker.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4C114FC205A1A827053BE17E /* LineMarker.cxx */; };
+		1667DEA925C0976622D1D8C9 /* LexTACL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CE7D08CAAB0019C53BAF4765 /* LexTACL.cxx */; };
+		16AC40CC57650DD03FA4E6BA /* FunctionListPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F916FFF538C4ACF2B9E28D5 /* FunctionListPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		17334CB96A5C506C5C8B5565 /* CharacterType.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2622E2E50B677FFDDEC2992B /* CharacterType.cxx */; };
+		18F45E4ED1B8E2BD0709A7C5 /* LexEScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 19061C5221BE16FCDE0A8618 /* LexEScript.cxx */; };
+		1ACD0189780CE77A0EAF1B9C /* LexRuby.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 68328650E50E20869D41BB97 /* LexRuby.cxx */; };
+		1AEF8FA281228FFD823F2DAC /* MarginView.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C3F0E4837671EA2672640 /* MarginView.cxx */; };
+		1B4070E230968C79ACE5B83F /* LexRegistry.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 18743FB81F41AFE75FDBEBED /* LexRegistry.cxx */; };
+		1B712FB70C819653059652F2 /* LexEDIFACT.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3C8FC168305D8FA8461095F4 /* LexEDIFACT.cxx */; };
+		1BD6EAED61A2CFE6F8AFF059 /* LexGDScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 387EE70FC8C14D312D8AB875 /* LexGDScript.cxx */; };
+		1BF08284BB79A103CF01D6CC /* Lexilla.cxx in Sources */ = {isa = PBXBuildFile; fileRef = EDF216D35B618403C79F7915 /* Lexilla.cxx */; };
+		1D90997DEC48973A1C8453D2 /* LexCPP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 67F5E7CF9AD17508A5EA5B1F /* LexCPP.cxx */; };
+		1E3D5EFBAE0B8D990A404277 /* TabManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 12D940039770E33A05665D24 /* TabManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		1FB7E4A51E547378A416E2D4 /* LexSpecman.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5448EE0A3262275C328FDE5F /* LexSpecman.cxx */; };
+		201C13889D3E19637D86EA10 /* NppThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC88048835A1D415156A85 /* NppThemeManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		20B78ECD356CEDA2DA9EB5F5 /* LexForth.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 02C34A069C3282EC7C076419 /* LexForth.cxx */; };
+		2195AEEDAA13E5B363EEE290 /* LexTxt2tags.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AFBF3B13BC0D00B539C11BE6 /* LexTxt2tags.cxx */; };
+		229D6C21018897623076DD13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E79F0346227E428EF7464E4 /* Cocoa.framework */; };
+		22B53CF4F1991B3988BA5744 /* LexNsis.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1BA88E956D1B2AA95552C18C /* LexNsis.cxx */; };
+		22E45EB891FBCFF6768ECBFE /* ProjectPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = B97029AC0068B2AD3F0A9BB7 /* ProjectPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		22F778AE8BBCB11E435A006F /* MenuBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFEE4746B98F722F41E9A21A /* MenuBuilder.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		243A9673AF55219891258A92 /* CellBuffer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C007F468AB0492F74132D741 /* CellBuffer.cxx */; };
+		24D4AEB5F13431AB22B8D16B /* Indicator.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2493A74012CD0CB3B5B21DBD /* Indicator.cxx */; };
+		25E77D09E9EDB3F3FE612645 /* libscintilla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 039A894A58FBB49AC7AACA11 /* libscintilla.a */; };
+		2624A1F4C0FAD0469751402C /* WordList.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DAFECB37FBFAA24682F7B6DA /* WordList.cxx */; };
+		28D9D013233CFC66D421240D /* LexD.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6BB2D6AC887C0B5C6813F1C9 /* LexD.cxx */; };
+		2AF86CA87E2F74D73FAF02ED /* SidePanelHost.mm in Sources */ = {isa = PBXBuildFile; fileRef = 603CFBAE5CAD302547C050F4 /* SidePanelHost.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		2D16384A82ABC6AEEA70649A /* liblexilla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED8DAF81B7613CA517A4014 /* liblexilla.a */; };
+		2D2AC12B4C2BBB390D6C81DC /* contextMenu.xml in Resources */ = {isa = PBXBuildFile; fileRef = A736D91431E1F61315E34827 /* contextMenu.xml */; };
+		2D4053F511E6BE80B906739C /* LexHex.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 927E2B2D160A7801E76B920C /* LexHex.cxx */; };
+		2FAD81C04BC220F3086E0EF9 /* ColumnEditorPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 063AF1EB6B47F3800C0B0536 /* ColumnEditorPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3136108F1DD223641C7378FB /* Editor.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CA50F6BAAA2058AF0F6EBB9C /* Editor.cxx */; };
+		31CEC62EF04E1EEB905D2004 /* GitPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD6E7547961F8B81FAD3C53B /* GitPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		3248576B1EFFDFA0CB7CF0B7 /* Document.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9CB43934D679C60E700F18B0 /* Document.cxx */; };
+		34FE4049D82B4D0EA3167D67 /* GitHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D356BE2F1D566BC57F3766BE /* GitHelper.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		364B8649CF65E7DE3D0B5AD9 /* LexSML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 49B5468FD6CB87365D894D8B /* LexSML.cxx */; };
+		36FD871370C48D7294DC1980 /* ViewStyle.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 330B040C347711EA44242613 /* ViewStyle.cxx */; };
+		38816222C71CE742BC6CBBFB /* LexMatlab.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A1380891FBBAA19C9877159E /* LexMatlab.cxx */; };
+		3C0EEFD40BEF406FB5E5CFED /* LexNim.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5816A601818FFAC2A2881372 /* LexNim.cxx */; };
+		3E5012BAC47D8D218AFFD4E2 /* LexEscSeq.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E8D96BBA386AF8FF900E5 /* LexEscSeq.cxx */; };
+		3EC9EA695B321E62A71C8EDC /* LexMaxima.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B85895B45660418E06C3FCF7 /* LexMaxima.cxx */; };
+		3F71BAB9222EE80A4C1801ED /* Style.cxx in Sources */ = {isa = PBXBuildFile; fileRef = BBABC329CB618274EADFDFA1 /* Style.cxx */; };
+		402F017714529A2E0B8A3B99 /* PreferencesWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6983A4DDC923353EB4D550AD /* PreferencesWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		4053C15FB72860EE722E6F5C /* XPM.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 865CA5AE9C2322A2AEC89A5E /* XPM.cxx */; };
+		40759CC0EE4DC468C8E6A219 /* PositionCache.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AED431D1BD922C2BFD05DEF7 /* PositionCache.cxx */; };
+		41D38B6EFAE25A70F94381E0 /* LexX12.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 29102B512F0367B45CE285B9 /* LexX12.cxx */; };
+		422A3E99B98508B4F590B30D /* LexStata.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E1DD3E079D51BA3742DCB7D3 /* LexStata.cxx */; };
+		42DF346B605B83A9B033E2F8 /* SearchEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0A443574EA5B67F481D3091 /* SearchEngine.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		431E44FBC9DB09B76A11406A /* LexAU3.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D58A9EFB5CAB76878847F9EF /* LexAU3.cxx */; };
+		4363CD63357E680CC1A5AAB4 /* LexTOML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1E5AB2C601262EB6FF0EEB29 /* LexTOML.cxx */; };
+		455369CE258935CE5D2AE5DB /* Geometry.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5ECDEE3028A1F1D9C453B11C /* Geometry.cxx */; };
+		462CE6240EAB5756B01B1FFA /* LexAbaqus.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9F079CC0A3E300B5FA1BE303 /* LexAbaqus.cxx */; };
+		46DD55277B9C19E21DD6FC96 /* LexDataflex.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 82957501439250CA39767860 /* LexDataflex.cxx */; };
+		47283293B2A207DB2BDA5184 /* LexCLW.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 46D9E67CA035142FB5D94B61 /* LexCLW.cxx */; };
+		4AC66ACAB44A714D6542D0B1 /* UniqueString.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CE7CC6C45115B345639A502C /* UniqueString.cxx */; };
+		4B9AE31B3A371A0ACE6786D9 /* LexSearchResult.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AE488A1DCC7B7FCF40300BD4 /* LexSearchResult.cxx */; };
+		4D2AA042A4CDDF4F0BB62CCB /* LexVB.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 97B8D1FBD13CEAF14BD6785D /* LexVB.cxx */; };
+		4E3F7315748B6B8126A04BBB /* LexAda.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1CAAF5D97DBFFE61ABDE1396 /* LexAda.cxx */; };
 		4E4A0E85BE3C13A811410C3A /* LexPerl.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FFB21E95A66AAA117836CF16 /* LexPerl.cxx */; };
-		F9BC8866111A2662834DE0CF /* LexPowerPro.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0747BA5A2983FBAB94FB2EED /* LexPowerPro.cxx */; };
+		4FD9650C32BAD5E76A88B1A3 /* stylers.model.xml in Resources */ = {isa = PBXBuildFile; fileRef = D5101844F5BE0CFB68F557DB /* stylers.model.xml */; };
+		51BE591474F35BC07C934E16 /* LexOScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 71849361B9B06BA3DA2B5B93 /* LexOScript.cxx */; };
+		5235CB2992FB308C9C68EDA7 /* LexAccessor.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 25CFB3CC951667CE55753C56 /* LexAccessor.cxx */; };
+		535F2F9FA4D780388D59453B /* npp.icns in Resources */ = {isa = PBXBuildFile; fileRef = FAE48F26BFC1B259788EE555 /* npp.icns */; };
+		5434645CE2BF0F75792EABD1 /* LexCoffeeScript.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7BE191BCDD286934AE0B3693 /* LexCoffeeScript.cxx */; };
+		55C40340BC4D5DBC604FC206 /* UniConversion.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 51E55753BEC106BB4A571DCD /* UniConversion.cxx */; };
+		566A4DA28F57988CCEC77B79 /* langs.model.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9ADAC698C5FF0A35B4E0C7ED /* langs.model.xml */; };
+		57FDF6FD6223D2BC1E1BEC16 /* CharClassify.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DD493D81220F3A96495347C0 /* CharClassify.cxx */; };
+		59806CFB70A9AEE7D6BB8467 /* dmg-background.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B24439964F5A6B619ED66FE1 /* dmg-background.tiff */; };
+		5A70C6DE0C6716352E70C697 /* LexLua.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 91D7BCA6C2944503145E0AC5 /* LexLua.cxx */; };
+		5B11B8DC6B5621BBF8FDF886 /* ShortcutMapperWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6DA6877127F200D952F30CA0 /* ShortcutMapperWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		5BB3342EAD1A4BFA06CE5F2B /* LexBibTeX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F9F34415D0C07102AC7FC705 /* LexBibTeX.cxx */; };
+		5C25396E766BE340589E081C /* LexMagik.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C653BCD79057C263812194E7 /* LexMagik.cxx */; };
+		5E8F8D58617509D2DC80951F /* LexModula.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7389DA16D9D79A7BC9E3DF10 /* LexModula.cxx */; };
+		60890816C080A62D3EC4B6DC /* LexerBase.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 380EEE521F045D188ED0E6C5 /* LexerBase.cxx */; };
+		62615D1D870CCBF660FC44CF /* LexGui4Cli.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E44BEC19B9D25AE464C4F4D5 /* LexGui4Cli.cxx */; };
+		64404543F08C5C84EA203711 /* userDefineLangs in Resources */ = {isa = PBXBuildFile; fileRef = 599765A96EA764F56BF7C5E8 /* userDefineLangs */; };
+		64C99DB29C12D4790905602E /* LexFortran.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C8E8A45B11A94D710070DF2F /* LexFortran.cxx */; };
+		658F72BCABA2F0568E894F9F /* Decoration.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 85E3F2C138827EBC871F622E /* Decoration.cxx */; };
+		66DF5B8D8DFF8E420BD9B467 /* FindReplacePanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7B0947421C9E82234EC040F /* FindReplacePanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		67CA5122FD155D377FF94A91 /* ScintillaBase.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 920E0E304D856C57FD7B9F28 /* ScintillaBase.cxx */; };
+		67EFC164DF2F047ABB8943DE /* KeyMap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A489B122A919F3016F5672C2 /* KeyMap.cxx */; };
+		6810D686898651BC1919B549 /* LexMarkdown.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 42E33CC1954419E40706D0E3 /* LexMarkdown.cxx */; };
+		691F2CA8B309CAB2D3D5C7B0 /* LexAsn1.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1689DA2C318FF40300E7E9A6 /* LexAsn1.cxx */; };
+		69A3E28EBBEA95ECC3F8900E /* InList.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9C63C7FE6C195A1F4ECDF7B0 /* InList.cxx */; };
+		6AE5C8DD2575C7ED97796AF0 /* ScintillaView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5858201876D73EBBFFEAD47B /* ScintillaView.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		6E575D77CC37B4AAE7503BFD /* LexRust.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B2DAE63BF95EBF704DF6EEF6 /* LexRust.cxx */; };
+		6EC43DD3B77A0DC7BA65A3BC /* PropSetSimple.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CD7531C1EB23A2EB71025C56 /* PropSetSimple.cxx */; };
+		6F9A2E5725894EA2D621D918 /* LexAVE.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A1EFF5A8C90614BC74D76923 /* LexAVE.cxx */; };
+		6FDD14FDE2A5BD9724C3B98C /* LexSINEX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1AF590137CDEEF0308B0A219 /* LexSINEX.cxx */; };
+		700FD8D1444EF39CDBCCA692 /* LexMSSQL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B84A82186AB885B2D86E7DA4 /* LexMSSQL.cxx */; };
+		7238F9DD9B11C0581DEFFE8B /* LexDMIS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D399D6973C726EABBA9BD7E1 /* LexDMIS.cxx */; };
+		73ED077C17790E31CC975328 /* localization in Resources */ = {isa = PBXBuildFile; fileRef = C8F486569FAB05E7C9AFD26D /* localization */; };
+		74950F4EE1B299B31FD264A4 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 86515D02BD8C006EB7CEDE6A /* themes */; };
+		74D40CB80FDED1C970046235 /* LexPS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A29AB6F038E1A0FD8A293E7B /* LexPS.cxx */; };
+		75C39196C7E1FC1DA4D4EED6 /* UserDefineLangManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 072EB53E1795B8C2D51EE77B /* UserDefineLangManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		76F70372CFE1C546B83C4C04 /* CharacterSet.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C0F98BBDD418A48587021CBF /* CharacterSet.cxx */; };
+		7A7FD4B3568D7F12575527D6 /* InfoBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC571BEF819CCD949DE9FFCD /* InfoBar.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		7C813013164FC2066DBC0A8A /* LexCOBOL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E64E9995EE4BF10FFD2EF602 /* LexCOBOL.cxx */; };
+		7D3986E063C934C6A2C4E3D7 /* LexMMIXAL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B77EF27977432676047B81B8 /* LexMMIXAL.cxx */; };
+		7F0F84B037FB39B3B02EBE47 /* LexTCL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B28AB2071E08DA429657F2A4 /* LexTCL.cxx */; };
+		7FE518273E0A62CF32B1CF13 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 3C52CF850BDCB291172E0C63 /* icons */; };
+		80F36A21A033BB596A3C0D9A /* Accessor.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C54628CD3D94A8668FBCC22C /* Accessor.cxx */; };
+		830A6E93BAD7CFD934DAA54D /* PluginsAdminWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 724F9953627319627E1D3043 /* PluginsAdminWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84148F2F4A694E20FC160EC1 /* LexBasic.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 59FA9B188CD48879DBEB3DE5 /* LexBasic.cxx */; };
+		858E08ACE77B80AC1D1E8C4A /* LexBaan.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 830E0FDFC3E504A742690ADB /* LexBaan.cxx */; };
+		87132C06F9764A681A0D548B /* LexCaml.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 95E10FF6806706EB1E70B057 /* LexCaml.cxx */; };
+		876B2707CF1000B8DC3C97E7 /* FolderTreePanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A846D182941D6D6DED46AD76 /* FolderTreePanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		87961CD0CAA5F2701E227EF9 /* LexYAML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F7749A215884FCD60888F626 /* LexYAML.cxx */; };
+		890A528D8C8FFA2A0CD301E5 /* NppCommandLineParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76526678FD8759DABDC0BA01 /* NppCommandLineParams.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8A6637E57C20F18448862DBB /* LexCrontab.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5E6206B2E7F4FDDE32CE25B /* LexCrontab.cxx */; };
+		8A865AFF455A561DCBD2F648 /* shortcuts.xml in Resources */ = {isa = PBXBuildFile; fileRef = BF8F8AA1D0540A629F497544 /* shortcuts.xml */; };
+		8A89101B2846B91CF32D4964 /* CharacterPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3A343A264E46E9BA13A9562 /* CharacterPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8A8D39E2C39A8CCD547FE79A /* FloatingPanelWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 304EE9AAB231078D386B2C7A /* FloatingPanelWindow.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8C53D593DCBCE4848804B8FF /* SearchResultsPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF0F17C3B6CF5389C4D47B /* SearchResultsPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		8DC727BCB33481A5BDCDCA5D /* RESearch.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 783AB2E65FE261AD2CC380FE /* RESearch.cxx */; };
+		8F76C94B13C2BAD127945728 /* LexTAL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B95E4A063ED6F6C2242C40B3 /* LexTAL.cxx */; };
+		9237425B69F0B7FE96E3D851 /* LexMPT.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FDB328191C0228B8A1231DD0 /* LexMPT.cxx */; };
+		9285C780C716D854FFE94FDB /* PanelFrame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 693C9510F995BC79D7C3F196 /* PanelFrame.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		92A85D618E94CB3A93CA7E24 /* LexRaku.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 123EE70AC6CECB5E76F4661E /* LexRaku.cxx */; };
+		939BCDA45EA0A6FDD9FF36D3 /* LexFSharp.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 2FC2B1A05B95F6D280CA345A /* LexFSharp.cxx */; };
+		95EC01195C7BA16BDE5044C0 /* LexLout.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8080D38720E4146420BE6D63 /* LexLout.cxx */; };
+		968B8A658A29CEE80C9454B6 /* LexCsound.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 084905F607BCFF71BB0C1EE3 /* LexCsound.cxx */; };
+		978A718511FAED016F02F458 /* LexKVIrc.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 87CCD90DC69326A045816AD1 /* LexKVIrc.cxx */; };
+		978BF3AAE3694FC312469F4D /* LexIndent.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 132A5025C61F84A74C678CF5 /* LexIndent.cxx */; };
 		98F4DD33D56C640A59CB7113 /* LexPowerShell.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D095648BB41523E6AE8DE566 /* LexPowerShell.cxx */; };
-		EFC74F939788CFA8AE6405A2 /* LexProgress.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 778B2E65DE726AC2842D2861 /* LexProgress.cxx */; };
-		D0F1D95F75067C8392AE50F2 /* LexProps.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 43F58475C3EE6F1A8D162258 /* LexProps.cxx */; };
+		98FF92997E7967933D7D9D44 /* RunStyles.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C0E4B2A912A5F0FDAB12B97B /* RunStyles.cxx */; };
+		99A2EC0DBA48D96EE1499F5E /* UndoHistory.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7DCBC8AEE38A084360460DA3 /* UndoHistory.cxx */; };
+		9AD50EAF755C29A7353A7881 /* AutoComplete.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3925897B6A9FE9D83C9CD129 /* AutoComplete.cxx */; };
+		9AD766A78BA3BAA733C2193E /* LexerSimple.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FA6DF3B26AA909CA4F24C87C /* LexerSimple.cxx */; };
+		9C58F29B5E95CC68C94A860A /* CaseConvert.cxx in Sources */ = {isa = PBXBuildFile; fileRef = BF1C40DB842E325C4839E991 /* CaseConvert.cxx */; };
+		9D6426A7BE12F7DB0E835481 /* LexConf.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D4F24D245BB1E21554322E0A /* LexConf.cxx */; };
+		A1194B244F46842A239FDDF3 /* LexSQL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E83B39BB1751C67C7A859 /* LexSQL.cxx */; };
+		A179FAAB33B179666DBF8D4A /* LexA68k.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FDD6AC6411DA0C163F95F128 /* LexA68k.cxx */; };
+		A3FE076AC29F17FC96D80292 /* LexErlang.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 50077F427C68341E900A530F /* LexErlang.cxx */; };
+		A9B8AEC824A3FE06C3511065 /* UserDefineDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84723730FADED6A67D5B0619 /* UserDefineDialog.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		AB441AD730C47602B78B4572 /* LexVerilog.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C7AEDEDC5CBADEA372768 /* LexVerilog.cxx */; };
+		AB8D9D77327167C4D6F01B8C /* DBCS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 73D8856E03E7DDA3B2AC9422 /* DBCS.cxx */; };
+		AC3AAE4F689165C877B0440A /* CommandPalettePanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C71EFF0FF9381C0D86C4503 /* CommandPalettePanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		AC4B2016222A23A1D1A9CBFD /* LexSorcus.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F86D2BFE6AD0C103B9874233 /* LexSorcus.cxx */; };
+		ACA7C7DFBEC50273652E05F2 /* LexUser.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3966467086AF299195BABA28 /* LexUser.cxx */; };
+		AD02A43AF1618E1239DF2C95 /* functionList in Resources */ = {isa = PBXBuildFile; fileRef = D4A640DE12680106BBC64F0D /* functionList */; };
+		ADA10F559F1D90788046A8DA /* LexMySQL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9D61179CD0E2129F083A19DA /* LexMySQL.cxx */; };
+		ADF0A8299B537A94334BE680 /* LexHaskell.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 22643ADBC756E30715B1B69E /* LexHaskell.cxx */; };
+		AFC99D7B1C1A3CEF23043AB0 /* ContractionState.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 74992B75405CE3D62C2C6CE8 /* ContractionState.cxx */; };
+		B01163B0CDCF0B4AF80F332C /* LexLisp.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0166D730143BCB3AB17DC60A /* LexLisp.cxx */; };
+		B0270C2F961329C1F6A049A8 /* LexZig.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1CB1D9565617C075DCDB8BD6 /* LexZig.cxx */; };
+		B15B4C1673747040E9E4A771 /* LexNull.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 06E1412149750D4CAB631AEA /* LexNull.cxx */; };
+		B36D9DC598D06C26A12C6DFE /* EditView.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 319A5BAA1FB23A9EB999233B /* EditView.cxx */; };
+		B425E70527517F330D633B5B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC9D7637A362DCC14EB84 /* UniformTypeIdentifiers.framework */; };
+		B5C0E01A325485E570FDD0C1 /* LexPOV.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 152071333C1EA51DAA41F130 /* LexPOV.cxx */; };
+		B62F150492CF5C280F1799E3 /* Selection.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1F214C5FA4C2C6F33FF62E5E /* Selection.cxx */; };
+		B83C5EC6B1D7C83A7AE2A81D /* LexNimrod.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E9CD80D8A28AAE573FBAC055 /* LexNimrod.cxx */; };
+		B8B5EC6BD4FD9E1D29E0D5F1 /* PerLine.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CA54ADE7BC222CC48305CB15 /* PerLine.cxx */; };
+		BACE78066B7F19B8D0D5FADD /* EditorView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C86E0F4C675B9EC224054F28 /* EditorView.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		BEC14ACC74FB12DCFF930018 /* EditModel.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 34A996195BB3B9A7D075AEC6 /* EditModel.cxx */; };
+		BFA4D319B39CF60B3AC922FC /* DocumentMapPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6C662CDC26A9C6351BC3EFC /* DocumentMapPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C10B086D1353271FDB262A3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E0D6B96E2DD40D4E8DE291A /* InfoPlist.strings */; };
+		C260F155FE52D377FD0177B8 /* IncrementalSearchBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 12D9774F4F488FDF0480F1CB /* IncrementalSearchBar.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C3ACB992F6738E50D81CF856 /* NppLangsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EF9A4495D81D4CCE614A39F9 /* NppLangsManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C4D0240E8BE36DD74E2520E8 /* tabContextMenu.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6506C032C8916ACA0F35F5C4 /* tabContextMenu.xml */; };
 		C5644796332FF9DE7C64DE93 /* LexPython.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3271ADD70D43E43F7B9087E0 /* LexPython.cxx */; };
 		C7191E949F42C2BF22BE9C2F /* LexR.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AD75978FE935E6A02260E37A /* LexR.cxx */; };
-		92A85D618E94CB3A93CA7E24 /* LexRaku.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 123EE70AC6CECB5E76F4661E /* LexRaku.cxx */; };
-		0BB898B75963E8796FABEC20 /* LexRebol.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D4860F17A04CA2A904AF359F /* LexRebol.cxx */; };
-		1B4070E230968C79ACE5B83F /* LexRegistry.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 18743FB81F41AFE75FDBEBED /* LexRegistry.cxx */; };
-		1ACD0189780CE77A0EAF1B9C /* LexRuby.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 68328650E50E20869D41BB97 /* LexRuby.cxx */; };
-		6E575D77CC37B4AAE7503BFD /* LexRust.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B2DAE63BF95EBF704DF6EEF6 /* LexRust.cxx */; };
-		CA03F2215014868487D80CE3 /* LexSAS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CD431DC97DCDE1EFB351C /* LexSAS.cxx */; };
-		6FDD14FDE2A5BD9724C3B98C /* LexSINEX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1AF590137CDEEF0308B0A219 /* LexSINEX.cxx */; };
-		364B8649CF65E7DE3D0B5AD9 /* LexSML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 49B5468FD6CB87365D894D8B /* LexSML.cxx */; };
-		A1194B244F46842A239FDDF3 /* LexSQL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9C5E83B39BB1751C67C7A859 /* LexSQL.cxx */; };
-		F891492C6A6221BDE4D284E7 /* LexSTTXT.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DCFD2BC55403BAB6BA1CF /* LexSTTXT.cxx */; };
-		069C8CFD9973EA8B0D591776 /* LexScriptol.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 47309D35FFC75B6B2242DB7C /* LexScriptol.cxx */; };
-		4B9AE31B3A371A0ACE6786D9 /* LexSearchResult.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AE488A1DCC7B7FCF40300BD4 /* LexSearchResult.cxx */; };
-		08ABCBC2D4981EC1492FDF62 /* LexSmalltalk.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6447FD91EC4C33F694957A9E /* LexSmalltalk.cxx */; };
-		AC4B2016222A23A1D1A9CBFD /* LexSorcus.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F86D2BFE6AD0C103B9874233 /* LexSorcus.cxx */; };
-		1FB7E4A51E547378A416E2D4 /* LexSpecman.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5448EE0A3262275C328FDE5F /* LexSpecman.cxx */; };
-		EAC0CE19F300E91F34F3FF2D /* LexSpice.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B17FEA8A60058E182DE59195 /* LexSpice.cxx */; };
-		422A3E99B98508B4F590B30D /* LexStata.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E1DD3E079D51BA3742DCB7D3 /* LexStata.cxx */; };
-		1667DEA925C0976622D1D8C9 /* LexTACL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CE7D08CAAB0019C53BAF4765 /* LexTACL.cxx */; };
-		CBD0616007BCA5485C931DE7 /* LexTADS3.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C0A0E83F5ED4D1B1AD70956B /* LexTADS3.cxx */; };
-		8F76C94B13C2BAD127945728 /* LexTAL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B95E4A063ED6F6C2242C40B3 /* LexTAL.cxx */; };
-		7F0F84B037FB39B3B02EBE47 /* LexTCL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B28AB2071E08DA429657F2A4 /* LexTCL.cxx */; };
-		E86C9295BFB3E4FBEECEF105 /* LexTCMD.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 938CAE24F6E9A920A712746A /* LexTCMD.cxx */; };
-		4363CD63357E680CC1A5AAB4 /* LexTOML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1E5AB2C601262EB6FF0EEB29 /* LexTOML.cxx */; };
-		08688EFA9F846037800F320C /* LexTeX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = EDDDC058963844FFE2C5E66B /* LexTeX.cxx */; };
-		0B440C1A12C55DDE6B64FC80 /* LexTroff.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CE7AB5B4BEF1347A8F991BAD /* LexTroff.cxx */; };
-		2195AEEDAA13E5B363EEE290 /* LexTxt2tags.cxx in Sources */ = {isa = PBXBuildFile; fileRef = AFBF3B13BC0D00B539C11BE6 /* LexTxt2tags.cxx */; };
-		4D2AA042A4CDDF4F0BB62CCB /* LexVB.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 97B8D1FBD13CEAF14BD6785D /* LexVB.cxx */; };
-		14B09AB691596FADFF64458F /* LexVHDL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = BAFB3E15A7AB59A1864E40AE /* LexVHDL.cxx */; };
-		AB441AD730C47602B78B4572 /* LexVerilog.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4D0C7AEDEDC5CBADEA372768 /* LexVerilog.cxx */; };
-		F88B4CF3A5B18CBD6C5D8EEF /* LexVisualProlog.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5153BD03FCA25D360574505 /* LexVisualProlog.cxx */; };
-		41D38B6EFAE25A70F94381E0 /* LexX12.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 29102B512F0367B45CE285B9 /* LexX12.cxx */; };
-		87961CD0CAA5F2701E227EF9 /* LexYAML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = F7749A215884FCD60888F626 /* LexYAML.cxx */; };
-		B0270C2F961329C1F6A049A8 /* LexZig.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1CB1D9565617C075DCDB8BD6 /* LexZig.cxx */; };
-		80F36A21A033BB596A3C0D9A /* Accessor.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C54628CD3D94A8668FBCC22C /* Accessor.cxx */; };
-		DB39B064D4BD0FB57A917D33 /* CharacterCategory.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 10F54C37F356BA8FE6E3D019 /* CharacterCategory.cxx */; };
-		76F70372CFE1C546B83C4C04 /* CharacterSet.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C0F98BBDD418A48587021CBF /* CharacterSet.cxx */; };
-		E57B4CDD5ACECC5191BE4F57 /* DefaultLexer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E5C82DF42A68812E7F9D33DF /* DefaultLexer.cxx */; };
-		69A3E28EBBEA95ECC3F8900E /* InList.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9C63C7FE6C195A1F4ECDF7B0 /* InList.cxx */; };
-		5235CB2992FB308C9C68EDA7 /* LexAccessor.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 25CFB3CC951667CE55753C56 /* LexAccessor.cxx */; };
-		60890816C080A62D3EC4B6DC /* LexerBase.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 380EEE521F045D188ED0E6C5 /* LexerBase.cxx */; };
-		F47FC2F99427231BBCF92FF9 /* LexerModule.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6B72783FDA0016E5833B989D /* LexerModule.cxx */; };
-		9AD766A78BA3BAA733C2193E /* LexerSimple.cxx in Sources */ = {isa = PBXBuildFile; fileRef = FA6DF3B26AA909CA4F24C87C /* LexerSimple.cxx */; };
-		6EC43DD3B77A0DC7BA65A3BC /* PropSetSimple.cxx in Sources */ = {isa = PBXBuildFile; fileRef = CD7531C1EB23A2EB71025C56 /* PropSetSimple.cxx */; };
-		E5C47D65E146E679865CECCF /* StyleContext.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8300D7F653BFA6CCB0523A30 /* StyleContext.cxx */; };
-		2624A1F4C0FAD0469751402C /* WordList.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DAFECB37FBFAA24682F7B6DA /* WordList.cxx */; };
-		ACA7C7DFBEC50273652E05F2 /* LexUser.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3966467086AF299195BABA28 /* LexUser.cxx */; };
-		D85B1F30EA7C29CEB02C84F6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F162AE70453A241902071821 /* main.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C937EC7DF3AB41718253519A /* NppApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD706036BCBD9883BA0477BF /* NppApplication.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		201C13889D3E19637D86EA10 /* NppThemeManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7ABC88048835A1D415156A85 /* NppThemeManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		890A528D8C8FFA2A0CD301E5 /* NppCommandLineParams.mm in Sources */ = {isa = PBXBuildFile; fileRef = 76526678FD8759DABDC0BA01 /* NppCommandLineParams.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		5B11B8DC6B5621BBF8FDF886 /* ShortcutMapperWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6DA6877127F200D952F30CA0 /* ShortcutMapperWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		07D1C9C5BF0EC30F5B405A20 /* NppLocalizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 77B47D56253B929897AC4A41 /* NppLocalizer.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C3ACB992F6738E50D81CF856 /* NppLangsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EF9A4495D81D4CCE614A39F9 /* NppLangsManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		0BB989D5804AC5764DCBF06E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0498CB56CFF8E79F56B2663F /* AppDelegate.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		05439B3E1E603126D0DEEB97 /* MainWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 57EE216CB8334BE0431CF25A /* MainWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		BACE78066B7F19B8D0D5FADD /* EditorView.mm in Sources */ = {isa = PBXBuildFile; fileRef = C86E0F4C675B9EC224054F28 /* EditorView.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		1E3D5EFBAE0B8D990A404277 /* TabManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 12D940039770E33A05665D24 /* TabManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C8C77069CF40B525D5B35378 /* NppTabBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B2DB48A52D5E2F0D8D24EBC /* NppTabBar.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		22F778AE8BBCB11E435A006F /* MenuBuilder.mm in Sources */ = {isa = PBXBuildFile; fileRef = EFEE4746B98F722F41E9A21A /* MenuBuilder.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		66DF5B8D8DFF8E420BD9B467 /* FindReplacePanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = F7B0947421C9E82234EC040F /* FindReplacePanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		2FAD81C04BC220F3086E0EF9 /* ColumnEditorPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 063AF1EB6B47F3800C0B0536 /* ColumnEditorPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		402F017714529A2E0B8A3B99 /* PreferencesWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6983A4DDC923353EB4D550AD /* PreferencesWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		2AF86CA87E2F74D73FAF02ED /* SidePanelHost.mm in Sources */ = {isa = PBXBuildFile; fileRef = 603CFBAE5CAD302547C050F4 /* SidePanelHost.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		9285C780C716D854FFE94FDB /* PanelFrame.mm in Sources */ = {isa = PBXBuildFile; fileRef = 693C9510F995BC79D7C3F196 /* PanelFrame.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8A8D39E2C39A8CCD547FE79A /* FloatingPanelWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 304EE9AAB231078D386B2C7A /* FloatingPanelWindow.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		CEE361B7642E248EDF22E7A4 /* DocumentListPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C88DAFCEAD5548CFCB07F14 /* DocumentListPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		09417B04443023B3DF5EE6CA /* ClipboardHistoryPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A5D1277B67E1BAA4D6E1155C /* ClipboardHistoryPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		16AC40CC57650DD03FA4E6BA /* FunctionListPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7F916FFF538C4ACF2B9E28D5 /* FunctionListPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		BFA4D319B39CF60B3AC922FC /* DocumentMapPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6C662CDC26A9C6351BC3EFC /* DocumentMapPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		22E45EB891FBCFF6768ECBFE /* ProjectPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = B97029AC0068B2AD3F0A9BB7 /* ProjectPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		42DF346B605B83A9B033E2F8 /* SearchEngine.mm in Sources */ = {isa = PBXBuildFile; fileRef = D0A443574EA5B67F481D3091 /* SearchEngine.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8C53D593DCBCE4848804B8FF /* SearchResultsPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9BEF0F17C3B6CF5389C4D47B /* SearchResultsPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		0B3F20F4AA1279E0CF8C6CF8 /* FindWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8DB75FA8E8CF826C3C003985 /* FindWindow.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C9FD0CC9B50DD4A5DF0DF323 /* StyleConfiguratorWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D809A2E504B911159FCEFB31 /* StyleConfiguratorWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		C260F155FE52D377FD0177B8 /* IncrementalSearchBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 12D9774F4F488FDF0480F1CB /* IncrementalSearchBar.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		AC3AAE4F689165C877B0440A /* CommandPalettePanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C71EFF0FF9381C0D86C4503 /* CommandPalettePanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		34FE4049D82B4D0EA3167D67 /* GitHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = D356BE2F1D566BC57F3766BE /* GitHelper.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		31CEC62EF04E1EEB905D2004 /* GitPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = BD6E7547961F8B81FAD3C53B /* GitPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		876B2707CF1000B8DC3C97E7 /* FolderTreePanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = A846D182941D6D6DED46AD76 /* FolderTreePanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		8A89101B2846B91CF32D4964 /* CharacterPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3A343A264E46E9BA13A9562 /* CharacterPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		75C39196C7E1FC1DA4D4EED6 /* UserDefineLangManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 072EB53E1795B8C2D51EE77B /* UserDefineLangManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		A9B8AEC824A3FE06C3511065 /* UserDefineDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84723730FADED6A67D5B0619 /* UserDefineDialog.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		CD234CF8D211E57BD4A40883 /* UDLStylerDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE5536464051678A7EFB68F /* UDLStylerDialog.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		D7F402BF99D2110049AE1B06 /* NppPluginManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF41E5D66AD1CD4B2A95C2 /* NppPluginManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		830A6E93BAD7CFD934DAA54D /* PluginsAdminWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 724F9953627319627E1D3043 /* PluginsAdminWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		229D6C21018897623076DD13 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E79F0346227E428EF7464E4 /* Cocoa.framework */; };
 		C740DED184CDA84FC8DF30AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D624C4BDCF068BBAE078E06 /* QuartzCore.framework */; };
-		B425E70527517F330D633B5B /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002EC9D7637A362DCC14EB84 /* UniformTypeIdentifiers.framework */; };
-		25E77D09E9EDB3F3FE612645 /* libscintilla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 039A894A58FBB49AC7AACA11 /* libscintilla.a */; };
-		2D16384A82ABC6AEEA70649A /* liblexilla.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ED8DAF81B7613CA517A4014 /* liblexilla.a */; };
-		535F2F9FA4D780388D59453B /* npp.icns in Resources */ = {isa = PBXBuildFile; fileRef = FAE48F26BFC1B259788EE555 /* npp.icns */; };
-		4FD9650C32BAD5E76A88B1A3 /* stylers.model.xml in Resources */ = {isa = PBXBuildFile; fileRef = D5101844F5BE0CFB68F557DB /* stylers.model.xml */; };
-		566A4DA28F57988CCEC77B79 /* langs.model.xml in Resources */ = {isa = PBXBuildFile; fileRef = 9ADAC698C5FF0A35B4E0C7ED /* langs.model.xml */; };
-		8A865AFF455A561DCBD2F648 /* shortcuts.xml in Resources */ = {isa = PBXBuildFile; fileRef = BF8F8AA1D0540A629F497544 /* shortcuts.xml */; };
-		2D2AC12B4C2BBB390D6C81DC /* contextMenu.xml in Resources */ = {isa = PBXBuildFile; fileRef = A736D91431E1F61315E34827 /* contextMenu.xml */; };
-		C4D0240E8BE36DD74E2520E8 /* tabContextMenu.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6506C032C8916ACA0F35F5C4 /* tabContextMenu.xml */; };
+		C8C77069CF40B525D5B35378 /* NppTabBar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B2DB48A52D5E2F0D8D24EBC /* NppTabBar.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C937EC7DF3AB41718253519A /* NppApplication.mm in Sources */ = {isa = PBXBuildFile; fileRef = DD706036BCBD9883BA0477BF /* NppApplication.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		C9FD0CC9B50DD4A5DF0DF323 /* StyleConfiguratorWindowController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D809A2E504B911159FCEFB31 /* StyleConfiguratorWindowController.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CA03F2215014868487D80CE3 /* LexSAS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CD431DC97DCDE1EFB351C /* LexSAS.cxx */; };
+		CAD14F0B624F565EFDC9305F /* LexCSS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 399C73AAEC4D87A9EC305BE0 /* LexCSS.cxx */; };
+		CB393BF3B9B48A0EB5EAFA06 /* CaseFolder.cxx in Sources */ = {isa = PBXBuildFile; fileRef = EB1E768B0CAE3436C27C5C60 /* CaseFolder.cxx */; };
+		CBD0616007BCA5485C931DE7 /* LexTADS3.cxx in Sources */ = {isa = PBXBuildFile; fileRef = C0A0E83F5ED4D1B1AD70956B /* LexTADS3.cxx */; };
+		CC0603EA0F04C3F29D37F991 /* LexDiff.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4677573D5A33FFBF62333310 /* LexDiff.cxx */; };
+		CD234CF8D211E57BD4A40883 /* UDLStylerDialog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8BE5536464051678A7EFB68F /* UDLStylerDialog.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		CEE361B7642E248EDF22E7A4 /* DocumentListPanel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C88DAFCEAD5548CFCB07F14 /* DocumentListPanel.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D0F1D95F75067C8392AE50F2 /* LexProps.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 43F58475C3EE6F1A8D162258 /* LexProps.cxx */; };
+		D40C2A5CF0B1981A815C9E52 /* PlatCocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 11F22E48281C20778223A6B6 /* PlatCocoa.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D52061A8DFC11987D9EEB873 /* LexDMAP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8A779D9868F4FE60974828B5 /* LexDMAP.cxx */; };
+		D5D664115EE22A5EDD65959D /* LexAPDL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D8BD7AB6B8CA78ABE4CC9 /* LexAPDL.cxx */; };
+		D614A698197078F1ADE420C7 /* LexGAP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B159AE77C8A14EE0643D53BD /* LexGAP.cxx */; };
+		D7F402BF99D2110049AE1B06 /* NppPluginManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF41E5D66AD1CD4B2A95C2 /* NppPluginManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D85B1F30EA7C29CEB02C84F6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F162AE70453A241902071821 /* main.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		D94F924A4E82D9CE79D7DCCD /* LexCmake.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D876BB791FCAF6E3E41874FA /* LexCmake.cxx */; };
+		D9ACA2A2ACD2CF80EA0D4E01 /* LexObjC.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0FC1FC2F8A4E32B054B6249C /* LexObjC.cxx */; };
+		DAE7D8F2E5D61A8AC3F6C87B /* LexEiffel.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0869B79C1857998366DCDBAA /* LexEiffel.cxx */; };
+		DB39B064D4BD0FB57A917D33 /* CharacterCategory.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 10F54C37F356BA8FE6E3D019 /* CharacterCategory.cxx */; };
+		DB616AA9310CC92AC4509338 /* LexPO.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A92AE6BFFA54558A59997984 /* LexPO.cxx */; };
+		DDF38FC3C058D2ECDA8F83A0 /* LexMake.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B73079777CA1E4EA5A65FEE0 /* LexMake.cxx */; };
+		DE76429B967E139EA2140023 /* CallTip.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0CE1A6FAF83F740BFE54C20C /* CallTip.cxx */; };
+		DF47AAF13A2B38CBB53F6A48 /* LexKix.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 4D88B2D4D994441DF21DC84B /* LexKix.cxx */; };
+		E35894F3688FC31A66A1848F /* LexPLM.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 48515464388FD193B4131621 /* LexPLM.cxx */; };
+		E4A1BE8796399CE624456D6F /* LexCIL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 870E4C9B50DD1774BB7F28EB /* LexCIL.cxx */; };
+		E57B4CDD5ACECC5191BE4F57 /* DefaultLexer.cxx in Sources */ = {isa = PBXBuildFile; fileRef = E5C82DF42A68812E7F9D33DF /* DefaultLexer.cxx */; };
+		E5C47D65E146E679865CECCF /* StyleContext.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8300D7F653BFA6CCB0523A30 /* StyleContext.cxx */; };
+		E86C9295BFB3E4FBEECEF105 /* LexTCMD.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 938CAE24F6E9A920A712746A /* LexTCMD.cxx */; };
+		EA319F36F121020AA04C553D /* LexErrorList.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 91659F5A488CEE2527E44636 /* LexErrorList.cxx */; };
+		EAC0CE19F300E91F34F3FF2D /* LexSpice.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B17FEA8A60058E182DE59195 /* LexSpice.cxx */; };
+		EDB879C830DD7A2543BB1477 /* LexDart.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9E59FF7996902D258FDCA97C /* LexDart.cxx */; };
+		EE81DB0E5558B5B436FF8386 /* LexBatch.cxx in Sources */ = {isa = PBXBuildFile; fileRef = DB277BAFFC650184D3C4C57C /* LexBatch.cxx */; };
+		EFC74F939788CFA8AE6405A2 /* LexProgress.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 778B2E65DE726AC2842D2861 /* LexProgress.cxx */; };
+		F030205BB3DDC19A255DB2F5 /* LexHTML.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 34775F59A5E987B71514340F /* LexHTML.cxx */; };
+		F1DB1616AA68E4EF1385ABCF /* LexMetapost.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 077C847FA0E08617C641E600 /* LexMetapost.cxx */; };
+		F3141E71B85312B1E1212C1F /* LexECL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 7310708A9F76CD17804AD052 /* LexECL.cxx */; };
+		F3BF688D6E0A4E318DF87EA7 /* LexAVS.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B896F64C13CE4B10499F4FBB /* LexAVS.cxx */; };
+		F4190876BC87016E9F4501E4 /* LexOpal.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6FC137F7766FB863F26E12D1 /* LexOpal.cxx */; };
+		F47FC2F99427231BBCF92FF9 /* LexerModule.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 6B72783FDA0016E5833B989D /* LexerModule.cxx */; };
+		F5DD4C41B4DAF0236DC2AD60 /* CharacterCategoryMap.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 403BDCCC8D3F847006C212FF /* CharacterCategoryMap.cxx */; };
+		F722C740C6870CA08C0E4923 /* ScintillaCocoa.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61365D287763240FB993779E /* ScintillaCocoa.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		F7FDCC1DBE3B5F89AEFA5AF4 /* LexBash.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 38A0CC1826F2005E6654E00B /* LexBash.cxx */; };
+		F8379FBF04B62BAF9B7F042F /* LexAsm.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 68BE9E2C945424D88D40BDAB /* LexAsm.cxx */; };
+		F88B4CF3A5B18CBD6C5D8EEF /* LexVisualProlog.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B5153BD03FCA25D360574505 /* LexVisualProlog.cxx */; };
+		F891492C6A6221BDE4D284E7 /* LexSTTXT.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 3E2DCFD2BC55403BAB6BA1CF /* LexSTTXT.cxx */; };
+		F9BC8866111A2662834DE0CF /* LexPowerPro.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 0747BA5A2983FBAB94FB2EED /* LexPowerPro.cxx */; };
+		FA62ED6232DC03B5066B2CDC /* LexHollywood.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 47A918A1E2260FF49A7D731F /* LexHollywood.cxx */; };
+		FAAD8E20A6D68DEA39895805 /* LexNix.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B0E1085573231BD7F68C5ADD /* LexNix.cxx */; };
+		FC7AA0786840797EB49C9BEC /* LexInno.cxx in Sources */ = {isa = PBXBuildFile; fileRef = A437EA055C8895554C3D3088 /* LexInno.cxx */; };
+		FC872BED10B005FCF3810681 /* LexLaTeX.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 1F516CD584A02B34938860B6 /* LexLaTeX.cxx */; };
+		FD9F7C08050592F4D7B5262A /* ChangeHistory.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 9270F014A99266F8298B6F95 /* ChangeHistory.cxx */; };
 		FE9B0051F55CE815FC0CB658 /* toolbarButtonsConf.xml in Resources */ = {isa = PBXBuildFile; fileRef = 72F1E267265623785B80DCE9 /* toolbarButtonsConf.xml */; };
-		59806CFB70A9AEE7D6BB8467 /* dmg-background.tiff in Resources */ = {isa = PBXBuildFile; fileRef = B24439964F5A6B619ED66FE1 /* dmg-background.tiff */; };
-		7FE518273E0A62CF32B1CF13 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 3C52CF850BDCB291172E0C63 /* icons */; };
-		74950F4EE1B299B31FD264A4 /* themes in Resources */ = {isa = PBXBuildFile; fileRef = 86515D02BD8C006EB7CEDE6A /* themes */; };
-		73ED077C17790E31CC975328 /* localization in Resources */ = {isa = PBXBuildFile; fileRef = C8F486569FAB05E7C9AFD26D /* localization */; };
-		AD02A43AF1618E1239DF2C95 /* functionList in Resources */ = {isa = PBXBuildFile; fileRef = D4A640DE12680106BBC64F0D /* functionList */; };
-		64404543F08C5C84EA203711 /* userDefineLangs in Resources */ = {isa = PBXBuildFile; fileRef = 599765A96EA764F56BF7C5E8 /* userDefineLangs */; };
-		C10B086D1353271FDB262A3D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E0D6B96E2DD40D4E8DE291A /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,246 +263,258 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FDD6AC6411DA0C163F95F128 /* LexA68k.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexA68k.cxx; path = lexilla/lexers/LexA68k.cxx; sourceTree = SOURCE_ROOT; };
-		5F6D8BD7AB6B8CA78ABE4CC9 /* LexAPDL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAPDL.cxx; path = lexilla/lexers/LexAPDL.cxx; sourceTree = SOURCE_ROOT; };
-		210E0615B9BFD0AC6CBC51EF /* LexASY.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexASY.cxx; path = lexilla/lexers/LexASY.cxx; sourceTree = SOURCE_ROOT; };
-		D58A9EFB5CAB76878847F9EF /* LexAU3.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAU3.cxx; path = lexilla/lexers/LexAU3.cxx; sourceTree = SOURCE_ROOT; };
-		A1EFF5A8C90614BC74D76923 /* LexAVE.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAVE.cxx; path = lexilla/lexers/LexAVE.cxx; sourceTree = SOURCE_ROOT; };
-		B896F64C13CE4B10499F4FBB /* LexAVS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAVS.cxx; path = lexilla/lexers/LexAVS.cxx; sourceTree = SOURCE_ROOT; };
-		9F079CC0A3E300B5FA1BE303 /* LexAbaqus.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAbaqus.cxx; path = lexilla/lexers/LexAbaqus.cxx; sourceTree = SOURCE_ROOT; };
-		1CAAF5D97DBFFE61ABDE1396 /* LexAda.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAda.cxx; path = lexilla/lexers/LexAda.cxx; sourceTree = SOURCE_ROOT; };
-		1D2FF4CB124587FAEB410021 /* LexAsciidoc.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAsciidoc.cxx; path = lexilla/lexers/LexAsciidoc.cxx; sourceTree = SOURCE_ROOT; };
-		68BE9E2C945424D88D40BDAB /* LexAsm.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAsm.cxx; path = lexilla/lexers/LexAsm.cxx; sourceTree = SOURCE_ROOT; };
-		1689DA2C318FF40300E7E9A6 /* LexAsn1.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAsn1.cxx; path = lexilla/lexers/LexAsn1.cxx; sourceTree = SOURCE_ROOT; };
-		830E0FDFC3E504A742690ADB /* LexBaan.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBaan.cxx; path = lexilla/lexers/LexBaan.cxx; sourceTree = SOURCE_ROOT; };
-		38A0CC1826F2005E6654E00B /* LexBash.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBash.cxx; path = lexilla/lexers/LexBash.cxx; sourceTree = SOURCE_ROOT; };
-		59FA9B188CD48879DBEB3DE5 /* LexBasic.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBasic.cxx; path = lexilla/lexers/LexBasic.cxx; sourceTree = SOURCE_ROOT; };
-		DB277BAFFC650184D3C4C57C /* LexBatch.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBatch.cxx; path = lexilla/lexers/LexBatch.cxx; sourceTree = SOURCE_ROOT; };
-		F9F34415D0C07102AC7FC705 /* LexBibTeX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBibTeX.cxx; path = lexilla/lexers/LexBibTeX.cxx; sourceTree = SOURCE_ROOT; };
-		06F2A9EB49D02B23905911C7 /* LexBullant.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBullant.cxx; path = lexilla/lexers/LexBullant.cxx; sourceTree = SOURCE_ROOT; };
-		870E4C9B50DD1774BB7F28EB /* LexCIL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCIL.cxx; path = lexilla/lexers/LexCIL.cxx; sourceTree = SOURCE_ROOT; };
-		46D9E67CA035142FB5D94B61 /* LexCLW.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCLW.cxx; path = lexilla/lexers/LexCLW.cxx; sourceTree = SOURCE_ROOT; };
-		E64E9995EE4BF10FFD2EF602 /* LexCOBOL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCOBOL.cxx; path = lexilla/lexers/LexCOBOL.cxx; sourceTree = SOURCE_ROOT; };
-		67F5E7CF9AD17508A5EA5B1F /* LexCPP.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCPP.cxx; path = lexilla/lexers/LexCPP.cxx; sourceTree = SOURCE_ROOT; };
-		399C73AAEC4D87A9EC305BE0 /* LexCSS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCSS.cxx; path = lexilla/lexers/LexCSS.cxx; sourceTree = SOURCE_ROOT; };
-		95E10FF6806706EB1E70B057 /* LexCaml.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCaml.cxx; path = lexilla/lexers/LexCaml.cxx; sourceTree = SOURCE_ROOT; };
-		D876BB791FCAF6E3E41874FA /* LexCmake.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCmake.cxx; path = lexilla/lexers/LexCmake.cxx; sourceTree = SOURCE_ROOT; };
-		7BE191BCDD286934AE0B3693 /* LexCoffeeScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCoffeeScript.cxx; path = lexilla/lexers/LexCoffeeScript.cxx; sourceTree = SOURCE_ROOT; };
-		D4F24D245BB1E21554322E0A /* LexConf.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexConf.cxx; path = lexilla/lexers/LexConf.cxx; sourceTree = SOURCE_ROOT; };
-		B5E6206B2E7F4FDDE32CE25B /* LexCrontab.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCrontab.cxx; path = lexilla/lexers/LexCrontab.cxx; sourceTree = SOURCE_ROOT; };
-		084905F607BCFF71BB0C1EE3 /* LexCsound.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCsound.cxx; path = lexilla/lexers/LexCsound.cxx; sourceTree = SOURCE_ROOT; };
-		6BB2D6AC887C0B5C6813F1C9 /* LexD.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexD.cxx; path = lexilla/lexers/LexD.cxx; sourceTree = SOURCE_ROOT; };
-		8A779D9868F4FE60974828B5 /* LexDMAP.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDMAP.cxx; path = lexilla/lexers/LexDMAP.cxx; sourceTree = SOURCE_ROOT; };
-		D399D6973C726EABBA9BD7E1 /* LexDMIS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDMIS.cxx; path = lexilla/lexers/LexDMIS.cxx; sourceTree = SOURCE_ROOT; };
-		9E59FF7996902D258FDCA97C /* LexDart.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDart.cxx; path = lexilla/lexers/LexDart.cxx; sourceTree = SOURCE_ROOT; };
-		82957501439250CA39767860 /* LexDataflex.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDataflex.cxx; path = lexilla/lexers/LexDataflex.cxx; sourceTree = SOURCE_ROOT; };
-		4677573D5A33FFBF62333310 /* LexDiff.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDiff.cxx; path = lexilla/lexers/LexDiff.cxx; sourceTree = SOURCE_ROOT; };
-		7310708A9F76CD17804AD052 /* LexECL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexECL.cxx; path = lexilla/lexers/LexECL.cxx; sourceTree = SOURCE_ROOT; };
-		3C8FC168305D8FA8461095F4 /* LexEDIFACT.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEDIFACT.cxx; path = lexilla/lexers/LexEDIFACT.cxx; sourceTree = SOURCE_ROOT; };
-		19061C5221BE16FCDE0A8618 /* LexEScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEScript.cxx; path = lexilla/lexers/LexEScript.cxx; sourceTree = SOURCE_ROOT; };
-		0869B79C1857998366DCDBAA /* LexEiffel.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEiffel.cxx; path = lexilla/lexers/LexEiffel.cxx; sourceTree = SOURCE_ROOT; };
-		50077F427C68341E900A530F /* LexErlang.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexErlang.cxx; path = lexilla/lexers/LexErlang.cxx; sourceTree = SOURCE_ROOT; };
-		91659F5A488CEE2527E44636 /* LexErrorList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexErrorList.cxx; path = lexilla/lexers/LexErrorList.cxx; sourceTree = SOURCE_ROOT; };
-		0A3E8D96BBA386AF8FF900E5 /* LexEscSeq.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEscSeq.cxx; path = lexilla/lexers/LexEscSeq.cxx; sourceTree = SOURCE_ROOT; };
-		2FC2B1A05B95F6D280CA345A /* LexFSharp.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexFSharp.cxx; path = lexilla/lexers/LexFSharp.cxx; sourceTree = SOURCE_ROOT; };
-		398191202B1B5E469594B3B1 /* LexFlagship.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexFlagship.cxx; path = lexilla/lexers/LexFlagship.cxx; sourceTree = SOURCE_ROOT; };
-		02C34A069C3282EC7C076419 /* LexForth.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexForth.cxx; path = lexilla/lexers/LexForth.cxx; sourceTree = SOURCE_ROOT; };
-		C8E8A45B11A94D710070DF2F /* LexFortran.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexFortran.cxx; path = lexilla/lexers/LexFortran.cxx; sourceTree = SOURCE_ROOT; };
-		B159AE77C8A14EE0643D53BD /* LexGAP.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexGAP.cxx; path = lexilla/lexers/LexGAP.cxx; sourceTree = SOURCE_ROOT; };
-		387EE70FC8C14D312D8AB875 /* LexGDScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexGDScript.cxx; path = lexilla/lexers/LexGDScript.cxx; sourceTree = SOURCE_ROOT; };
-		E44BEC19B9D25AE464C4F4D5 /* LexGui4Cli.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexGui4Cli.cxx; path = lexilla/lexers/LexGui4Cli.cxx; sourceTree = SOURCE_ROOT; };
-		34775F59A5E987B71514340F /* LexHTML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHTML.cxx; path = lexilla/lexers/LexHTML.cxx; sourceTree = SOURCE_ROOT; };
-		22643ADBC756E30715B1B69E /* LexHaskell.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHaskell.cxx; path = lexilla/lexers/LexHaskell.cxx; sourceTree = SOURCE_ROOT; };
-		927E2B2D160A7801E76B920C /* LexHex.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHex.cxx; path = lexilla/lexers/LexHex.cxx; sourceTree = SOURCE_ROOT; };
-		47A918A1E2260FF49A7D731F /* LexHollywood.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHollywood.cxx; path = lexilla/lexers/LexHollywood.cxx; sourceTree = SOURCE_ROOT; };
-		132A5025C61F84A74C678CF5 /* LexIndent.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexIndent.cxx; path = lexilla/lexers/LexIndent.cxx; sourceTree = SOURCE_ROOT; };
-		A437EA055C8895554C3D3088 /* LexInno.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexInno.cxx; path = lexilla/lexers/LexInno.cxx; sourceTree = SOURCE_ROOT; };
-		F25CF58B26A1A04D07139EE7 /* LexJSON.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexJSON.cxx; path = lexilla/lexers/LexJSON.cxx; sourceTree = SOURCE_ROOT; };
-		1D8D3CC2A8C5369DB0FCA619 /* LexJulia.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexJulia.cxx; path = lexilla/lexers/LexJulia.cxx; sourceTree = SOURCE_ROOT; };
-		87CCD90DC69326A045816AD1 /* LexKVIrc.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexKVIrc.cxx; path = lexilla/lexers/LexKVIrc.cxx; sourceTree = SOURCE_ROOT; };
-		4D88B2D4D994441DF21DC84B /* LexKix.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexKix.cxx; path = lexilla/lexers/LexKix.cxx; sourceTree = SOURCE_ROOT; };
-		1F516CD584A02B34938860B6 /* LexLaTeX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLaTeX.cxx; path = lexilla/lexers/LexLaTeX.cxx; sourceTree = SOURCE_ROOT; };
-		0166D730143BCB3AB17DC60A /* LexLisp.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLisp.cxx; path = lexilla/lexers/LexLisp.cxx; sourceTree = SOURCE_ROOT; };
-		8080D38720E4146420BE6D63 /* LexLout.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLout.cxx; path = lexilla/lexers/LexLout.cxx; sourceTree = SOURCE_ROOT; };
-		91D7BCA6C2944503145E0AC5 /* LexLua.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLua.cxx; path = lexilla/lexers/LexLua.cxx; sourceTree = SOURCE_ROOT; };
-		B77EF27977432676047B81B8 /* LexMMIXAL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMMIXAL.cxx; path = lexilla/lexers/LexMMIXAL.cxx; sourceTree = SOURCE_ROOT; };
-		FDB328191C0228B8A1231DD0 /* LexMPT.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMPT.cxx; path = lexilla/lexers/LexMPT.cxx; sourceTree = SOURCE_ROOT; };
-		B84A82186AB885B2D86E7DA4 /* LexMSSQL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMSSQL.cxx; path = lexilla/lexers/LexMSSQL.cxx; sourceTree = SOURCE_ROOT; };
-		C653BCD79057C263812194E7 /* LexMagik.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMagik.cxx; path = lexilla/lexers/LexMagik.cxx; sourceTree = SOURCE_ROOT; };
-		B73079777CA1E4EA5A65FEE0 /* LexMake.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMake.cxx; path = lexilla/lexers/LexMake.cxx; sourceTree = SOURCE_ROOT; };
-		42E33CC1954419E40706D0E3 /* LexMarkdown.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMarkdown.cxx; path = lexilla/lexers/LexMarkdown.cxx; sourceTree = SOURCE_ROOT; };
-		A1380891FBBAA19C9877159E /* LexMatlab.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMatlab.cxx; path = lexilla/lexers/LexMatlab.cxx; sourceTree = SOURCE_ROOT; };
-		B85895B45660418E06C3FCF7 /* LexMaxima.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMaxima.cxx; path = lexilla/lexers/LexMaxima.cxx; sourceTree = SOURCE_ROOT; };
-		077C847FA0E08617C641E600 /* LexMetapost.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMetapost.cxx; path = lexilla/lexers/LexMetapost.cxx; sourceTree = SOURCE_ROOT; };
-		7389DA16D9D79A7BC9E3DF10 /* LexModula.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexModula.cxx; path = lexilla/lexers/LexModula.cxx; sourceTree = SOURCE_ROOT; };
-		9D61179CD0E2129F083A19DA /* LexMySQL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMySQL.cxx; path = lexilla/lexers/LexMySQL.cxx; sourceTree = SOURCE_ROOT; };
-		5816A601818FFAC2A2881372 /* LexNim.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNim.cxx; path = lexilla/lexers/LexNim.cxx; sourceTree = SOURCE_ROOT; };
-		E9CD80D8A28AAE573FBAC055 /* LexNimrod.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNimrod.cxx; path = lexilla/lexers/LexNimrod.cxx; sourceTree = SOURCE_ROOT; };
-		B0E1085573231BD7F68C5ADD /* LexNix.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNix.cxx; path = lexilla/lexers/LexNix.cxx; sourceTree = SOURCE_ROOT; };
-		1BA88E956D1B2AA95552C18C /* LexNsis.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNsis.cxx; path = lexilla/lexers/LexNsis.cxx; sourceTree = SOURCE_ROOT; };
-		06E1412149750D4CAB631AEA /* LexNull.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNull.cxx; path = lexilla/lexers/LexNull.cxx; sourceTree = SOURCE_ROOT; };
-		71849361B9B06BA3DA2B5B93 /* LexOScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexOScript.cxx; path = lexilla/lexers/LexOScript.cxx; sourceTree = SOURCE_ROOT; };
-		0FC1FC2F8A4E32B054B6249C /* LexObjC.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexObjC.cxx; path = lexilla/lexers/LexObjC.cxx; sourceTree = SOURCE_ROOT; };
-		6FC137F7766FB863F26E12D1 /* LexOpal.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexOpal.cxx; path = lexilla/lexers/LexOpal.cxx; sourceTree = SOURCE_ROOT; };
-		FD58AFA6B2058CAD5DBD4398 /* LexPB.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPB.cxx; path = lexilla/lexers/LexPB.cxx; sourceTree = SOURCE_ROOT; };
-		48515464388FD193B4131621 /* LexPLM.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPLM.cxx; path = lexilla/lexers/LexPLM.cxx; sourceTree = SOURCE_ROOT; };
-		A92AE6BFFA54558A59997984 /* LexPO.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPO.cxx; path = lexilla/lexers/LexPO.cxx; sourceTree = SOURCE_ROOT; };
-		152071333C1EA51DAA41F130 /* LexPOV.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPOV.cxx; path = lexilla/lexers/LexPOV.cxx; sourceTree = SOURCE_ROOT; };
-		A29AB6F038E1A0FD8A293E7B /* LexPS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPS.cxx; path = lexilla/lexers/LexPS.cxx; sourceTree = SOURCE_ROOT; };
-		DE6357845B9CDC149F6F7A83 /* LexPascal.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPascal.cxx; path = lexilla/lexers/LexPascal.cxx; sourceTree = SOURCE_ROOT; };
-		FFB21E95A66AAA117836CF16 /* LexPerl.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPerl.cxx; path = lexilla/lexers/LexPerl.cxx; sourceTree = SOURCE_ROOT; };
-		0747BA5A2983FBAB94FB2EED /* LexPowerPro.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPowerPro.cxx; path = lexilla/lexers/LexPowerPro.cxx; sourceTree = SOURCE_ROOT; };
-		D095648BB41523E6AE8DE566 /* LexPowerShell.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPowerShell.cxx; path = lexilla/lexers/LexPowerShell.cxx; sourceTree = SOURCE_ROOT; };
-		778B2E65DE726AC2842D2861 /* LexProgress.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexProgress.cxx; path = lexilla/lexers/LexProgress.cxx; sourceTree = SOURCE_ROOT; };
-		43F58475C3EE6F1A8D162258 /* LexProps.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexProps.cxx; path = lexilla/lexers/LexProps.cxx; sourceTree = SOURCE_ROOT; };
-		3271ADD70D43E43F7B9087E0 /* LexPython.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPython.cxx; path = lexilla/lexers/LexPython.cxx; sourceTree = SOURCE_ROOT; };
-		AD75978FE935E6A02260E37A /* LexR.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexR.cxx; path = lexilla/lexers/LexR.cxx; sourceTree = SOURCE_ROOT; };
-		123EE70AC6CECB5E76F4661E /* LexRaku.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRaku.cxx; path = lexilla/lexers/LexRaku.cxx; sourceTree = SOURCE_ROOT; };
-		D4860F17A04CA2A904AF359F /* LexRebol.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRebol.cxx; path = lexilla/lexers/LexRebol.cxx; sourceTree = SOURCE_ROOT; };
-		18743FB81F41AFE75FDBEBED /* LexRegistry.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRegistry.cxx; path = lexilla/lexers/LexRegistry.cxx; sourceTree = SOURCE_ROOT; };
-		68328650E50E20869D41BB97 /* LexRuby.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRuby.cxx; path = lexilla/lexers/LexRuby.cxx; sourceTree = SOURCE_ROOT; };
-		B2DAE63BF95EBF704DF6EEF6 /* LexRust.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRust.cxx; path = lexilla/lexers/LexRust.cxx; sourceTree = SOURCE_ROOT; };
-		1B1CD431DC97DCDE1EFB351C /* LexSAS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSAS.cxx; path = lexilla/lexers/LexSAS.cxx; sourceTree = SOURCE_ROOT; };
-		1AF590137CDEEF0308B0A219 /* LexSINEX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSINEX.cxx; path = lexilla/lexers/LexSINEX.cxx; sourceTree = SOURCE_ROOT; };
-		49B5468FD6CB87365D894D8B /* LexSML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSML.cxx; path = lexilla/lexers/LexSML.cxx; sourceTree = SOURCE_ROOT; };
-		9C5E83B39BB1751C67C7A859 /* LexSQL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSQL.cxx; path = lexilla/lexers/LexSQL.cxx; sourceTree = SOURCE_ROOT; };
-		3E2DCFD2BC55403BAB6BA1CF /* LexSTTXT.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSTTXT.cxx; path = lexilla/lexers/LexSTTXT.cxx; sourceTree = SOURCE_ROOT; };
-		47309D35FFC75B6B2242DB7C /* LexScriptol.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexScriptol.cxx; path = lexilla/lexers/LexScriptol.cxx; sourceTree = SOURCE_ROOT; };
-		AE488A1DCC7B7FCF40300BD4 /* LexSearchResult.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSearchResult.cxx; path = lexilla/lexers/LexSearchResult.cxx; sourceTree = SOURCE_ROOT; };
-		6447FD91EC4C33F694957A9E /* LexSmalltalk.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSmalltalk.cxx; path = lexilla/lexers/LexSmalltalk.cxx; sourceTree = SOURCE_ROOT; };
-		F86D2BFE6AD0C103B9874233 /* LexSorcus.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSorcus.cxx; path = lexilla/lexers/LexSorcus.cxx; sourceTree = SOURCE_ROOT; };
-		5448EE0A3262275C328FDE5F /* LexSpecman.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSpecman.cxx; path = lexilla/lexers/LexSpecman.cxx; sourceTree = SOURCE_ROOT; };
-		B17FEA8A60058E182DE59195 /* LexSpice.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSpice.cxx; path = lexilla/lexers/LexSpice.cxx; sourceTree = SOURCE_ROOT; };
-		E1DD3E079D51BA3742DCB7D3 /* LexStata.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexStata.cxx; path = lexilla/lexers/LexStata.cxx; sourceTree = SOURCE_ROOT; };
-		CE7D08CAAB0019C53BAF4765 /* LexTACL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTACL.cxx; path = lexilla/lexers/LexTACL.cxx; sourceTree = SOURCE_ROOT; };
-		C0A0E83F5ED4D1B1AD70956B /* LexTADS3.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTADS3.cxx; path = lexilla/lexers/LexTADS3.cxx; sourceTree = SOURCE_ROOT; };
-		B95E4A063ED6F6C2242C40B3 /* LexTAL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTAL.cxx; path = lexilla/lexers/LexTAL.cxx; sourceTree = SOURCE_ROOT; };
-		B28AB2071E08DA429657F2A4 /* LexTCL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTCL.cxx; path = lexilla/lexers/LexTCL.cxx; sourceTree = SOURCE_ROOT; };
-		938CAE24F6E9A920A712746A /* LexTCMD.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTCMD.cxx; path = lexilla/lexers/LexTCMD.cxx; sourceTree = SOURCE_ROOT; };
-		1E5AB2C601262EB6FF0EEB29 /* LexTOML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTOML.cxx; path = lexilla/lexers/LexTOML.cxx; sourceTree = SOURCE_ROOT; };
-		EDDDC058963844FFE2C5E66B /* LexTeX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTeX.cxx; path = lexilla/lexers/LexTeX.cxx; sourceTree = SOURCE_ROOT; };
-		CE7AB5B4BEF1347A8F991BAD /* LexTroff.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTroff.cxx; path = lexilla/lexers/LexTroff.cxx; sourceTree = SOURCE_ROOT; };
-		AFBF3B13BC0D00B539C11BE6 /* LexTxt2tags.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTxt2tags.cxx; path = lexilla/lexers/LexTxt2tags.cxx; sourceTree = SOURCE_ROOT; };
-		97B8D1FBD13CEAF14BD6785D /* LexVB.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVB.cxx; path = lexilla/lexers/LexVB.cxx; sourceTree = SOURCE_ROOT; };
-		BAFB3E15A7AB59A1864E40AE /* LexVHDL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVHDL.cxx; path = lexilla/lexers/LexVHDL.cxx; sourceTree = SOURCE_ROOT; };
-		4D0C7AEDEDC5CBADEA372768 /* LexVerilog.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVerilog.cxx; path = lexilla/lexers/LexVerilog.cxx; sourceTree = SOURCE_ROOT; };
-		B5153BD03FCA25D360574505 /* LexVisualProlog.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVisualProlog.cxx; path = lexilla/lexers/LexVisualProlog.cxx; sourceTree = SOURCE_ROOT; };
-		29102B512F0367B45CE285B9 /* LexX12.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexX12.cxx; path = lexilla/lexers/LexX12.cxx; sourceTree = SOURCE_ROOT; };
-		F7749A215884FCD60888F626 /* LexYAML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexYAML.cxx; path = lexilla/lexers/LexYAML.cxx; sourceTree = SOURCE_ROOT; };
-		1CB1D9565617C075DCDB8BD6 /* LexZig.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexZig.cxx; path = lexilla/lexers/LexZig.cxx; sourceTree = SOURCE_ROOT; };
-		C54628CD3D94A8668FBCC22C /* Accessor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Accessor.cxx; path = lexilla/lexlib/Accessor.cxx; sourceTree = SOURCE_ROOT; };
-		10F54C37F356BA8FE6E3D019 /* CharacterCategory.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterCategory.cxx; path = lexilla/lexlib/CharacterCategory.cxx; sourceTree = SOURCE_ROOT; };
-		C0F98BBDD418A48587021CBF /* CharacterSet.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterSet.cxx; path = lexilla/lexlib/CharacterSet.cxx; sourceTree = SOURCE_ROOT; };
-		E5C82DF42A68812E7F9D33DF /* DefaultLexer.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DefaultLexer.cxx; path = lexilla/lexlib/DefaultLexer.cxx; sourceTree = SOURCE_ROOT; };
-		9C63C7FE6C195A1F4ECDF7B0 /* InList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InList.cxx; path = lexilla/lexlib/InList.cxx; sourceTree = SOURCE_ROOT; };
-		25CFB3CC951667CE55753C56 /* LexAccessor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAccessor.cxx; path = lexilla/lexlib/LexAccessor.cxx; sourceTree = SOURCE_ROOT; };
-		380EEE521F045D188ED0E6C5 /* LexerBase.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexerBase.cxx; path = lexilla/lexlib/LexerBase.cxx; sourceTree = SOURCE_ROOT; };
-		6B72783FDA0016E5833B989D /* LexerModule.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexerModule.cxx; path = lexilla/lexlib/LexerModule.cxx; sourceTree = SOURCE_ROOT; };
-		FA6DF3B26AA909CA4F24C87C /* LexerSimple.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexerSimple.cxx; path = lexilla/lexlib/LexerSimple.cxx; sourceTree = SOURCE_ROOT; };
-		CD7531C1EB23A2EB71025C56 /* PropSetSimple.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PropSetSimple.cxx; path = lexilla/lexlib/PropSetSimple.cxx; sourceTree = SOURCE_ROOT; };
-		8300D7F653BFA6CCB0523A30 /* StyleContext.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = StyleContext.cxx; path = lexilla/lexlib/StyleContext.cxx; sourceTree = SOURCE_ROOT; };
-		DAFECB37FBFAA24682F7B6DA /* WordList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WordList.cxx; path = lexilla/lexlib/WordList.cxx; sourceTree = SOURCE_ROOT; };
-		EDF216D35B618403C79F7915 /* Lexilla.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Lexilla.cxx; path = lexilla/src/Lexilla.cxx; sourceTree = SOURCE_ROOT; };
-		A736D91431E1F61315E34827 /* contextMenu.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = contextMenu.xml; path = resources/contextMenu.xml; sourceTree = SOURCE_ROOT; };
-		B24439964F5A6B619ED66FE1 /* dmg-background.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "dmg-background.tiff"; path = "resources/dmg-background.tiff"; sourceTree = SOURCE_ROOT; };
-		8E0D6B96E2DD40D4E8DE291A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = resources/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
-		D4A640DE12680106BBC64F0D /* functionList */ = {isa = PBXFileReference; lastKnownFileType = folder; name = functionList; path = resources/functionList; sourceTree = SOURCE_ROOT; };
-		3C52CF850BDCB291172E0C63 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = resources/icons; sourceTree = SOURCE_ROOT; };
-		9ADAC698C5FF0A35B4E0C7ED /* langs.model.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = langs.model.xml; path = resources/langs.model.xml; sourceTree = SOURCE_ROOT; };
-		C8F486569FAB05E7C9AFD26D /* localization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = localization; path = resources/localization; sourceTree = SOURCE_ROOT; };
-		FAE48F26BFC1B259788EE555 /* npp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = npp.icns; path = resources/npp.icns; sourceTree = SOURCE_ROOT; };
-		BF8F8AA1D0540A629F497544 /* shortcuts.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = shortcuts.xml; path = resources/shortcuts.xml; sourceTree = SOURCE_ROOT; };
-		D5101844F5BE0CFB68F557DB /* stylers.model.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = stylers.model.xml; path = resources/stylers.model.xml; sourceTree = SOURCE_ROOT; };
-		6506C032C8916ACA0F35F5C4 /* tabContextMenu.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = tabContextMenu.xml; path = resources/tabContextMenu.xml; sourceTree = SOURCE_ROOT; };
-		86515D02BD8C006EB7CEDE6A /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = themes; path = resources/themes; sourceTree = SOURCE_ROOT; };
-		72F1E267265623785B80DCE9 /* toolbarButtonsConf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = toolbarButtonsConf.xml; path = resources/toolbarButtonsConf.xml; sourceTree = SOURCE_ROOT; };
-		599765A96EA764F56BF7C5E8 /* userDefineLangs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = userDefineLangs; path = resources/userDefineLangs; sourceTree = SOURCE_ROOT; };
-		FC571BEF819CCD949DE9FFCD /* InfoBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = InfoBar.mm; path = scintilla/cocoa/InfoBar.mm; sourceTree = SOURCE_ROOT; };
-		11F22E48281C20778223A6B6 /* PlatCocoa.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PlatCocoa.mm; path = scintilla/cocoa/PlatCocoa.mm; sourceTree = SOURCE_ROOT; };
-		61365D287763240FB993779E /* ScintillaCocoa.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ScintillaCocoa.mm; path = scintilla/cocoa/ScintillaCocoa.mm; sourceTree = SOURCE_ROOT; };
-		5858201876D73EBBFFEAD47B /* ScintillaView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ScintillaView.mm; path = scintilla/cocoa/ScintillaView.mm; sourceTree = SOURCE_ROOT; };
-		3925897B6A9FE9D83C9CD129 /* AutoComplete.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AutoComplete.cxx; path = scintilla/src/AutoComplete.cxx; sourceTree = SOURCE_ROOT; };
-		0CE1A6FAF83F740BFE54C20C /* CallTip.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CallTip.cxx; path = scintilla/src/CallTip.cxx; sourceTree = SOURCE_ROOT; };
-		BF1C40DB842E325C4839E991 /* CaseConvert.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CaseConvert.cxx; path = scintilla/src/CaseConvert.cxx; sourceTree = SOURCE_ROOT; };
-		EB1E768B0CAE3436C27C5C60 /* CaseFolder.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CaseFolder.cxx; path = scintilla/src/CaseFolder.cxx; sourceTree = SOURCE_ROOT; };
-		C007F468AB0492F74132D741 /* CellBuffer.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CellBuffer.cxx; path = scintilla/src/CellBuffer.cxx; sourceTree = SOURCE_ROOT; };
-		9270F014A99266F8298B6F95 /* ChangeHistory.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ChangeHistory.cxx; path = scintilla/src/ChangeHistory.cxx; sourceTree = SOURCE_ROOT; };
-		DD493D81220F3A96495347C0 /* CharClassify.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharClassify.cxx; path = scintilla/src/CharClassify.cxx; sourceTree = SOURCE_ROOT; };
-		403BDCCC8D3F847006C212FF /* CharacterCategoryMap.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterCategoryMap.cxx; path = scintilla/src/CharacterCategoryMap.cxx; sourceTree = SOURCE_ROOT; };
-		2622E2E50B677FFDDEC2992B /* CharacterType.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterType.cxx; path = scintilla/src/CharacterType.cxx; sourceTree = SOURCE_ROOT; };
-		74992B75405CE3D62C2C6CE8 /* ContractionState.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ContractionState.cxx; path = scintilla/src/ContractionState.cxx; sourceTree = SOURCE_ROOT; };
-		73D8856E03E7DDA3B2AC9422 /* DBCS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DBCS.cxx; path = scintilla/src/DBCS.cxx; sourceTree = SOURCE_ROOT; };
-		85E3F2C138827EBC871F622E /* Decoration.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Decoration.cxx; path = scintilla/src/Decoration.cxx; sourceTree = SOURCE_ROOT; };
-		9CB43934D679C60E700F18B0 /* Document.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Document.cxx; path = scintilla/src/Document.cxx; sourceTree = SOURCE_ROOT; };
-		34A996195BB3B9A7D075AEC6 /* EditModel.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EditModel.cxx; path = scintilla/src/EditModel.cxx; sourceTree = SOURCE_ROOT; };
-		319A5BAA1FB23A9EB999233B /* EditView.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EditView.cxx; path = scintilla/src/EditView.cxx; sourceTree = SOURCE_ROOT; };
-		CA50F6BAAA2058AF0F6EBB9C /* Editor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Editor.cxx; path = scintilla/src/Editor.cxx; sourceTree = SOURCE_ROOT; };
-		5ECDEE3028A1F1D9C453B11C /* Geometry.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Geometry.cxx; path = scintilla/src/Geometry.cxx; sourceTree = SOURCE_ROOT; };
-		2493A74012CD0CB3B5B21DBD /* Indicator.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Indicator.cxx; path = scintilla/src/Indicator.cxx; sourceTree = SOURCE_ROOT; };
-		A489B122A919F3016F5672C2 /* KeyMap.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = KeyMap.cxx; path = scintilla/src/KeyMap.cxx; sourceTree = SOURCE_ROOT; };
-		4C114FC205A1A827053BE17E /* LineMarker.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LineMarker.cxx; path = scintilla/src/LineMarker.cxx; sourceTree = SOURCE_ROOT; };
-		4B1C3F0E4837671EA2672640 /* MarginView.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MarginView.cxx; path = scintilla/src/MarginView.cxx; sourceTree = SOURCE_ROOT; };
-		CA54ADE7BC222CC48305CB15 /* PerLine.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PerLine.cxx; path = scintilla/src/PerLine.cxx; sourceTree = SOURCE_ROOT; };
-		AED431D1BD922C2BFD05DEF7 /* PositionCache.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PositionCache.cxx; path = scintilla/src/PositionCache.cxx; sourceTree = SOURCE_ROOT; };
-		783AB2E65FE261AD2CC380FE /* RESearch.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RESearch.cxx; path = scintilla/src/RESearch.cxx; sourceTree = SOURCE_ROOT; };
-		C0E4B2A912A5F0FDAB12B97B /* RunStyles.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RunStyles.cxx; path = scintilla/src/RunStyles.cxx; sourceTree = SOURCE_ROOT; };
-		920E0E304D856C57FD7B9F28 /* ScintillaBase.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ScintillaBase.cxx; path = scintilla/src/ScintillaBase.cxx; sourceTree = SOURCE_ROOT; };
-		1F214C5FA4C2C6F33FF62E5E /* Selection.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Selection.cxx; path = scintilla/src/Selection.cxx; sourceTree = SOURCE_ROOT; };
-		BBABC329CB618274EADFDFA1 /* Style.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Style.cxx; path = scintilla/src/Style.cxx; sourceTree = SOURCE_ROOT; };
-		7DCBC8AEE38A084360460DA3 /* UndoHistory.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UndoHistory.cxx; path = scintilla/src/UndoHistory.cxx; sourceTree = SOURCE_ROOT; };
-		51E55753BEC106BB4A571DCD /* UniConversion.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UniConversion.cxx; path = scintilla/src/UniConversion.cxx; sourceTree = SOURCE_ROOT; };
-		CE7CC6C45115B345639A502C /* UniqueString.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UniqueString.cxx; path = scintilla/src/UniqueString.cxx; sourceTree = SOURCE_ROOT; };
-		330B040C347711EA44242613 /* ViewStyle.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ViewStyle.cxx; path = scintilla/src/ViewStyle.cxx; sourceTree = SOURCE_ROOT; };
-		865CA5AE9C2322A2AEC89A5E /* XPM.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = XPM.cxx; path = scintilla/src/XPM.cxx; sourceTree = SOURCE_ROOT; };
-		0498CB56CFF8E79F56B2663F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = src/AppDelegate.mm; sourceTree = SOURCE_ROOT; };
-		B3A343A264E46E9BA13A9562 /* CharacterPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CharacterPanel.mm; path = src/CharacterPanel.mm; sourceTree = SOURCE_ROOT; };
-		A5D1277B67E1BAA4D6E1155C /* ClipboardHistoryPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ClipboardHistoryPanel.mm; path = src/ClipboardHistoryPanel.mm; sourceTree = SOURCE_ROOT; };
-		063AF1EB6B47F3800C0B0536 /* ColumnEditorPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ColumnEditorPanel.mm; path = src/ColumnEditorPanel.mm; sourceTree = SOURCE_ROOT; };
-		4C71EFF0FF9381C0D86C4503 /* CommandPalettePanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CommandPalettePanel.mm; path = src/CommandPalettePanel.mm; sourceTree = SOURCE_ROOT; };
-		6C88DAFCEAD5548CFCB07F14 /* DocumentListPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = DocumentListPanel.mm; path = src/DocumentListPanel.mm; sourceTree = SOURCE_ROOT; };
-		F6C662CDC26A9C6351BC3EFC /* DocumentMapPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = DocumentMapPanel.mm; path = src/DocumentMapPanel.mm; sourceTree = SOURCE_ROOT; };
-		C86E0F4C675B9EC224054F28 /* EditorView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = EditorView.mm; path = src/EditorView.mm; sourceTree = SOURCE_ROOT; };
-		F7B0947421C9E82234EC040F /* FindReplacePanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FindReplacePanel.mm; path = src/FindReplacePanel.mm; sourceTree = SOURCE_ROOT; };
-		8DB75FA8E8CF826C3C003985 /* FindWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FindWindow.mm; path = src/FindWindow.mm; sourceTree = SOURCE_ROOT; };
-		304EE9AAB231078D386B2C7A /* FloatingPanelWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatingPanelWindow.mm; path = src/FloatingPanelWindow.mm; sourceTree = SOURCE_ROOT; };
-		A846D182941D6D6DED46AD76 /* FolderTreePanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FolderTreePanel.mm; path = src/FolderTreePanel.mm; sourceTree = SOURCE_ROOT; };
-		7F916FFF538C4ACF2B9E28D5 /* FunctionListPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FunctionListPanel.mm; path = src/FunctionListPanel.mm; sourceTree = SOURCE_ROOT; };
-		D356BE2F1D566BC57F3766BE /* GitHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitHelper.mm; path = src/GitHelper.mm; sourceTree = SOURCE_ROOT; };
-		BD6E7547961F8B81FAD3C53B /* GitPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitPanel.mm; path = src/GitPanel.mm; sourceTree = SOURCE_ROOT; };
-		12D9774F4F488FDF0480F1CB /* IncrementalSearchBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IncrementalSearchBar.mm; path = src/IncrementalSearchBar.mm; sourceTree = SOURCE_ROOT; };
-		3966467086AF299195BABA28 /* LexUser.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexUser.cxx; path = src/LexUser.cxx; sourceTree = SOURCE_ROOT; };
-		57EE216CB8334BE0431CF25A /* MainWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MainWindowController.mm; path = src/MainWindowController.mm; sourceTree = SOURCE_ROOT; };
-		EFEE4746B98F722F41E9A21A /* MenuBuilder.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MenuBuilder.mm; path = src/MenuBuilder.mm; sourceTree = SOURCE_ROOT; };
-		DD706036BCBD9883BA0477BF /* NppApplication.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppApplication.mm; path = src/NppApplication.mm; sourceTree = SOURCE_ROOT; };
-		76526678FD8759DABDC0BA01 /* NppCommandLineParams.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppCommandLineParams.mm; path = src/NppCommandLineParams.mm; sourceTree = SOURCE_ROOT; };
-		EF9A4495D81D4CCE614A39F9 /* NppLangsManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppLangsManager.mm; path = src/NppLangsManager.mm; sourceTree = SOURCE_ROOT; };
-		77B47D56253B929897AC4A41 /* NppLocalizer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppLocalizer.mm; path = src/NppLocalizer.mm; sourceTree = SOURCE_ROOT; };
-		3BFF41E5D66AD1CD4B2A95C2 /* NppPluginManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppPluginManager.mm; path = src/NppPluginManager.mm; sourceTree = SOURCE_ROOT; };
-		6B2DB48A52D5E2F0D8D24EBC /* NppTabBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppTabBar.mm; path = src/NppTabBar.mm; sourceTree = SOURCE_ROOT; };
-		7ABC88048835A1D415156A85 /* NppThemeManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppThemeManager.mm; path = src/NppThemeManager.mm; sourceTree = SOURCE_ROOT; };
-		693C9510F995BC79D7C3F196 /* PanelFrame.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PanelFrame.mm; path = src/PanelFrame.mm; sourceTree = SOURCE_ROOT; };
-		724F9953627319627E1D3043 /* PluginsAdminWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PluginsAdminWindowController.mm; path = src/PluginsAdminWindowController.mm; sourceTree = SOURCE_ROOT; };
-		6983A4DDC923353EB4D550AD /* PreferencesWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PreferencesWindowController.mm; path = src/PreferencesWindowController.mm; sourceTree = SOURCE_ROOT; };
-		B97029AC0068B2AD3F0A9BB7 /* ProjectPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ProjectPanel.mm; path = src/ProjectPanel.mm; sourceTree = SOURCE_ROOT; };
-		D0A443574EA5B67F481D3091 /* SearchEngine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SearchEngine.mm; path = src/SearchEngine.mm; sourceTree = SOURCE_ROOT; };
-		9BEF0F17C3B6CF5389C4D47B /* SearchResultsPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SearchResultsPanel.mm; path = src/SearchResultsPanel.mm; sourceTree = SOURCE_ROOT; };
-		6DA6877127F200D952F30CA0 /* ShortcutMapperWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ShortcutMapperWindowController.mm; path = src/ShortcutMapperWindowController.mm; sourceTree = SOURCE_ROOT; };
-		603CFBAE5CAD302547C050F4 /* SidePanelHost.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SidePanelHost.mm; path = src/SidePanelHost.mm; sourceTree = SOURCE_ROOT; };
-		D809A2E504B911159FCEFB31 /* StyleConfiguratorWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = StyleConfiguratorWindowController.mm; path = src/StyleConfiguratorWindowController.mm; sourceTree = SOURCE_ROOT; };
-		12D940039770E33A05665D24 /* TabManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TabManager.mm; path = src/TabManager.mm; sourceTree = SOURCE_ROOT; };
-		8BE5536464051678A7EFB68F /* UDLStylerDialog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UDLStylerDialog.mm; path = src/UDLStylerDialog.mm; sourceTree = SOURCE_ROOT; };
-		84723730FADED6A67D5B0619 /* UserDefineDialog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UserDefineDialog.mm; path = src/UserDefineDialog.mm; sourceTree = SOURCE_ROOT; };
-		072EB53E1795B8C2D51EE77B /* UserDefineLangManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UserDefineLangManager.mm; path = src/UserDefineLangManager.mm; sourceTree = SOURCE_ROOT; };
-		F162AE70453A241902071821 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
-		7E79F0346227E428EF7464E4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		2D624C4BDCF068BBAE078E06 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		002EC9D7637A362DCC14EB84 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
+		0166D730143BCB3AB17DC60A /* LexLisp.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLisp.cxx; path = lexilla/lexers/LexLisp.cxx; sourceTree = SOURCE_ROOT; };
+		02C34A069C3282EC7C076419 /* LexForth.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexForth.cxx; path = lexilla/lexers/LexForth.cxx; sourceTree = SOURCE_ROOT; };
 		039A894A58FBB49AC7AACA11 /* libscintilla.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libscintilla.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0498CB56CFF8E79F56B2663F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = src/AppDelegate.mm; sourceTree = SOURCE_ROOT; };
+		063AF1EB6B47F3800C0B0536 /* ColumnEditorPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ColumnEditorPanel.mm; path = src/ColumnEditorPanel.mm; sourceTree = SOURCE_ROOT; };
+		06E1412149750D4CAB631AEA /* LexNull.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNull.cxx; path = lexilla/lexers/LexNull.cxx; sourceTree = SOURCE_ROOT; };
+		06F2A9EB49D02B23905911C7 /* LexBullant.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBullant.cxx; path = lexilla/lexers/LexBullant.cxx; sourceTree = SOURCE_ROOT; };
+		072EB53E1795B8C2D51EE77B /* UserDefineLangManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UserDefineLangManager.mm; path = src/UserDefineLangManager.mm; sourceTree = SOURCE_ROOT; };
+		0747BA5A2983FBAB94FB2EED /* LexPowerPro.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPowerPro.cxx; path = lexilla/lexers/LexPowerPro.cxx; sourceTree = SOURCE_ROOT; };
+		077C847FA0E08617C641E600 /* LexMetapost.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMetapost.cxx; path = lexilla/lexers/LexMetapost.cxx; sourceTree = SOURCE_ROOT; };
+		084905F607BCFF71BB0C1EE3 /* LexCsound.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCsound.cxx; path = lexilla/lexers/LexCsound.cxx; sourceTree = SOURCE_ROOT; };
+		0869B79C1857998366DCDBAA /* LexEiffel.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEiffel.cxx; path = lexilla/lexers/LexEiffel.cxx; sourceTree = SOURCE_ROOT; };
+		0A3E8D96BBA386AF8FF900E5 /* LexEscSeq.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEscSeq.cxx; path = lexilla/lexers/LexEscSeq.cxx; sourceTree = SOURCE_ROOT; };
+		0CE1A6FAF83F740BFE54C20C /* CallTip.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CallTip.cxx; path = scintilla/src/CallTip.cxx; sourceTree = SOURCE_ROOT; };
+		0FC1FC2F8A4E32B054B6249C /* LexObjC.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexObjC.cxx; path = lexilla/lexers/LexObjC.cxx; sourceTree = SOURCE_ROOT; };
+		10F54C37F356BA8FE6E3D019 /* CharacterCategory.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterCategory.cxx; path = lexilla/lexlib/CharacterCategory.cxx; sourceTree = SOURCE_ROOT; };
+		11F22E48281C20778223A6B6 /* PlatCocoa.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PlatCocoa.mm; path = scintilla/cocoa/PlatCocoa.mm; sourceTree = SOURCE_ROOT; };
+		123EE70AC6CECB5E76F4661E /* LexRaku.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRaku.cxx; path = lexilla/lexers/LexRaku.cxx; sourceTree = SOURCE_ROOT; };
+		12D940039770E33A05665D24 /* TabManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = TabManager.mm; path = src/TabManager.mm; sourceTree = SOURCE_ROOT; };
+		12D9774F4F488FDF0480F1CB /* IncrementalSearchBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = IncrementalSearchBar.mm; path = src/IncrementalSearchBar.mm; sourceTree = SOURCE_ROOT; };
+		132A5025C61F84A74C678CF5 /* LexIndent.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexIndent.cxx; path = lexilla/lexers/LexIndent.cxx; sourceTree = SOURCE_ROOT; };
+		152071333C1EA51DAA41F130 /* LexPOV.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPOV.cxx; path = lexilla/lexers/LexPOV.cxx; sourceTree = SOURCE_ROOT; };
+		1689DA2C318FF40300E7E9A6 /* LexAsn1.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAsn1.cxx; path = lexilla/lexers/LexAsn1.cxx; sourceTree = SOURCE_ROOT; };
+		18743FB81F41AFE75FDBEBED /* LexRegistry.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRegistry.cxx; path = lexilla/lexers/LexRegistry.cxx; sourceTree = SOURCE_ROOT; };
+		19061C5221BE16FCDE0A8618 /* LexEScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEScript.cxx; path = lexilla/lexers/LexEScript.cxx; sourceTree = SOURCE_ROOT; };
+		1AF590137CDEEF0308B0A219 /* LexSINEX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSINEX.cxx; path = lexilla/lexers/LexSINEX.cxx; sourceTree = SOURCE_ROOT; };
+		1B1CD431DC97DCDE1EFB351C /* LexSAS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSAS.cxx; path = lexilla/lexers/LexSAS.cxx; sourceTree = SOURCE_ROOT; };
+		1BA88E956D1B2AA95552C18C /* LexNsis.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNsis.cxx; path = lexilla/lexers/LexNsis.cxx; sourceTree = SOURCE_ROOT; };
+		1CAAF5D97DBFFE61ABDE1396 /* LexAda.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAda.cxx; path = lexilla/lexers/LexAda.cxx; sourceTree = SOURCE_ROOT; };
+		1CB1D9565617C075DCDB8BD6 /* LexZig.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexZig.cxx; path = lexilla/lexers/LexZig.cxx; sourceTree = SOURCE_ROOT; };
+		1D2FF4CB124587FAEB410021 /* LexAsciidoc.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAsciidoc.cxx; path = lexilla/lexers/LexAsciidoc.cxx; sourceTree = SOURCE_ROOT; };
+		1D8D3CC2A8C5369DB0FCA619 /* LexJulia.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexJulia.cxx; path = lexilla/lexers/LexJulia.cxx; sourceTree = SOURCE_ROOT; };
+		1E5AB2C601262EB6FF0EEB29 /* LexTOML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTOML.cxx; path = lexilla/lexers/LexTOML.cxx; sourceTree = SOURCE_ROOT; };
+		1F214C5FA4C2C6F33FF62E5E /* Selection.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Selection.cxx; path = scintilla/src/Selection.cxx; sourceTree = SOURCE_ROOT; };
+		1F516CD584A02B34938860B6 /* LexLaTeX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLaTeX.cxx; path = lexilla/lexers/LexLaTeX.cxx; sourceTree = SOURCE_ROOT; };
+		210E0615B9BFD0AC6CBC51EF /* LexASY.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexASY.cxx; path = lexilla/lexers/LexASY.cxx; sourceTree = SOURCE_ROOT; };
+		22643ADBC756E30715B1B69E /* LexHaskell.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHaskell.cxx; path = lexilla/lexers/LexHaskell.cxx; sourceTree = SOURCE_ROOT; };
+		2493A74012CD0CB3B5B21DBD /* Indicator.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Indicator.cxx; path = scintilla/src/Indicator.cxx; sourceTree = SOURCE_ROOT; };
+		25CFB3CC951667CE55753C56 /* LexAccessor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAccessor.cxx; path = lexilla/lexlib/LexAccessor.cxx; sourceTree = SOURCE_ROOT; };
+		2622E2E50B677FFDDEC2992B /* CharacterType.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterType.cxx; path = scintilla/src/CharacterType.cxx; sourceTree = SOURCE_ROOT; };
+		29102B512F0367B45CE285B9 /* LexX12.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexX12.cxx; path = lexilla/lexers/LexX12.cxx; sourceTree = SOURCE_ROOT; };
+		2D624C4BDCF068BBAE078E06 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2FC2B1A05B95F6D280CA345A /* LexFSharp.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexFSharp.cxx; path = lexilla/lexers/LexFSharp.cxx; sourceTree = SOURCE_ROOT; };
+		304EE9AAB231078D386B2C7A /* FloatingPanelWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FloatingPanelWindow.mm; path = src/FloatingPanelWindow.mm; sourceTree = SOURCE_ROOT; };
+		319A5BAA1FB23A9EB999233B /* EditView.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EditView.cxx; path = scintilla/src/EditView.cxx; sourceTree = SOURCE_ROOT; };
+		3271ADD70D43E43F7B9087E0 /* LexPython.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPython.cxx; path = lexilla/lexers/LexPython.cxx; sourceTree = SOURCE_ROOT; };
+		330B040C347711EA44242613 /* ViewStyle.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ViewStyle.cxx; path = scintilla/src/ViewStyle.cxx; sourceTree = SOURCE_ROOT; };
+		34775F59A5E987B71514340F /* LexHTML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHTML.cxx; path = lexilla/lexers/LexHTML.cxx; sourceTree = SOURCE_ROOT; };
+		34A996195BB3B9A7D075AEC6 /* EditModel.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = EditModel.cxx; path = scintilla/src/EditModel.cxx; sourceTree = SOURCE_ROOT; };
+		380EEE521F045D188ED0E6C5 /* LexerBase.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexerBase.cxx; path = lexilla/lexlib/LexerBase.cxx; sourceTree = SOURCE_ROOT; };
+		387EE70FC8C14D312D8AB875 /* LexGDScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexGDScript.cxx; path = lexilla/lexers/LexGDScript.cxx; sourceTree = SOURCE_ROOT; };
+		38A0CC1826F2005E6654E00B /* LexBash.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBash.cxx; path = lexilla/lexers/LexBash.cxx; sourceTree = SOURCE_ROOT; };
+		3925897B6A9FE9D83C9CD129 /* AutoComplete.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = AutoComplete.cxx; path = scintilla/src/AutoComplete.cxx; sourceTree = SOURCE_ROOT; };
+		3966467086AF299195BABA28 /* LexUser.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexUser.cxx; path = src/LexUser.cxx; sourceTree = SOURCE_ROOT; };
+		398191202B1B5E469594B3B1 /* LexFlagship.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexFlagship.cxx; path = lexilla/lexers/LexFlagship.cxx; sourceTree = SOURCE_ROOT; };
+		399C73AAEC4D87A9EC305BE0 /* LexCSS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCSS.cxx; path = lexilla/lexers/LexCSS.cxx; sourceTree = SOURCE_ROOT; };
+		3BFF41E5D66AD1CD4B2A95C2 /* NppPluginManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppPluginManager.mm; path = src/NppPluginManager.mm; sourceTree = SOURCE_ROOT; };
+		3C52CF850BDCB291172E0C63 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = resources/icons; sourceTree = SOURCE_ROOT; };
+		3C8FC168305D8FA8461095F4 /* LexEDIFACT.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexEDIFACT.cxx; path = lexilla/lexers/LexEDIFACT.cxx; sourceTree = SOURCE_ROOT; };
+		3E2DCFD2BC55403BAB6BA1CF /* LexSTTXT.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSTTXT.cxx; path = lexilla/lexers/LexSTTXT.cxx; sourceTree = SOURCE_ROOT; };
+		403BDCCC8D3F847006C212FF /* CharacterCategoryMap.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterCategoryMap.cxx; path = scintilla/src/CharacterCategoryMap.cxx; sourceTree = SOURCE_ROOT; };
+		42E33CC1954419E40706D0E3 /* LexMarkdown.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMarkdown.cxx; path = lexilla/lexers/LexMarkdown.cxx; sourceTree = SOURCE_ROOT; };
+		43F58475C3EE6F1A8D162258 /* LexProps.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexProps.cxx; path = lexilla/lexers/LexProps.cxx; sourceTree = SOURCE_ROOT; };
+		4677573D5A33FFBF62333310 /* LexDiff.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDiff.cxx; path = lexilla/lexers/LexDiff.cxx; sourceTree = SOURCE_ROOT; };
+		46D9E67CA035142FB5D94B61 /* LexCLW.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCLW.cxx; path = lexilla/lexers/LexCLW.cxx; sourceTree = SOURCE_ROOT; };
+		47309D35FFC75B6B2242DB7C /* LexScriptol.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexScriptol.cxx; path = lexilla/lexers/LexScriptol.cxx; sourceTree = SOURCE_ROOT; };
+		47A918A1E2260FF49A7D731F /* LexHollywood.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHollywood.cxx; path = lexilla/lexers/LexHollywood.cxx; sourceTree = SOURCE_ROOT; };
+		48515464388FD193B4131621 /* LexPLM.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPLM.cxx; path = lexilla/lexers/LexPLM.cxx; sourceTree = SOURCE_ROOT; };
+		49B5468FD6CB87365D894D8B /* LexSML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSML.cxx; path = lexilla/lexers/LexSML.cxx; sourceTree = SOURCE_ROOT; };
+		4B1C3F0E4837671EA2672640 /* MarginView.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = MarginView.cxx; path = scintilla/src/MarginView.cxx; sourceTree = SOURCE_ROOT; };
+		4C114FC205A1A827053BE17E /* LineMarker.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LineMarker.cxx; path = scintilla/src/LineMarker.cxx; sourceTree = SOURCE_ROOT; };
+		4C71EFF0FF9381C0D86C4503 /* CommandPalettePanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CommandPalettePanel.mm; path = src/CommandPalettePanel.mm; sourceTree = SOURCE_ROOT; };
+		4D0C7AEDEDC5CBADEA372768 /* LexVerilog.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVerilog.cxx; path = lexilla/lexers/LexVerilog.cxx; sourceTree = SOURCE_ROOT; };
+		4D88B2D4D994441DF21DC84B /* LexKix.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexKix.cxx; path = lexilla/lexers/LexKix.cxx; sourceTree = SOURCE_ROOT; };
+		50077F427C68341E900A530F /* LexErlang.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexErlang.cxx; path = lexilla/lexers/LexErlang.cxx; sourceTree = SOURCE_ROOT; };
+		51E55753BEC106BB4A571DCD /* UniConversion.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UniConversion.cxx; path = scintilla/src/UniConversion.cxx; sourceTree = SOURCE_ROOT; };
+		5448EE0A3262275C328FDE5F /* LexSpecman.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSpecman.cxx; path = lexilla/lexers/LexSpecman.cxx; sourceTree = SOURCE_ROOT; };
+		57EE216CB8334BE0431CF25A /* MainWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MainWindowController.mm; path = src/MainWindowController.mm; sourceTree = SOURCE_ROOT; };
+		5816A601818FFAC2A2881372 /* LexNim.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNim.cxx; path = lexilla/lexers/LexNim.cxx; sourceTree = SOURCE_ROOT; };
+		5858201876D73EBBFFEAD47B /* ScintillaView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ScintillaView.mm; path = scintilla/cocoa/ScintillaView.mm; sourceTree = SOURCE_ROOT; };
+		599765A96EA764F56BF7C5E8 /* userDefineLangs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = userDefineLangs; path = resources/userDefineLangs; sourceTree = SOURCE_ROOT; };
+		59FA9B188CD48879DBEB3DE5 /* LexBasic.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBasic.cxx; path = lexilla/lexers/LexBasic.cxx; sourceTree = SOURCE_ROOT; };
+		5ECDEE3028A1F1D9C453B11C /* Geometry.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Geometry.cxx; path = scintilla/src/Geometry.cxx; sourceTree = SOURCE_ROOT; };
+		5F6D8BD7AB6B8CA78ABE4CC9 /* LexAPDL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAPDL.cxx; path = lexilla/lexers/LexAPDL.cxx; sourceTree = SOURCE_ROOT; };
+		603CFBAE5CAD302547C050F4 /* SidePanelHost.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SidePanelHost.mm; path = src/SidePanelHost.mm; sourceTree = SOURCE_ROOT; };
+		61365D287763240FB993779E /* ScintillaCocoa.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ScintillaCocoa.mm; path = scintilla/cocoa/ScintillaCocoa.mm; sourceTree = SOURCE_ROOT; };
+		6447FD91EC4C33F694957A9E /* LexSmalltalk.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSmalltalk.cxx; path = lexilla/lexers/LexSmalltalk.cxx; sourceTree = SOURCE_ROOT; };
+		6506C032C8916ACA0F35F5C4 /* tabContextMenu.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = tabContextMenu.xml; path = resources/tabContextMenu.xml; sourceTree = SOURCE_ROOT; };
+		67F5E7CF9AD17508A5EA5B1F /* LexCPP.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCPP.cxx; path = lexilla/lexers/LexCPP.cxx; sourceTree = SOURCE_ROOT; };
+		68328650E50E20869D41BB97 /* LexRuby.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRuby.cxx; path = lexilla/lexers/LexRuby.cxx; sourceTree = SOURCE_ROOT; };
+		68BE9E2C945424D88D40BDAB /* LexAsm.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAsm.cxx; path = lexilla/lexers/LexAsm.cxx; sourceTree = SOURCE_ROOT; };
+		693C9510F995BC79D7C3F196 /* PanelFrame.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PanelFrame.mm; path = src/PanelFrame.mm; sourceTree = SOURCE_ROOT; };
+		6983A4DDC923353EB4D550AD /* PreferencesWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PreferencesWindowController.mm; path = src/PreferencesWindowController.mm; sourceTree = SOURCE_ROOT; };
+		6B2DB48A52D5E2F0D8D24EBC /* NppTabBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppTabBar.mm; path = src/NppTabBar.mm; sourceTree = SOURCE_ROOT; };
+		6B72783FDA0016E5833B989D /* LexerModule.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexerModule.cxx; path = lexilla/lexlib/LexerModule.cxx; sourceTree = SOURCE_ROOT; };
+		6BB2D6AC887C0B5C6813F1C9 /* LexD.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexD.cxx; path = lexilla/lexers/LexD.cxx; sourceTree = SOURCE_ROOT; };
+		6C88DAFCEAD5548CFCB07F14 /* DocumentListPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = DocumentListPanel.mm; path = src/DocumentListPanel.mm; sourceTree = SOURCE_ROOT; };
+		6DA6877127F200D952F30CA0 /* ShortcutMapperWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ShortcutMapperWindowController.mm; path = src/ShortcutMapperWindowController.mm; sourceTree = SOURCE_ROOT; };
+		6FC137F7766FB863F26E12D1 /* LexOpal.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexOpal.cxx; path = lexilla/lexers/LexOpal.cxx; sourceTree = SOURCE_ROOT; };
+		71849361B9B06BA3DA2B5B93 /* LexOScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexOScript.cxx; path = lexilla/lexers/LexOScript.cxx; sourceTree = SOURCE_ROOT; };
+		724F9953627319627E1D3043 /* PluginsAdminWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = PluginsAdminWindowController.mm; path = src/PluginsAdminWindowController.mm; sourceTree = SOURCE_ROOT; };
+		72F1E267265623785B80DCE9 /* toolbarButtonsConf.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = toolbarButtonsConf.xml; path = resources/toolbarButtonsConf.xml; sourceTree = SOURCE_ROOT; };
+		7310708A9F76CD17804AD052 /* LexECL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexECL.cxx; path = lexilla/lexers/LexECL.cxx; sourceTree = SOURCE_ROOT; };
+		7389DA16D9D79A7BC9E3DF10 /* LexModula.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexModula.cxx; path = lexilla/lexers/LexModula.cxx; sourceTree = SOURCE_ROOT; };
+		73D8856E03E7DDA3B2AC9422 /* DBCS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DBCS.cxx; path = scintilla/src/DBCS.cxx; sourceTree = SOURCE_ROOT; };
+		74992B75405CE3D62C2C6CE8 /* ContractionState.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ContractionState.cxx; path = scintilla/src/ContractionState.cxx; sourceTree = SOURCE_ROOT; };
+		76526678FD8759DABDC0BA01 /* NppCommandLineParams.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppCommandLineParams.mm; path = src/NppCommandLineParams.mm; sourceTree = SOURCE_ROOT; };
+		778B2E65DE726AC2842D2861 /* LexProgress.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexProgress.cxx; path = lexilla/lexers/LexProgress.cxx; sourceTree = SOURCE_ROOT; };
+		77B47D56253B929897AC4A41 /* NppLocalizer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppLocalizer.mm; path = src/NppLocalizer.mm; sourceTree = SOURCE_ROOT; };
+		783AB2E65FE261AD2CC380FE /* RESearch.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RESearch.cxx; path = scintilla/src/RESearch.cxx; sourceTree = SOURCE_ROOT; };
+		7ABC88048835A1D415156A85 /* NppThemeManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppThemeManager.mm; path = src/NppThemeManager.mm; sourceTree = SOURCE_ROOT; };
+		7BE191BCDD286934AE0B3693 /* LexCoffeeScript.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCoffeeScript.cxx; path = lexilla/lexers/LexCoffeeScript.cxx; sourceTree = SOURCE_ROOT; };
+		7DCBC8AEE38A084360460DA3 /* UndoHistory.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UndoHistory.cxx; path = scintilla/src/UndoHistory.cxx; sourceTree = SOURCE_ROOT; };
+		7E79F0346227E428EF7464E4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7F916FFF538C4ACF2B9E28D5 /* FunctionListPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FunctionListPanel.mm; path = src/FunctionListPanel.mm; sourceTree = SOURCE_ROOT; };
+		8080D38720E4146420BE6D63 /* LexLout.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLout.cxx; path = lexilla/lexers/LexLout.cxx; sourceTree = SOURCE_ROOT; };
+		82957501439250CA39767860 /* LexDataflex.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDataflex.cxx; path = lexilla/lexers/LexDataflex.cxx; sourceTree = SOURCE_ROOT; };
+		8300D7F653BFA6CCB0523A30 /* StyleContext.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = StyleContext.cxx; path = lexilla/lexlib/StyleContext.cxx; sourceTree = SOURCE_ROOT; };
+		830E0FDFC3E504A742690ADB /* LexBaan.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBaan.cxx; path = lexilla/lexers/LexBaan.cxx; sourceTree = SOURCE_ROOT; };
+		84723730FADED6A67D5B0619 /* UserDefineDialog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UserDefineDialog.mm; path = src/UserDefineDialog.mm; sourceTree = SOURCE_ROOT; };
+		85E3F2C138827EBC871F622E /* Decoration.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Decoration.cxx; path = scintilla/src/Decoration.cxx; sourceTree = SOURCE_ROOT; };
+		86515D02BD8C006EB7CEDE6A /* themes */ = {isa = PBXFileReference; lastKnownFileType = folder; name = themes; path = resources/themes; sourceTree = SOURCE_ROOT; };
+		865CA5AE9C2322A2AEC89A5E /* XPM.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = XPM.cxx; path = scintilla/src/XPM.cxx; sourceTree = SOURCE_ROOT; };
+		870E4C9B50DD1774BB7F28EB /* LexCIL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCIL.cxx; path = lexilla/lexers/LexCIL.cxx; sourceTree = SOURCE_ROOT; };
+		87CCD90DC69326A045816AD1 /* LexKVIrc.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexKVIrc.cxx; path = lexilla/lexers/LexKVIrc.cxx; sourceTree = SOURCE_ROOT; };
+		8A779D9868F4FE60974828B5 /* LexDMAP.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDMAP.cxx; path = lexilla/lexers/LexDMAP.cxx; sourceTree = SOURCE_ROOT; };
+		8BE5536464051678A7EFB68F /* UDLStylerDialog.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = UDLStylerDialog.mm; path = src/UDLStylerDialog.mm; sourceTree = SOURCE_ROOT; };
+		8DB75FA8E8CF826C3C003985 /* FindWindow.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FindWindow.mm; path = src/FindWindow.mm; sourceTree = SOURCE_ROOT; };
+		8E0D6B96E2DD40D4E8DE291A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = resources/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		91659F5A488CEE2527E44636 /* LexErrorList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexErrorList.cxx; path = lexilla/lexers/LexErrorList.cxx; sourceTree = SOURCE_ROOT; };
+		91D7BCA6C2944503145E0AC5 /* LexLua.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexLua.cxx; path = lexilla/lexers/LexLua.cxx; sourceTree = SOURCE_ROOT; };
+		920E0E304D856C57FD7B9F28 /* ScintillaBase.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ScintillaBase.cxx; path = scintilla/src/ScintillaBase.cxx; sourceTree = SOURCE_ROOT; };
+		9270F014A99266F8298B6F95 /* ChangeHistory.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ChangeHistory.cxx; path = scintilla/src/ChangeHistory.cxx; sourceTree = SOURCE_ROOT; };
+		927E2B2D160A7801E76B920C /* LexHex.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexHex.cxx; path = lexilla/lexers/LexHex.cxx; sourceTree = SOURCE_ROOT; };
+		938CAE24F6E9A920A712746A /* LexTCMD.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTCMD.cxx; path = lexilla/lexers/LexTCMD.cxx; sourceTree = SOURCE_ROOT; };
+		95E10FF6806706EB1E70B057 /* LexCaml.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCaml.cxx; path = lexilla/lexers/LexCaml.cxx; sourceTree = SOURCE_ROOT; };
+		97B8D1FBD13CEAF14BD6785D /* LexVB.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVB.cxx; path = lexilla/lexers/LexVB.cxx; sourceTree = SOURCE_ROOT; };
+		9ADAC698C5FF0A35B4E0C7ED /* langs.model.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = langs.model.xml; path = resources/langs.model.xml; sourceTree = SOURCE_ROOT; };
+		9BEF0F17C3B6CF5389C4D47B /* SearchResultsPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SearchResultsPanel.mm; path = src/SearchResultsPanel.mm; sourceTree = SOURCE_ROOT; };
+		9C5E83B39BB1751C67C7A859 /* LexSQL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSQL.cxx; path = lexilla/lexers/LexSQL.cxx; sourceTree = SOURCE_ROOT; };
+		9C63C7FE6C195A1F4ECDF7B0 /* InList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InList.cxx; path = lexilla/lexlib/InList.cxx; sourceTree = SOURCE_ROOT; };
+		9CB43934D679C60E700F18B0 /* Document.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Document.cxx; path = scintilla/src/Document.cxx; sourceTree = SOURCE_ROOT; };
+		9D61179CD0E2129F083A19DA /* LexMySQL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMySQL.cxx; path = lexilla/lexers/LexMySQL.cxx; sourceTree = SOURCE_ROOT; };
+		9E59FF7996902D258FDCA97C /* LexDart.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDart.cxx; path = lexilla/lexers/LexDart.cxx; sourceTree = SOURCE_ROOT; };
 		9ED8DAF81B7613CA517A4014 /* liblexilla.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblexilla.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F079CC0A3E300B5FA1BE303 /* LexAbaqus.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAbaqus.cxx; path = lexilla/lexers/LexAbaqus.cxx; sourceTree = SOURCE_ROOT; };
+		A1380891FBBAA19C9877159E /* LexMatlab.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMatlab.cxx; path = lexilla/lexers/LexMatlab.cxx; sourceTree = SOURCE_ROOT; };
+		A1EFF5A8C90614BC74D76923 /* LexAVE.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAVE.cxx; path = lexilla/lexers/LexAVE.cxx; sourceTree = SOURCE_ROOT; };
+		A29AB6F038E1A0FD8A293E7B /* LexPS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPS.cxx; path = lexilla/lexers/LexPS.cxx; sourceTree = SOURCE_ROOT; };
+		A437EA055C8895554C3D3088 /* LexInno.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexInno.cxx; path = lexilla/lexers/LexInno.cxx; sourceTree = SOURCE_ROOT; };
+		A489B122A919F3016F5672C2 /* KeyMap.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = KeyMap.cxx; path = scintilla/src/KeyMap.cxx; sourceTree = SOURCE_ROOT; };
+		A5D1277B67E1BAA4D6E1155C /* ClipboardHistoryPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ClipboardHistoryPanel.mm; path = src/ClipboardHistoryPanel.mm; sourceTree = SOURCE_ROOT; };
+		A736D91431E1F61315E34827 /* contextMenu.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = contextMenu.xml; path = resources/contextMenu.xml; sourceTree = SOURCE_ROOT; };
+		A846D182941D6D6DED46AD76 /* FolderTreePanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FolderTreePanel.mm; path = src/FolderTreePanel.mm; sourceTree = SOURCE_ROOT; };
+		A92AE6BFFA54558A59997984 /* LexPO.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPO.cxx; path = lexilla/lexers/LexPO.cxx; sourceTree = SOURCE_ROOT; };
+		AD75978FE935E6A02260E37A /* LexR.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexR.cxx; path = lexilla/lexers/LexR.cxx; sourceTree = SOURCE_ROOT; };
+		AE488A1DCC7B7FCF40300BD4 /* LexSearchResult.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSearchResult.cxx; path = lexilla/lexers/LexSearchResult.cxx; sourceTree = SOURCE_ROOT; };
+		AED431D1BD922C2BFD05DEF7 /* PositionCache.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PositionCache.cxx; path = scintilla/src/PositionCache.cxx; sourceTree = SOURCE_ROOT; };
+		AFBF3B13BC0D00B539C11BE6 /* LexTxt2tags.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTxt2tags.cxx; path = lexilla/lexers/LexTxt2tags.cxx; sourceTree = SOURCE_ROOT; };
+		B0E1085573231BD7F68C5ADD /* LexNix.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNix.cxx; path = lexilla/lexers/LexNix.cxx; sourceTree = SOURCE_ROOT; };
+		B159AE77C8A14EE0643D53BD /* LexGAP.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexGAP.cxx; path = lexilla/lexers/LexGAP.cxx; sourceTree = SOURCE_ROOT; };
+		B17FEA8A60058E182DE59195 /* LexSpice.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSpice.cxx; path = lexilla/lexers/LexSpice.cxx; sourceTree = SOURCE_ROOT; };
+		B24439964F5A6B619ED66FE1 /* dmg-background.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "dmg-background.tiff"; path = "resources/dmg-background.tiff"; sourceTree = SOURCE_ROOT; };
+		B28AB2071E08DA429657F2A4 /* LexTCL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTCL.cxx; path = lexilla/lexers/LexTCL.cxx; sourceTree = SOURCE_ROOT; };
+		B2DAE63BF95EBF704DF6EEF6 /* LexRust.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRust.cxx; path = lexilla/lexers/LexRust.cxx; sourceTree = SOURCE_ROOT; };
+		B3A343A264E46E9BA13A9562 /* CharacterPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = CharacterPanel.mm; path = src/CharacterPanel.mm; sourceTree = SOURCE_ROOT; };
+		B5153BD03FCA25D360574505 /* LexVisualProlog.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVisualProlog.cxx; path = lexilla/lexers/LexVisualProlog.cxx; sourceTree = SOURCE_ROOT; };
+		B5E6206B2E7F4FDDE32CE25B /* LexCrontab.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCrontab.cxx; path = lexilla/lexers/LexCrontab.cxx; sourceTree = SOURCE_ROOT; };
+		B73079777CA1E4EA5A65FEE0 /* LexMake.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMake.cxx; path = lexilla/lexers/LexMake.cxx; sourceTree = SOURCE_ROOT; };
+		B77EF27977432676047B81B8 /* LexMMIXAL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMMIXAL.cxx; path = lexilla/lexers/LexMMIXAL.cxx; sourceTree = SOURCE_ROOT; };
+		B84A82186AB885B2D86E7DA4 /* LexMSSQL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMSSQL.cxx; path = lexilla/lexers/LexMSSQL.cxx; sourceTree = SOURCE_ROOT; };
+		B85895B45660418E06C3FCF7 /* LexMaxima.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMaxima.cxx; path = lexilla/lexers/LexMaxima.cxx; sourceTree = SOURCE_ROOT; };
+		B896F64C13CE4B10499F4FBB /* LexAVS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAVS.cxx; path = lexilla/lexers/LexAVS.cxx; sourceTree = SOURCE_ROOT; };
+		B95E4A063ED6F6C2242C40B3 /* LexTAL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTAL.cxx; path = lexilla/lexers/LexTAL.cxx; sourceTree = SOURCE_ROOT; };
+		B97029AC0068B2AD3F0A9BB7 /* ProjectPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ProjectPanel.mm; path = src/ProjectPanel.mm; sourceTree = SOURCE_ROOT; };
+		BAFB3E15A7AB59A1864E40AE /* LexVHDL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexVHDL.cxx; path = lexilla/lexers/LexVHDL.cxx; sourceTree = SOURCE_ROOT; };
+		BBABC329CB618274EADFDFA1 /* Style.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Style.cxx; path = scintilla/src/Style.cxx; sourceTree = SOURCE_ROOT; };
+		BD6E7547961F8B81FAD3C53B /* GitPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitPanel.mm; path = src/GitPanel.mm; sourceTree = SOURCE_ROOT; };
+		BF1C40DB842E325C4839E991 /* CaseConvert.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CaseConvert.cxx; path = scintilla/src/CaseConvert.cxx; sourceTree = SOURCE_ROOT; };
+		BF8F8AA1D0540A629F497544 /* shortcuts.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = shortcuts.xml; path = resources/shortcuts.xml; sourceTree = SOURCE_ROOT; };
+		C007F468AB0492F74132D741 /* CellBuffer.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CellBuffer.cxx; path = scintilla/src/CellBuffer.cxx; sourceTree = SOURCE_ROOT; };
+		C0A0E83F5ED4D1B1AD70956B /* LexTADS3.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTADS3.cxx; path = lexilla/lexers/LexTADS3.cxx; sourceTree = SOURCE_ROOT; };
+		C0E4B2A912A5F0FDAB12B97B /* RunStyles.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = RunStyles.cxx; path = scintilla/src/RunStyles.cxx; sourceTree = SOURCE_ROOT; };
+		C0F98BBDD418A48587021CBF /* CharacterSet.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterSet.cxx; path = lexilla/lexlib/CharacterSet.cxx; sourceTree = SOURCE_ROOT; };
+		C54628CD3D94A8668FBCC22C /* Accessor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Accessor.cxx; path = lexilla/lexlib/Accessor.cxx; sourceTree = SOURCE_ROOT; };
+		C653BCD79057C263812194E7 /* LexMagik.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMagik.cxx; path = lexilla/lexers/LexMagik.cxx; sourceTree = SOURCE_ROOT; };
+		C86E0F4C675B9EC224054F28 /* EditorView.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = EditorView.mm; path = src/EditorView.mm; sourceTree = SOURCE_ROOT; };
+		C8E8A45B11A94D710070DF2F /* LexFortran.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexFortran.cxx; path = lexilla/lexers/LexFortran.cxx; sourceTree = SOURCE_ROOT; };
+		C8F486569FAB05E7C9AFD26D /* localization */ = {isa = PBXFileReference; lastKnownFileType = folder; name = localization; path = resources/localization; sourceTree = SOURCE_ROOT; };
+		CA50F6BAAA2058AF0F6EBB9C /* Editor.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Editor.cxx; path = scintilla/src/Editor.cxx; sourceTree = SOURCE_ROOT; };
+		CA54ADE7BC222CC48305CB15 /* PerLine.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PerLine.cxx; path = scintilla/src/PerLine.cxx; sourceTree = SOURCE_ROOT; };
+		CD7531C1EB23A2EB71025C56 /* PropSetSimple.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = PropSetSimple.cxx; path = lexilla/lexlib/PropSetSimple.cxx; sourceTree = SOURCE_ROOT; };
+		CE7AB5B4BEF1347A8F991BAD /* LexTroff.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTroff.cxx; path = lexilla/lexers/LexTroff.cxx; sourceTree = SOURCE_ROOT; };
+		CE7CC6C45115B345639A502C /* UniqueString.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UniqueString.cxx; path = scintilla/src/UniqueString.cxx; sourceTree = SOURCE_ROOT; };
+		CE7D08CAAB0019C53BAF4765 /* LexTACL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTACL.cxx; path = lexilla/lexers/LexTACL.cxx; sourceTree = SOURCE_ROOT; };
 		CF0CDC73FEB72F02313EDF01 /* Notepad++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notepad++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D095648BB41523E6AE8DE566 /* LexPowerShell.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPowerShell.cxx; path = lexilla/lexers/LexPowerShell.cxx; sourceTree = SOURCE_ROOT; };
+		D0A443574EA5B67F481D3091 /* SearchEngine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SearchEngine.mm; path = src/SearchEngine.mm; sourceTree = SOURCE_ROOT; };
+		D356BE2F1D566BC57F3766BE /* GitHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitHelper.mm; path = src/GitHelper.mm; sourceTree = SOURCE_ROOT; };
+		D399D6973C726EABBA9BD7E1 /* LexDMIS.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexDMIS.cxx; path = lexilla/lexers/LexDMIS.cxx; sourceTree = SOURCE_ROOT; };
+		D4860F17A04CA2A904AF359F /* LexRebol.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexRebol.cxx; path = lexilla/lexers/LexRebol.cxx; sourceTree = SOURCE_ROOT; };
+		D4A640DE12680106BBC64F0D /* functionList */ = {isa = PBXFileReference; lastKnownFileType = folder; name = functionList; path = resources/functionList; sourceTree = SOURCE_ROOT; };
+		D4F24D245BB1E21554322E0A /* LexConf.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexConf.cxx; path = lexilla/lexers/LexConf.cxx; sourceTree = SOURCE_ROOT; };
+		D5101844F5BE0CFB68F557DB /* stylers.model.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = stylers.model.xml; path = resources/stylers.model.xml; sourceTree = SOURCE_ROOT; };
+		D58A9EFB5CAB76878847F9EF /* LexAU3.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAU3.cxx; path = lexilla/lexers/LexAU3.cxx; sourceTree = SOURCE_ROOT; };
+		D809A2E504B911159FCEFB31 /* StyleConfiguratorWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = StyleConfiguratorWindowController.mm; path = src/StyleConfiguratorWindowController.mm; sourceTree = SOURCE_ROOT; };
+		D876BB791FCAF6E3E41874FA /* LexCmake.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCmake.cxx; path = lexilla/lexers/LexCmake.cxx; sourceTree = SOURCE_ROOT; };
+		DAFECB37FBFAA24682F7B6DA /* WordList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WordList.cxx; path = lexilla/lexlib/WordList.cxx; sourceTree = SOURCE_ROOT; };
+		DB277BAFFC650184D3C4C57C /* LexBatch.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBatch.cxx; path = lexilla/lexers/LexBatch.cxx; sourceTree = SOURCE_ROOT; };
+		DD493D81220F3A96495347C0 /* CharClassify.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CharClassify.cxx; path = scintilla/src/CharClassify.cxx; sourceTree = SOURCE_ROOT; };
+		DD706036BCBD9883BA0477BF /* NppApplication.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppApplication.mm; path = src/NppApplication.mm; sourceTree = SOURCE_ROOT; };
+		DE6357845B9CDC149F6F7A83 /* LexPascal.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPascal.cxx; path = lexilla/lexers/LexPascal.cxx; sourceTree = SOURCE_ROOT; };
+		E1DD3E079D51BA3742DCB7D3 /* LexStata.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexStata.cxx; path = lexilla/lexers/LexStata.cxx; sourceTree = SOURCE_ROOT; };
+		E44BEC19B9D25AE464C4F4D5 /* LexGui4Cli.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexGui4Cli.cxx; path = lexilla/lexers/LexGui4Cli.cxx; sourceTree = SOURCE_ROOT; };
+		E5C82DF42A68812E7F9D33DF /* DefaultLexer.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = DefaultLexer.cxx; path = lexilla/lexlib/DefaultLexer.cxx; sourceTree = SOURCE_ROOT; };
+		E64E9995EE4BF10FFD2EF602 /* LexCOBOL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCOBOL.cxx; path = lexilla/lexers/LexCOBOL.cxx; sourceTree = SOURCE_ROOT; };
+		E9CD80D8A28AAE573FBAC055 /* LexNimrod.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexNimrod.cxx; path = lexilla/lexers/LexNimrod.cxx; sourceTree = SOURCE_ROOT; };
+		EB1E768B0CAE3436C27C5C60 /* CaseFolder.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CaseFolder.cxx; path = scintilla/src/CaseFolder.cxx; sourceTree = SOURCE_ROOT; };
+		EDDDC058963844FFE2C5E66B /* LexTeX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTeX.cxx; path = lexilla/lexers/LexTeX.cxx; sourceTree = SOURCE_ROOT; };
+		EDF216D35B618403C79F7915 /* Lexilla.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Lexilla.cxx; path = lexilla/src/Lexilla.cxx; sourceTree = SOURCE_ROOT; };
+		EF9A4495D81D4CCE614A39F9 /* NppLangsManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = NppLangsManager.mm; path = src/NppLangsManager.mm; sourceTree = SOURCE_ROOT; };
+		EFEE4746B98F722F41E9A21A /* MenuBuilder.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = MenuBuilder.mm; path = src/MenuBuilder.mm; sourceTree = SOURCE_ROOT; };
+		F162AE70453A241902071821 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = main.mm; path = src/main.mm; sourceTree = SOURCE_ROOT; };
+		F25CF58B26A1A04D07139EE7 /* LexJSON.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexJSON.cxx; path = lexilla/lexers/LexJSON.cxx; sourceTree = SOURCE_ROOT; };
+		F6C662CDC26A9C6351BC3EFC /* DocumentMapPanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = DocumentMapPanel.mm; path = src/DocumentMapPanel.mm; sourceTree = SOURCE_ROOT; };
+		F7749A215884FCD60888F626 /* LexYAML.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexYAML.cxx; path = lexilla/lexers/LexYAML.cxx; sourceTree = SOURCE_ROOT; };
+		F7B0947421C9E82234EC040F /* FindReplacePanel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FindReplacePanel.mm; path = src/FindReplacePanel.mm; sourceTree = SOURCE_ROOT; };
+		F86D2BFE6AD0C103B9874233 /* LexSorcus.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexSorcus.cxx; path = lexilla/lexers/LexSorcus.cxx; sourceTree = SOURCE_ROOT; };
+		F9F34415D0C07102AC7FC705 /* LexBibTeX.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexBibTeX.cxx; path = lexilla/lexers/LexBibTeX.cxx; sourceTree = SOURCE_ROOT; };
+		FA6DF3B26AA909CA4F24C87C /* LexerSimple.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexerSimple.cxx; path = lexilla/lexlib/LexerSimple.cxx; sourceTree = SOURCE_ROOT; };
+		FAE48F26BFC1B259788EE555 /* npp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = npp.icns; path = resources/npp.icns; sourceTree = SOURCE_ROOT; };
+		FC571BEF819CCD949DE9FFCD /* InfoBar.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = InfoBar.mm; path = scintilla/cocoa/InfoBar.mm; sourceTree = SOURCE_ROOT; };
+		FD58AFA6B2058CAD5DBD4398 /* LexPB.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPB.cxx; path = lexilla/lexers/LexPB.cxx; sourceTree = SOURCE_ROOT; };
+		FDB328191C0228B8A1231DD0 /* LexMPT.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexMPT.cxx; path = lexilla/lexers/LexMPT.cxx; sourceTree = SOURCE_ROOT; };
+		FDD6AC6411DA0C163F95F128 /* LexA68k.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexA68k.cxx; path = lexilla/lexers/LexA68k.cxx; sourceTree = SOURCE_ROOT; };
+		FFB21E95A66AAA117836CF16 /* LexPerl.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPerl.cxx; path = lexilla/lexers/LexPerl.cxx; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		31ADF70E9D76B17D941D667A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25E77D09E9EDB3F3FE612645 /* libscintilla.a in Frameworks */,
+				2D16384A82ABC6AEEA70649A /* liblexilla.a in Frameworks */,
+				229D6C21018897623076DD13 /* Cocoa.framework in Frameworks */,
+				C740DED184CDA84FC8DF30AC /* QuartzCore.framework in Frameworks */,
+				B425E70527517F330D633B5B /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF9ABF69F1FE39E52F4E3878 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,40 +529,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		31ADF70E9D76B17D941D667A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				25E77D09E9EDB3F3FE612645 /* libscintilla.a in Frameworks */,
-				2D16384A82ABC6AEEA70649A /* liblexilla.a in Frameworks */,
-				229D6C21018897623076DD13 /* Cocoa.framework in Frameworks */,
-				C740DED184CDA84FC8DF30AC /* QuartzCore.framework in Frameworks */,
-				B425E70527517F330D633B5B /* UniformTypeIdentifiers.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		61A945AC3A993FF7B8F8ED47 /* */ = {
+		015C8FD19A44F2059FF69C77 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				B18D307C0719DB6BCC7D7CF8 /* scintilla */,
-				77986F74F8E78B82C238A45D /* lexilla */,
-				FC3E26B19A32287B6B3512E0 /* src */,
-				AA46D5510ACD02F1E3A6CC67 /* resources */,
-				BB262150337DD5CC34E94074 /* Frameworks */,
-				7E3B4A7881F928AB4AB47814 /* Products */,
+				EDF216D35B618403C79F7915 /* Lexilla.cxx */,
 			);
-			sourceTree = "<group>";
-		};
-		B18D307C0719DB6BCC7D7CF8 /* scintilla */ = {
-			isa = PBXGroup;
-			children = (
-				02A1B43E1F238A383E157B19 /* src */,
-				1BE422699047BFC126AA10A9 /* cocoa */,
-			);
-			name = scintilla;
+			name = src;
 			sourceTree = "<group>";
 		};
 		02A1B43E1F238A383E157B19 /* src */ = {
@@ -604,6 +591,18 @@
 			name = cocoa;
 			sourceTree = "<group>";
 		};
+		61A945AC3A993FF7B8F8ED47 = {
+			isa = PBXGroup;
+			children = (
+				B18D307C0719DB6BCC7D7CF8 /* scintilla */,
+				77986F74F8E78B82C238A45D /* lexilla */,
+				FC3E26B19A32287B6B3512E0 /* src */,
+				AA46D5510ACD02F1E3A6CC67 /* resources */,
+				BB262150337DD5CC34E94074 /* Frameworks */,
+				7E3B4A7881F928AB4AB47814 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
 		77986F74F8E78B82C238A45D /* lexilla */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,14 +611,6 @@
 				D369D00AC049F71EDF75EB37 /* lexlib */,
 			);
 			name = lexilla;
-			sourceTree = "<group>";
-		};
-		015C8FD19A44F2059FF69C77 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				EDF216D35B618403C79F7915 /* Lexilla.cxx */,
-			);
-			name = src;
 			sourceTree = "<group>";
 		};
 		7C8A0C2499BFF9582890FEEE /* lexers */ = {
@@ -757,6 +748,56 @@
 			name = lexers;
 			sourceTree = "<group>";
 		};
+		7E3B4A7881F928AB4AB47814 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				039A894A58FBB49AC7AACA11 /* libscintilla.a */,
+				9ED8DAF81B7613CA517A4014 /* liblexilla.a */,
+				CF0CDC73FEB72F02313EDF01 /* Notepad++.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA46D5510ACD02F1E3A6CC67 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAE48F26BFC1B259788EE555 /* npp.icns */,
+				D5101844F5BE0CFB68F557DB /* stylers.model.xml */,
+				9ADAC698C5FF0A35B4E0C7ED /* langs.model.xml */,
+				BF8F8AA1D0540A629F497544 /* shortcuts.xml */,
+				A736D91431E1F61315E34827 /* contextMenu.xml */,
+				6506C032C8916ACA0F35F5C4 /* tabContextMenu.xml */,
+				72F1E267265623785B80DCE9 /* toolbarButtonsConf.xml */,
+				B24439964F5A6B619ED66FE1 /* dmg-background.tiff */,
+				3C52CF850BDCB291172E0C63 /* icons */,
+				86515D02BD8C006EB7CEDE6A /* themes */,
+				C8F486569FAB05E7C9AFD26D /* localization */,
+				D4A640DE12680106BBC64F0D /* functionList */,
+				599765A96EA764F56BF7C5E8 /* userDefineLangs */,
+				8E0D6B96E2DD40D4E8DE291A /* InfoPlist.strings */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		B18D307C0719DB6BCC7D7CF8 /* scintilla */ = {
+			isa = PBXGroup;
+			children = (
+				02A1B43E1F238A383E157B19 /* src */,
+				1BE422699047BFC126AA10A9 /* cocoa */,
+			);
+			name = scintilla;
+			sourceTree = "<group>";
+		};
+		BB262150337DD5CC34E94074 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7E79F0346227E428EF7464E4 /* Cocoa.framework */,
+				2D624C4BDCF068BBAE078E06 /* QuartzCore.framework */,
+				002EC9D7637A362DCC14EB84 /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D369D00AC049F71EDF75EB37 /* lexlib */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,82 +863,9 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		AA46D5510ACD02F1E3A6CC67 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				FAE48F26BFC1B259788EE555 /* npp.icns */,
-				D5101844F5BE0CFB68F557DB /* stylers.model.xml */,
-				9ADAC698C5FF0A35B4E0C7ED /* langs.model.xml */,
-				BF8F8AA1D0540A629F497544 /* shortcuts.xml */,
-				A736D91431E1F61315E34827 /* contextMenu.xml */,
-				6506C032C8916ACA0F35F5C4 /* tabContextMenu.xml */,
-				72F1E267265623785B80DCE9 /* toolbarButtonsConf.xml */,
-				B24439964F5A6B619ED66FE1 /* dmg-background.tiff */,
-				3C52CF850BDCB291172E0C63 /* icons */,
-				86515D02BD8C006EB7CEDE6A /* themes */,
-				C8F486569FAB05E7C9AFD26D /* localization */,
-				D4A640DE12680106BBC64F0D /* functionList */,
-				599765A96EA764F56BF7C5E8 /* userDefineLangs */,
-				8E0D6B96E2DD40D4E8DE291A /* InfoPlist.strings */,
-			);
-			name = resources;
-			sourceTree = "<group>";
-		};
-		7E3B4A7881F928AB4AB47814 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				039A894A58FBB49AC7AACA11 /* libscintilla.a */,
-				9ED8DAF81B7613CA517A4014 /* liblexilla.a */,
-				CF0CDC73FEB72F02313EDF01 /* Notepad++.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BB262150337DD5CC34E94074 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				7E79F0346227E428EF7464E4 /* Cocoa.framework */,
-				2D624C4BDCF068BBAE078E06 /* QuartzCore.framework */,
-				002EC9D7637A362DCC14EB84 /* UniformTypeIdentifiers.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F59E0AC1888A1C13197DDFE0 /* scintilla */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 38EB36363D9E7B69EFD4A957 /* Build configuration list for PBXNativeTarget "scintilla" */;
-			buildPhases = (
-				0455115AA5E58D35669581D7 /* Sources */,
-				BF9ABF69F1FE39E52F4E3878 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = scintilla;
-			productName = scintilla;
-			productReference = 039A894A58FBB49AC7AACA11 /* libscintilla.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		D352609A300A9363FB90C756 /* lexilla */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A1765A1945701160C37C47E7 /* Build configuration list for PBXNativeTarget "lexilla" */;
-			buildPhases = (
-				9C3660B9CC6AE9F4BFC06E5C /* Sources */,
-				C2E4CAFA0EC98D533D6164C5 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = lexilla;
-			productName = lexilla;
-			productReference = 9ED8DAF81B7613CA517A4014 /* liblexilla.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		911723D3227856059FE1B096 /* NotepadPlusPlusMac */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6D76B8816689BB000FFEAC46 /* Build configuration list for PBXNativeTarget "NotepadPlusPlusMac" */;
@@ -918,12 +886,46 @@
 			productReference = CF0CDC73FEB72F02313EDF01 /* Notepad++.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D352609A300A9363FB90C756 /* lexilla */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1765A1945701160C37C47E7 /* Build configuration list for PBXNativeTarget "lexilla" */;
+			buildPhases = (
+				9C3660B9CC6AE9F4BFC06E5C /* Sources */,
+				C2E4CAFA0EC98D533D6164C5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = lexilla;
+			productName = lexilla;
+			productReference = 9ED8DAF81B7613CA517A4014 /* liblexilla.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F59E0AC1888A1C13197DDFE0 /* scintilla */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38EB36363D9E7B69EFD4A957 /* Build configuration list for PBXNativeTarget "scintilla" */;
+			buildPhases = (
+				0455115AA5E58D35669581D7 /* Sources */,
+				BF9ABF69F1FE39E52F4E3878 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = scintilla;
+			productName = scintilla;
+			productReference = 039A894A58FBB49AC7AACA11 /* libscintilla.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		35088EFF904228E56791E7FB /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject */;
+			attributes = {
+			};
+			buildConfigurationList = 41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject "NotepadPlusPlusMac" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -931,7 +933,7 @@
 				en,
 				Base,
 			);
-			mainGroup = 61A945AC3A993FF7B8F8ED47 /* */;
+			mainGroup = 61A945AC3A993FF7B8F8ED47;
 			productRefGroup = 7E3B4A7881F928AB4AB47814 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1229,19 +1231,140 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FD04E587BAB9B547A9F4B6D0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F59E0AC1888A1C13197DDFE0 /* scintilla */;
-			targetProxy = 1189C937FA33D7BE91753894 /* PBXContainerItemProxy */;
-		};
 		462A4B0046B71DBEA8BD36AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D352609A300A9363FB90C756 /* lexilla */;
 			targetProxy = 145877D85C43E97F831B59B7 /* PBXContainerItemProxy */;
 		};
+		FD04E587BAB9B547A9F4B6D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F59E0AC1888A1C13197DDFE0 /* scintilla */;
+			targetProxy = 1189C937FA33D7BE91753894 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0E1650FC356167C2BB999A5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					lexilla/include,
+					lexilla/src,
+					lexilla/lexlib,
+					lexilla/access,
+					scintilla/include,
+					scintilla/src,
+					src,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		242DFEDEAE729C50EDD2826A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.5;
+				HEADER_SEARCH_PATHS = (
+					src,
+					scintilla/include,
+					scintilla/cocoa,
+					lexilla/include,
+				);
+				INFOPLIST_FILE = resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robservatory.notepad--mac";
+				PRODUCT_NAME = "Notepad++";
+			};
+			name = Release;
+		};
+		5DBC7B2B07D55BD79BE57B11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"SCI_NAMESPACE=1",
+					"SCINTILLA_QT=0",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					scintilla/include,
+					scintilla/src,
+					scintilla/cocoa,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		66C5E8256F29D48692E53BE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "Notepad++ modRG";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9095038EB3C5DEF3E9E35D31 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					lexilla/include,
+					lexilla/src,
+					lexilla/lexlib,
+					lexilla/access,
+					scintilla/include,
+					scintilla/src,
+					src,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		90D218ADEFAC5820D664D7B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"SCI_NAMESPACE=1",
+					"SCINTILLA_QT=0",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					scintilla/include,
+					scintilla/src,
+					scintilla/cocoa,
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 		DD7CBF472E27D17F15895846 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1269,105 +1392,10 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "Notepad++ modRG";
 				SDKROOT = macosx;
 			};
 			name = Debug;
-		};
-		66C5E8256F29D48692E53BE8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		90D218ADEFAC5820D664D7B4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"SCI_NAMESPACE=1",
-					"SCINTILLA_QT=0",
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					scintilla/include,
-					scintilla/src,
-					scintilla/cocoa,
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		5DBC7B2B07D55BD79BE57B11 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"SCI_NAMESPACE=1",
-					"SCINTILLA_QT=0",
-					"$(inherited)",
-				);
-				HEADER_SEARCH_PATHS = (
-					scintilla/include,
-					scintilla/src,
-					scintilla/cocoa,
-				);
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		0E1650FC356167C2BB999A5F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					lexilla/include,
-					lexilla/src,
-					lexilla/lexlib,
-					lexilla/access,
-					scintilla/include,
-					scintilla/src,
-					src,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		9095038EB3C5DEF3E9E35D31 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					lexilla/include,
-					lexilla/src,
-					lexilla/lexlib,
-					lexilla/access,
-					scintilla/include,
-					scintilla/src,
-					src,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
 		};
 		EC3799716BB796705ECD5230 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1375,6 +1403,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1.0.5;
 				HEADER_SEARCH_PATHS = (
 					src,
 					scintilla/include,
@@ -1386,49 +1415,15 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.notepadplusplus.mac;
-				PRODUCT_NAME = "Notepad++";
 				MARKETING_VERSION = 1.0.5;
-				CURRENT_PROJECT_VERSION = 1.0.5;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robservatory.notepad--mac";
+				PRODUCT_NAME = "Notepad++";
 			};
 			name = Debug;
-		};
-		242DFEDEAE729C50EDD2826A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_ENABLE_OBJC_ARC = NO;
-				COMBINE_HIDPI_IMAGES = YES;
-				HEADER_SEARCH_PATHS = (
-					src,
-					scintilla/include,
-					scintilla/cocoa,
-					lexilla/include,
-				);
-				INFOPLIST_FILE = resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.notepadplusplus.mac;
-				PRODUCT_NAME = "Notepad++";
-				MARKETING_VERSION = 1.0.5;
-				CURRENT_PROJECT_VERSION = 1.0.5;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DD7CBF472E27D17F15895846 /* Debug */,
-				66C5E8256F29D48692E53BE8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		38EB36363D9E7B69EFD4A957 /* Build configuration list for PBXNativeTarget "scintilla" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1438,11 +1433,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1765A1945701160C37C47E7 /* Build configuration list for PBXNativeTarget "lexilla" */ = {
+		41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject "NotepadPlusPlusMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0E1650FC356167C2BB999A5F /* Debug */,
-				9095038EB3C5DEF3E9E35D31 /* Release */,
+				DD7CBF472E27D17F15895846 /* Debug */,
+				66C5E8256F29D48692E53BE8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1456,8 +1451,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A1765A1945701160C37C47E7 /* Build configuration list for PBXNativeTarget "lexilla" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E1650FC356167C2BB999A5F /* Debug */,
+				9095038EB3C5DEF3E9E35D31 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
-
 	};
 	rootObject = 35088EFF904228E56791E7FB /* Project object */;
 }
