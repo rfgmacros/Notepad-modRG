@@ -459,7 +459,7 @@
 		CE7AB5B4BEF1347A8F991BAD /* LexTroff.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTroff.cxx; path = lexilla/lexers/LexTroff.cxx; sourceTree = SOURCE_ROOT; };
 		CE7CC6C45115B345639A502C /* UniqueString.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = UniqueString.cxx; path = scintilla/src/UniqueString.cxx; sourceTree = SOURCE_ROOT; };
 		CE7D08CAAB0019C53BAF4765 /* LexTACL.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexTACL.cxx; path = lexilla/lexers/LexTACL.cxx; sourceTree = SOURCE_ROOT; };
-		CF0CDC73FEB72F02313EDF01 /* Notepad++.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notepad++.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF0CDC73FEB72F02313EDF01 /* Notepad++ modRG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Notepad++ modRG.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D095648BB41523E6AE8DE566 /* LexPowerShell.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexPowerShell.cxx; path = lexilla/lexers/LexPowerShell.cxx; sourceTree = SOURCE_ROOT; };
 		D0A443574EA5B67F481D3091 /* SearchEngine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SearchEngine.mm; path = src/SearchEngine.mm; sourceTree = SOURCE_ROOT; };
 		D356BE2F1D566BC57F3766BE /* GitHelper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GitHelper.mm; path = src/GitHelper.mm; sourceTree = SOURCE_ROOT; };
@@ -753,7 +753,7 @@
 			children = (
 				039A894A58FBB49AC7AACA11 /* libscintilla.a */,
 				9ED8DAF81B7613CA517A4014 /* liblexilla.a */,
-				CF0CDC73FEB72F02313EDF01 /* Notepad++.app */,
+				CF0CDC73FEB72F02313EDF01 /* Notepad++ modRG.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -883,7 +883,7 @@
 			);
 			name = NotepadPlusPlusMac;
 			productName = NotepadPlusPlusMac;
-			productReference = CF0CDC73FEB72F02313EDF01 /* Notepad++.app */;
+			productReference = CF0CDC73FEB72F02313EDF01 /* Notepad++ modRG.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D352609A300A9363FB90C756 /* lexilla */ = {
@@ -1281,7 +1281,7 @@
 				);
 				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robservatory.notepad--mac";
-				PRODUCT_NAME = "Notepad++";
+				PRODUCT_NAME = "Notepad++ modRG";
 			};
 			name = Release;
 		};
@@ -1417,7 +1417,7 @@
 				);
 				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.robservatory.notepad--mac";
-				PRODUCT_NAME = "Notepad++";
+				PRODUCT_NAME = "Notepad++ modRG";
 			};
 			name = Debug;
 		};
