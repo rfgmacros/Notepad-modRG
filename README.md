@@ -2,12 +2,12 @@
 
 A Claude-developed modification of an unofficial port of the Windows app Notepad++; the modifications are focused on providing expected macOS functionality, as detailed below. Relevant URLs:
 
-Windows app: https://notepad-plus-plus.org
-Unofficial macOS Port: https://notepad-plus-plus-mac.org
+- Windows app: https://notepad-plus-plus.org
+- Unofficial macOS Port: https://notepad-plus-plus-mac.org
 
 And as you're reading this, you found my modified repository:
 
-https://github.com/rfgmacros/Notepad-modRG
+- https://github.com/rfgmacros/Notepad-modRG
 
 To make sure it's perfectly clear: This project is in no way affiliated with, sanctioned by, or probably even known to the creator of the original Windows Notepad++ app. It's a one-off, done mainly for fun and learning.
 
