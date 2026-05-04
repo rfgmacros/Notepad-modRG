@@ -1,10 +1,17 @@
 # Notepad-modRG
 
-A Claude-developed modification of macOS Notepad++, focusing on macOS UI elements. The original source is here:
+A Claude-developed modification of an unofficial port of the Windows app Notepad++; the modifications are focused on providing expected macOS functionality, as detailed below. Relevant URLs:
+
+Windows app: https://notepad-plus-plus.org
+Unofficial macOS Port: https://notepad-plus-plus-mac.org
+
+And as you're reading this, you found my modified repository:
 
 https://github.com/rfgmacros/Notepad-modRG
 
-And as I'm not a coder, everything here was written by Claude, so it's probably janky as heck, but it works for me, which is all I wanted. Here's what's changed in this version:
+To make sure it's perfectly clear: This project is in no way affiliated with, sanctioned by, or probably even known to the creator of the original Windows Notepad++ app. It's a one-off, done mainly for fun and learning.
+
+As I'm not a coder, everything here was written by Claude, so it's probably janky as heck, but it works for me, which is all I wanted. Here's what's changed in this version:
 
 - Converted the entire thing into an Xcode project, so I could work with Claude within Xcode.
 - Moved Settings > Preferences to a real Settings menu (under the app name menu), and the other items were moved to the Tools menu.

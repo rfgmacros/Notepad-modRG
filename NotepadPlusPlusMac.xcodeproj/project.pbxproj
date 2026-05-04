@@ -204,6 +204,7 @@
 		D52061A8DFC11987D9EEB873 /* LexDMAP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 8A779D9868F4FE60974828B5 /* LexDMAP.cxx */; };
 		D5D664115EE22A5EDD65959D /* LexAPDL.cxx in Sources */ = {isa = PBXBuildFile; fileRef = 5F6D8BD7AB6B8CA78ABE4CC9 /* LexAPDL.cxx */; };
 		D614A698197078F1ADE420C7 /* LexGAP.cxx in Sources */ = {isa = PBXBuildFile; fileRef = B159AE77C8A14EE0643D53BD /* LexGAP.cxx */; };
+		D742BF762FA84B7B0080749B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D742BF752FA84B7B0080749B /* README.md */; };
 		D7F402BF99D2110049AE1B06 /* NppPluginManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3BFF41E5D66AD1CD4B2A95C2 /* NppPluginManager.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D85B1F30EA7C29CEB02C84F6 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F162AE70453A241902071821 /* main.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		D94F924A4E82D9CE79D7DCCD /* LexCmake.cxx in Sources */ = {isa = PBXBuildFile; fileRef = D876BB791FCAF6E3E41874FA /* LexCmake.cxx */; };
@@ -469,6 +470,7 @@
 		D4F24D245BB1E21554322E0A /* LexConf.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexConf.cxx; path = lexilla/lexers/LexConf.cxx; sourceTree = SOURCE_ROOT; };
 		D5101844F5BE0CFB68F557DB /* stylers.model.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = stylers.model.xml; path = resources/stylers.model.xml; sourceTree = SOURCE_ROOT; };
 		D58A9EFB5CAB76878847F9EF /* LexAU3.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexAU3.cxx; path = lexilla/lexers/LexAU3.cxx; sourceTree = SOURCE_ROOT; };
+		D742BF752FA84B7B0080749B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D809A2E504B911159FCEFB31 /* StyleConfiguratorWindowController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = StyleConfiguratorWindowController.mm; path = src/StyleConfiguratorWindowController.mm; sourceTree = SOURCE_ROOT; };
 		D876BB791FCAF6E3E41874FA /* LexCmake.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LexCmake.cxx; path = lexilla/lexers/LexCmake.cxx; sourceTree = SOURCE_ROOT; };
 		DAFECB37FBFAA24682F7B6DA /* WordList.cxx */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = WordList.cxx; path = lexilla/lexlib/WordList.cxx; sourceTree = SOURCE_ROOT; };
@@ -846,6 +848,7 @@
 				B97029AC0068B2AD3F0A9BB7 /* ProjectPanel.mm */,
 				D0A443574EA5B67F481D3091 /* SearchEngine.mm */,
 				9BEF0F17C3B6CF5389C4D47B /* SearchResultsPanel.mm */,
+				D742BF752FA84B7B0080749B /* README.md */,
 				8DB75FA8E8CF826C3C003985 /* FindWindow.mm */,
 				D809A2E504B911159FCEFB31 /* StyleConfiguratorWindowController.mm */,
 				12D9774F4F488FDF0480F1CB /* IncrementalSearchBar.mm */,
@@ -962,6 +965,7 @@
 				74950F4EE1B299B31FD264A4 /* themes in Resources */,
 				73ED077C17790E31CC975328 /* localization in Resources */,
 				AD02A43AF1618E1239DF2C95 /* functionList in Resources */,
+				D742BF762FA84B7B0080749B /* README.md in Resources */,
 				64404543F08C5C84EA203711 /* userDefineLangs in Resources */,
 				C10B086D1353271FDB262A3D /* InfoPlist.strings in Resources */,
 			);
