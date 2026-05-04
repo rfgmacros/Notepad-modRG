@@ -9,7 +9,7 @@ And as you're reading this, you found my modified repository:
 
 - https://github.com/rfgmacros/Notepad-modRG
 
-To make sure it's perfectly clear: This project is in no way affiliated with, sanctioned by, or probably even known to the creator of the original Windows Notepad++ app. It's a one-off, done mainly for fun and learning.
+**To make sure it's perfectly clear: This project is in no way affiliated with, sanctioned by, or probably even known to the creator of the original Windows Notepad++ app. It's a one-off, done mainly for fun and learning.**
 
 As I'm not a coder, everything here was written by Claude, so it's probably janky as heck, but it works for me, which is all I wanted. Here's what's changed in this version:
 
