@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "911723D3227856059FE1B096"
-               BuildableName = "Notepad++.app"
+               BuildableName = "Notepad++ modRG.app"
                BlueprintName = "NotepadPlusPlusMac"
                ReferencedContainer = "container:NotepadPlusPlusMac.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "911723D3227856059FE1B096"
-            BuildableName = "Notepad++.app"
+            BuildableName = "Notepad++ modRG.app"
             BlueprintName = "NotepadPlusPlusMac"
             ReferencedContainer = "container:NotepadPlusPlusMac.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "911723D3227856059FE1B096"
-            BuildableName = "Notepad++.app"
+            BuildableName = "Notepad++ modRG.app"
             BlueprintName = "NotepadPlusPlusMac"
             ReferencedContainer = "container:NotepadPlusPlusMac.xcodeproj">
          </BuildableReference>

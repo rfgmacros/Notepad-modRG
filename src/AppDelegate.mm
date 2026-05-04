@@ -632,8 +632,10 @@
 
     about.informativeText = [NSString stringWithFormat:
         @"Build time: %s - %s\n\n"
-        @"Home: https://notepad-plus-plus-mac.org\n\n"
-        @"Modified by: Rob Griffiths, code by Claude\n\n"
+        @"Based on: https://notepad-plus-plus.org\n\n"
+        @"This is a modified version of an unofficial port, found here:\n"
+        @"https://notepad-plus-plus-mac.org\n\n"
+        @"Modified by: Claude, as directed by Rob Griffiths\n\n"
         @"%@", __DATE__, __TIME__, license];
 
     // Use our logo
