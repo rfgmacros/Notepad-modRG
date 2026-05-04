@@ -195,7 +195,7 @@
         NSTimeInterval elapsed = -[self.launchStart timeIntervalSinceNow];
         NSString *msg = [NSString stringWithFormat:@"Loading time: %.2f seconds", elapsed];
         NSAlert *a = [[NSAlert alloc] init];
-        a.messageText = [[NppLocalizer shared] translate:@"Notepad++ Loading Time"];
+        a.messageText = [[NppLocalizer shared] translate:@"Notepad modRG Loading Time"];
         a.informativeText = msg;
         a.icon = [[NSImage alloc] initWithContentsOfFile:
             [NSHomeDirectory() stringByAppendingPathComponent:@".notepad++/plugins/Config/logo100px.png"]];
@@ -614,7 +614,7 @@
 #endif
 
     NSAlert *about = [[NSAlert alloc] init];
-    about.messageText = [NSString stringWithFormat:@"Notepad++ modRG v%@     (%@)", version, archStr];
+    about.messageText = [NSString stringWithFormat:@"Notepad modRG v%@     (%@)", version, archStr];
 
     NSString *license =
         @"GNU General Public Licence\n\n"
@@ -754,7 +754,7 @@ static NSString *const kUpdateMenuItemTag = @"checkForUpdatesMenuItem";
                     NSAlert *a = [[NSAlert alloc] init];
                     a.messageText = [loc translate:@"You're Up to Date"];
                     a.informativeText = [NSString stringWithFormat:
-                        @"Notepad++ %@ %@", currentVersion, [loc translate:@"is the latest version."]];
+                        @"Notepad modRG %@ %@", currentVersion, [loc translate:@"is the latest version."]];
                     [a runModal];
                 }
             }
@@ -771,7 +771,7 @@ static NSString *const kUpdateMenuItemTag = @"checkForUpdatesMenuItem";
 
     NppLocalizer *loc = [NppLocalizer shared];
     NSAlert *alert = [[NSAlert alloc] init];
-    alert.messageText = [NSString stringWithFormat:@"Notepad++ v%@ %@", version, [loc translate:@"is Available"]];
+    alert.messageText = [NSString stringWithFormat:@"Notepad modRG v%@ %@", version, [loc translate:@"is Available"]];
     alert.informativeText = [NSString stringWithFormat:
         @"%@ v%@.\n\n%@",
         [loc translate:@"You are currently running"],

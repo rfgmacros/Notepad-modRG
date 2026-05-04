@@ -199,7 +199,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
                             NSWindowStyleMaskResizable
                     backing:NSBackingStoreBuffered
                       defer:NO];
-    win.title = @"Notepad++ Settings";
+    win.title = @"Notepad modRG Settings";
     win.minSize = NSMakeSize(580, 400);
     [win center];
     self = [super initWithWindow:win];
@@ -507,7 +507,7 @@ NSString *const kPrefStyleFontSize      = @"styleFontSize";
     _currentPageIndex = index;
 
     // Update window title to reflect the selected category (BBEdit-style)
-    self.window.title = [NSString stringWithFormat:@"Notepad++ %@ Settings", name];
+    self.window.title = [NSString stringWithFormat:@"Notepad modRG %@ Settings", name];
 
     // Remove current content
     for (NSView *sub in [_contentArea.subviews copy])
@@ -1646,7 +1646,7 @@ static NSDictionary<NSString *, NSString *> *_langDisplayNames() {
             NSAlert *alert = [[NSAlert alloc] init];
             alert.messageText = [[NppLocalizer shared] translate:@"Toolbar icon size changed"];
             alert.informativeText = [[NppLocalizer shared] translate:
-                @"The new toolbar icon size will take effect the next time Notepad++ launches."];
+                @"The new toolbar icon size will take effect the next time Notepad modRG launches."];
             [alert addButtonWithTitle:[[NppLocalizer shared] translate:@"OK"]];
             [alert runModal];
             break;

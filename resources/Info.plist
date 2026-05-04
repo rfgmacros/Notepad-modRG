@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Notepad++</string>
+	<string>Notepad modRG</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -22,13 +22,13 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>Notepad++</string>
+	<string>Notepad modRG</string>
 	<key>CFBundleIconFile</key>
 	<string>npp</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleName</key>
-	<string>Notepad++</string>
+	<string>Notepad modRG</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -40,17 +40,17 @@
 	<key>LSHasLocalizedDisplayName</key>
 	<true/>
 	<key>NSDesktopFolderUsageDescription</key>
-	<string>Notepad++ needs access to open and edit files on Desktop.</string>
+	<string>Notepad modRG needs access to open and edit files on Desktop.</string>
 	<key>NSDocumentsFolderUsageDescription</key>
-	<string>Notepad++ needs access to open and edit files in Documents.</string>
+	<string>Notepad modRG needs access to open and edit files in Documents.</string>
 	<key>NSDownloadsFolderUsageDescription</key>
-	<string>Notepad++ needs access to open and edit files in Downloads.</string>
+	<string>Notepad modRG needs access to open and edit files in Downloads.</string>
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSPrincipalClass</key>
 	<string>NppApplication</string>
 	<key>NSRemovableVolumesUsageDescription</key>
-	<string>Notepad++ needs access to open and edit files on external drives.</string>
+	<string>Notepad modRG needs access to open and edit files on external drives.</string>
 	<key>NSSupportsAutomaticGraphicsSwitching</key>
 	<true/>
 </dict>

@@ -1503,7 +1503,7 @@ static NSSet *panelToggleIdents(void) {
                              NSWindowStyleMaskResizable)
                     backing:NSBackingStoreBuffered
                       defer:NO];
-    window.title = @"Notepad++";
+    window.title = @"Notepad modRG";
     window.minSize = NSMakeSize(480, 320);
     [window center];
 
@@ -7843,7 +7843,7 @@ static int64_t _sysctlInt(const char *name) {
 #endif
 
     // ── App Info ─────────────────────────────────────────────────────────
-    [info appendFormat:@"Notepad++ macOS v%@ (build %@)   (%@)\n", version, buildNum, archStr];
+    [info appendFormat:@"Notepad modRG v%@ (build %@)   (%@)\n", version, buildNum, archStr];
     [info appendFormat:@"Build time: %s - %s\n", __DATE__, __TIME__];
     [info appendFormat:@"Built with: Apple Clang %d.%d.%d\n",
         __clang_major__, __clang_minor__, __clang_patchlevel__];
@@ -8105,7 +8105,7 @@ static int64_t _sysctlInt(const char *name) {
     EditorView *ed = [self currentEditor];
     NSString *name;
     if (!ed) {
-        name = @"Notepad++";
+        name = @"Notepad modRG";
         self.window.representedURL = nil;
     } else {
         // Setting representedURL enables the standard macOS path popup on

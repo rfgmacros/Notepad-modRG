@@ -217,17 +217,17 @@ static NSMenu *_gLanguageMenu;
     [main addItem:appItem];
     NSMenu *appMenu = submenu(@"App");
     appItem.submenu = appMenu;
-    [appMenu addItemWithTitle:@"About Notepad++ modRG" action:@selector(showAboutPanel:) keyEquivalent:@""];
+    [appMenu addItemWithTitle:@"About Notepad modRG" action:@selector(showAboutPanel:) keyEquivalent:@""];
     [appMenu addItemWithTitle:@"Check for Updates…" action:@selector(checkForUpdates:) keyEquivalent:@""];
     addSep(appMenu);
     [appMenu addItemWithTitle:@"Settings…" action:@selector(showPreferences:) keyEquivalent:@","];
     addSep(appMenu);
-    [appMenu addItemWithTitle:@"Hide Notepad++" action:@selector(hide:) keyEquivalent:@"h"];
+    [appMenu addItemWithTitle:@"Hide Notepad modRG" action:@selector(hide:) keyEquivalent:@"h"];
     NSMenuItem *hideOthers = [appMenu addItemWithTitle:@"Hide Others" action:@selector(hideOtherApplications:) keyEquivalent:@"h"];
     hideOthers.keyEquivalentModifierMask = NSEventModifierFlagCommand | NSEventModifierFlagOption;
     [appMenu addItemWithTitle:@"Show All" action:@selector(unhideAllApplications:) keyEquivalent:@""];
     addSep(appMenu);
-    [appMenu addItemWithTitle:@"Quit Notepad++" action:@selector(terminate:) keyEquivalent:@"q"];
+    [appMenu addItemWithTitle:@"Quit Notepad modRG" action:@selector(terminate:) keyEquivalent:@"q"];
 
     // ── File ─────────────────────────────────────────────────────────────────
     NSMenuItem *fileItem = [[NSMenuItem alloc] init];
