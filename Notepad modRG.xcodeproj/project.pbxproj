@@ -928,7 +928,7 @@
 			isa = PBXProject;
 			attributes = {
 			};
-			buildConfigurationList = 41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject "NotepadPlusPlusMac" */;
+			buildConfigurationList = 41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject "Notepad modRG" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1437,7 +1437,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject "NotepadPlusPlusMac" */ = {
+		41BBD3BAB2AFD84D2E3D4C58 /* Build configuration list for PBXProject "Notepad modRG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DD7CBF472E27D17F15895846 /* Debug */,

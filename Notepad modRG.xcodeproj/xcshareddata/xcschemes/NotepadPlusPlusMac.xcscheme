@@ -17,7 +17,7 @@
                BlueprintIdentifier = "911723D3227856059FE1B096"
                BuildableName = "Notepad++ modRG.app"
                BlueprintName = "NotepadPlusPlusMac"
-               ReferencedContainer = "container:NotepadPlusPlusMac.xcodeproj">
+               ReferencedContainer = "container:Notepad modRG.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "911723D3227856059FE1B096"
             BuildableName = "Notepad++ modRG.app"
             BlueprintName = "NotepadPlusPlusMac"
-            ReferencedContainer = "container:NotepadPlusPlusMac.xcodeproj">
+            ReferencedContainer = "container:Notepad modRG.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -64,7 +64,7 @@
             BlueprintIdentifier = "911723D3227856059FE1B096"
             BuildableName = "Notepad++ modRG.app"
             BlueprintName = "NotepadPlusPlusMac"
-            ReferencedContainer = "container:NotepadPlusPlusMac.xcodeproj">
+            ReferencedContainer = "container:Notepad modRG.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
